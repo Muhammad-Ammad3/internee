@@ -1,52 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+// React Router links aur active state check karne ke liye hooks import kiye hain
+import { Link, useLocation } from "react-router-dom";
 
-// Internee.pk logo (placeholder text/style matching image)
+// Internee.pk logo component
 const Logo = () => (
-  <div className="flex items-center gap-1.5 cursor-pointer">
+  <Link to="/" className="flex items-center gap-1.5 cursor-pointer select-none">
     <div className="p-1.5 bg-black rounded-lg">
-      {/* Dynamic graphic part (simulating the atom/hat icon) */}
       <div className="w-4 h-4 rounded-full border-2 border-white flex items-center justify-center relative">
-        <div className="absolute top-[-5px] right-[-5px] text-[8px] text-white">^</div>
+        <div className="absolute top-[-5px] right-[-5px] text-[8px] text-white font-sans">
+          ^
+        </div>
       </div>
     </div>
-    <span className="text-[#3FB628] font-bold text-xl tracking-tight">Internee</span>
-    <span className="text-gray-900 font-bold text-xl tracking-tight">.pk</span>
-    <span className="text-[10px] text-gray-400 mt-2 block ml-1">VIRTUAL INTERNSHIP PLATFORM</span>
-  </div>
+    <span className="text-[#3FB628] font-black text-xl tracking-tight">
+      Internee
+    </span>
+    <span className="text-gray-900 font-black text-xl tracking-tight">.pk</span>
+    <span className="text-[9px] text-gray-400 font-bold mt-2 block ml-1 tracking-wider uppercase">
+      VIRTUAL INTERNSHIP PLATFORM
+    </span>
+  </Link>
 );
 
-// Dropdown item structure based on image_12.png
+// Dropdown item structure
 const ResourcesDropdown = () => (
-  <div className="absolute top-[calc(100%+10px)] right-0 md:left-[-50%] bg-white p-5 rounded-2xl shadow-xl border border-gray-100 z-50 w-[260px]">
+  <div className="absolute top-[calc(100%+10px)] right-0 md:left-[-50%] bg-white p-5 rounded-2xl shadow-[0_15px_50px_rgba(0,0,0,0.08)] border border-gray-100/80 z-50 w-[270px]">
     {/* Blog Item */}
-    <a href="#" className="flex items-start gap-3.5 group p-2 rounded-lg hover:bg-gray-50 transition">
-      <div className="p-2.5 bg-green-50 rounded-xl text-green-700 text-lg group-hover:bg-green-100">
-        📚 {/* Icon placeholder */}
+    <Link
+      to="/blog"
+      className="flex items-start gap-3.5 group p-2 rounded-xl hover:bg-gray-50 transition"
+    >
+      <div className="p-2.5 bg-green-50 rounded-xl text-green-700 text-base group-hover:bg-green-100 transition-colors">
+        📚
       </div>
       <div>
-        <p className="text-gray-900 font-semibold text-sm">Blog</p>
-        <p className="text-gray-400 text-xs font-medium mt-0.5">Read our latest insights and articles</p>
+        <p className="text-gray-900 font-black text-sm tracking-tight">Blog</p>
+        <p className="text-gray-400 text-[11px] font-semibold mt-0.5 leading-normal">
+          Read our latest insights and articles
+        </p>
       </div>
-    </a>
+    </Link>
 
     {/* Webinars Item */}
-    <a href="#" className="flex items-start gap-3.5 group p-2 rounded-lg hover:bg-gray-50 transition mt-4">
-      <div className="p-2.5 bg-green-50 rounded-xl text-green-700 text-lg group-hover:bg-green-100">
-        🎙️ {/* Icon placeholder */}
+    <Link
+      to="/webinars"
+      className="flex items-start gap-3.5 group p-2 rounded-xl hover:bg-gray-50 transition mt-3"
+    >
+      <div className="p-2.5 bg-green-50 rounded-xl text-green-700 text-base group-hover:bg-green-100 transition-colors">
+        🎙️
       </div>
       <div>
-        <p className="text-gray-900 font-semibold text-sm">Webinars</p>
-        <p className="text-gray-400 text-xs font-medium mt-0.5">Join expert-led sessions and masterclasses</p>
+        <p className="text-gray-900 font-black text-sm tracking-tight">Webinars</p>
+        <p className="text-gray-400 text-[11px] font-semibold mt-0.5 leading-normal">
+          Join expert-led sessions and masterclasses
+        </p>
       </div>
-    </a>
+    </Link>
   </div>
 );
 
 const Navbar = () => {
   const [showResources, setShowResources] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  // Current active route track karne ke liye location hook call kiya
+  const location = useLocation();
+
+  // Helper function: check karega ke kaunsa link active hai taake color styling upgrade ho ske
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="w-full h-20 bg-white border-b border-gray-100 sticky top-0 z-50 font-sans">
+    <nav className="w-full h-20 bg-white border-b border-gray-100 sticky top-0 z-50 font-sans select-none">
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 h-full flex items-center justify-between">
         
         {/* Left Side: Logo */}
@@ -54,27 +78,71 @@ const Navbar = () => {
           <Logo />
         </div>
 
-        {/* Center: Desktop Navigation Links */}
-        <div className="hidden lg:flex items-center gap-8 text-gray-700 text-sm font-medium">
-          <a href="#" className="text-gray-500 hover:text-gray-900 transition">Home</a>
-          <a href="#" className="text-gray-500 hover:text-gray-900 transition">Internship</a>
-          <a href="#" className="text-gray-500 hover:text-gray-900 transition">Graduate Program</a>
-          <a href="#" className="text-gray-500 hover:text-gray-900 transition">Student Ambassador</a>
-          <a href="#" className="text-gray-500 hover:text-gray-900 transition relative">Startup Journey</a>
+        {/* Center: Desktop Navigation Links with route parameters */}
+        <div className="hidden lg:flex items-center gap-7 text-gray-700 text-sm font-semibold">
+          <Link 
+            to="/" 
+            className={`transition-colors ${isActive("/") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
+          >
+            Home
+          </Link>
           
-          {/* Resources with Dropdown */}
-          <div 
-            className="relative group cursor-pointer"
+          {/* INTERNSHIP ROUTE ADDED HERE */}
+          <Link 
+            to="/internships" 
+            className={`transition-colors ${isActive("/internships") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
+          >
+            Internship
+          </Link>
+          
+          <Link 
+            to="/graduate-program" 
+            className={`transition-colors ${isActive("/graduate-program") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
+          >
+            Graduate Program
+          </Link>
+          
+          <Link 
+            to="/student-ambassador" 
+            className={`transition-colors ${isActive("/student-ambassador") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
+          >
+            Student Ambassador
+          </Link>
+          
+          <Link 
+            to="/startup-journey" 
+            className={`transition-colors ${isActive("/startup-journey") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
+          >
+            Startup Journey
+          </Link>
+
+          {/* Resources Dropdown Core */}
+          <div
+            className="relative group cursor-pointer py-2"
             onClick={() => setShowResources(!showResources)}
             onMouseLeave={() => setShowResources(false)}
           >
-            <div className={`flex items-center gap-1.5 transition ${showResources ? 'text-[#3FB628]' : 'text-gray-500 hover:text-gray-900'}`}>
-              <span className="font-semibold text-[15px]">Resources</span>
-              <svg className={`w-4 h-4 transition-transform ${showResources ? 'rotate-180 text-[#3FB628]' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" /></svg>
+            <div
+              className={`flex items-center gap-1 transition-colors ${
+                showResources || isActive("/blog") || isActive("/webinars")
+                  ? "text-[#3FB628]" 
+                  : "text-gray-400 hover:text-gray-900"
+              }`}
+            >
+              <span className="font-semibold text-[14px]">Resources</span>
+              <svg
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${showResources ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+              </svg>
             </div>
-            {/* Show dropdown on click or hover (handling hover for desktop UX) */}
-            {(showResources || (typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches && <div className="absolute top-full left-0 h-4 w-full"></div>)) && (
-              <div onMouseEnter={() => setShowResources(true)} className={`${showResources ? 'block' : 'hidden lg:group-hover:block'}`}>
+
+            {/* Dropdown visibility handlers */}
+            {showResources && (
+              <div onMouseEnter={() => setShowResources(true)}>
                 <ResourcesDropdown />
               </div>
             )}
@@ -83,24 +151,41 @@ const Navbar = () => {
 
         {/* Right Side: Action Buttons */}
         <div className="flex items-center gap-3.5">
-          {/* Job Portal Button (Active green with icon) */}
-          <button className="bg-[#3FB628] text-white px-5 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[#349e1e] transition-colors shadow-sm shadow-green-200 flex-shrink-0">
+          {/* Job Portal Button */}
+          <button className="bg-[#3FB628] text-white px-5 py-2.5 rounded-full text-xs font-black flex items-center gap-1.5 hover:bg-[#349e1e] transition-all shadow-md shadow-green-100 flex-shrink-0 active:scale-95">
             <span>Job Portal</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
           </button>
-          
-          {/* Dashboard/Sign In Button */}
-          <button className="border border-gray-200 text-gray-800 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-50 transition-colors whitespace-nowrap flex-shrink-0">
+
+          {/* Sign In Button */}
+          <button className="border border-gray-200 text-gray-800 px-5 py-2.5 rounded-full text-xs font-bold hover:bg-gray-50 transition-colors whitespace-nowrap flex-shrink-0 active:scale-95">
             Sign In
           </button>
-          
-          {/* Mobile Menu Icon (Hidden on desktop) */}
-          <div className="lg:hidden p-2 text-gray-600 cursor-pointer">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+
+          {/* Mobile Menu Icon Toggle */}
+          <div 
+            className="lg:hidden p-2 text-gray-600 cursor-pointer active:bg-gray-50 rounded-lg transition"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
+            </svg>
           </div>
         </div>
-
       </div>
+
+      {/* ================= MOBILE EXPANDABLE DRAWER MENU ================= */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden fixed top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl py-6 px-6 z-40 flex flex-col gap-4 animate-fadeIn">
+          <Link to="/" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/") ? "text-[#3FB628]" : "text-gray-500"}`}>Home</Link>
+          <Link to="/internships" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/internships") ? "text-[#3FB628]" : "text-gray-500"}`}>Internship</Link>
+          <Link to="/graduate-program" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/graduate-program") ? "text-[#3FB628]" : "text-gray-500"}`}>Graduate Program</Link>
+          <Link to="/student-ambassador" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/student-ambassador") ? "text-[#3FB628]" : "text-gray-500"}`}>Student Ambassador</Link>
+          <Link to="/startup-journey" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/startup-journey") ? "text-[#3FB628]" : "text-gray-500"}`}>Startup Journey</Link>
+        </div>
+      )}
     </nav>
   );
 };

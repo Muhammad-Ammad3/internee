@@ -1,36 +1,32 @@
-import Footer from './components/Footer'; 
-import AIInterviews from './components/AIInterviews';
-import CareerPath from './components/CareerPath';
-import CareerLaunchpad from './components/CareerLaunchpad'; 
-import Hero from './components/Hero'; 
-import InstructorPortal from './components/InstructorPortal';
-import Navbar from './components/Navbar';  
-import Partners from './components/Partners'; 
-import TaskPlatform from './components/TaskPlatform'; 
-import Workflow from './components/Workflow'; 
-import InternshipOpportunities from './components/InternshipOpportunities'; 
-import LaunchCareer from './components/LaunchCareer'; 
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";  
+import Footer from "./components/Footer"; 
+import Home from "./pages/Home";
+import Internships from "./pages/Internships";
 
 function App() {
   return (
-    <div className="w-full min-h-screen bg-white text-gray-900 antialiased selection:bg-[#3FB628]/20 selection:text-[#3FB628]">
-      <Navbar />
-      
-      <main>
-        <Hero />
-        <Partners />
-        <InternshipOpportunities />
-        <TaskPlatform />
-        <InstructorPortal />
-        <CareerLaunchpad />
-        <AIInterviews />
-        <Workflow />
-        <CareerPath />
-        <LaunchCareer />
-      </main>
-      
-      <Footer />
-    </div>
+    <Router>
+      <div className="w-full min-h-screen bg-white text-gray-900 antialiased selection:bg-[#3FB628]/20 selection:text-[#3FB628] flex flex-col justify-between">
+        
+        {/* Navbar screen par har page ke upar constant rahegi */}
+        <Navbar />
+        
+        {/* Dynamic Route Content Selector */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/internships" element={<Internships />} />
+            {/* Agle pages ke routes hum yahan mazeed add karte jayenge */}
+          </Routes>
+        </main>
+        
+        {/* Footer screen par har page ke niche constant rahega */}
+        <Footer />
+        
+      </div>
+    </Router>
   );
 }
 
