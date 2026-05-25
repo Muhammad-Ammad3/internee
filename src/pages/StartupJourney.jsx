@@ -1,29 +1,29 @@
-// import InternshipHero from '../components/Internship/InternshipHero';
-// import CommunityAndBanner from '../components/Internship/CommunityAndBanner';
-// import HowItWorks from '../components/Internship/HowItWorks';
-// import InternshipGrid from '../components/Internship/InternshipGrid';
+// import OurJourneySection from '../components/StartupJourney/OurJourneySection';
+// import OurAchievements from '../components/StartupJourney/OurAchievements';
+// import OurCoreValues from '../components/StartupJourney/OurCoreValues';
+// import ImpactAndStartJourney from '../components/StartupJourney/ImpactAndStartJourney';
 
-// const Internships = () => {
+
+// const StudentAmbassador = () => {
 //   return (
 //     <div className="w-full bg-white">
-//       {/* Internship cards yahan render honge */}
-//       <InternshipHero />
-//       <InternshipGrid />
-//       <HowItWorks />
-//       <CommunityAndBanner />
+//       <OurJourneySection />
+//       <OurAchievements />
+//       <OurCoreValues />
+//       <ImpactAndStartJourney />
 //     </div>
 //   );
 // };
 
-// export default Internships;
+// export default StudentAmbassador;
 
 
 import React from "react";
 import { motion } from "framer-motion";
-import InternshipHero from '../components/Internship/InternshipHero';
-import CommunityAndBanner from '../components/Internship/CommunityAndBanner';
-import HowItWorks from '../components/Internship/HowItWorks';
-import InternshipGrid from '../components/Internship/InternshipGrid';
+import OurJourneySection from '../components/StartupJourney/OurJourneySection';
+import OurAchievements from '../components/StartupJourney/OurAchievements';
+import OurCoreValues from '../components/StartupJourney/OurCoreValues';
+import ImpactAndStartJourney from '../components/StartupJourney/ImpactAndStartJourney';
 
 // Page transition configuration
 const pageTransition = {
@@ -33,7 +33,7 @@ const pageTransition = {
     transition: {
       duration: 0.5,
       staggerChildren: 0.1,
-      delayChildren: 0.1
+      delayChildren: 0.15
     }
   },
   exit: { 
@@ -57,7 +57,7 @@ const sectionVariants = {
   }
 };
 
-// Animated section wrapper - Hero and first sections
+// Animated section wrapper for Hero sections
 const AnimatedSection = ({ children, className }) => (
   <motion.div
     initial="initial"
@@ -70,7 +70,7 @@ const AnimatedSection = ({ children, className }) => (
   </motion.div>
 );
 
-// Animated section wrapper - Later sections with smaller margin
+// Animated section wrapper for content sections
 const AnimatedSectionLate = ({ children, className }) => (
   <motion.div
     initial="initial"
@@ -83,32 +83,33 @@ const AnimatedSectionLate = ({ children, className }) => (
   </motion.div>
 );
 
-const Internships = () => {
+const StudentAmbassador = () => {
   return (
     <motion.div 
       initial="initial"
       animate="animate"
+      exit="exit"
       variants={pageTransition}
       className="w-full bg-white"
     >
-      {/* Internship Hero Section - First section with larger margin */}
+      {/* Our Journey Section - Main hero section */}
       <AnimatedSection className="w-full">
-        <InternshipHero />
+        <OurJourneySection />
       </AnimatedSection>
       
-      {/* Internship Grid Section */}
+      {/* Our Achievements Section */}
       <AnimatedSection className="w-full">
-        <InternshipGrid />
+        <OurAchievements />
       </AnimatedSection>
       
-      {/* How It Works Section */}
+      {/* Our Core Values Section */}
       <AnimatedSectionLate className="w-full">
-        <HowItWorks />
+        <OurCoreValues />
       </AnimatedSectionLate>
       
-      {/* Community and Banner Section */}
+      {/* Impact and Start Journey Section */}
       <AnimatedSectionLate className="w-full">
-        <CommunityAndBanner />
+        <ImpactAndStartJourney />
       </AnimatedSectionLate>
       
       {/* Additional sections can be added here */}
@@ -116,4 +117,4 @@ const Internships = () => {
   );
 };
 
-export default Internships;
+export default StudentAmbassador;
