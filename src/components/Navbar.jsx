@@ -50,7 +50,9 @@ const ResourcesDropdown = () => (
         🎙️
       </div>
       <div>
-        <p className="text-gray-900 font-black text-sm tracking-tight">Webinars</p>
+        <p className="text-gray-900 font-black text-sm tracking-tight">
+          Webinars
+        </p>
         <p className="text-gray-400 text-[11px] font-semibold mt-0.5 leading-normal">
           Join expert-led sessions and masterclasses
         </p>
@@ -62,7 +64,7 @@ const ResourcesDropdown = () => (
 const Navbar = () => {
   const [showResources, setShowResources] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   // Current active route track karne ke liye location hook call kiya
   const location = useLocation();
 
@@ -72,7 +74,6 @@ const Navbar = () => {
   return (
     <nav className="w-full h-20 bg-white border-b border-gray-100 sticky top-0 z-50 font-sans select-none">
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 h-full flex items-center justify-between">
-        
         {/* Left Side: Logo */}
         <div className="flex-shrink-0">
           <Logo />
@@ -80,37 +81,37 @@ const Navbar = () => {
 
         {/* Center: Desktop Navigation Links with route parameters */}
         <div className="hidden lg:flex items-center gap-7 text-gray-700 text-sm font-semibold">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`transition-colors ${isActive("/") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
           >
             Home
           </Link>
-          
+
           {/* INTERNSHIP ROUTE ADDED HERE */}
-          <Link 
-            to="/internships" 
+          <Link
+            to="/internships"
             className={`transition-colors ${isActive("/internships") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
           >
             Internship
           </Link>
-          
-          <Link 
-            to="/graduate-program" 
-            className={`transition-colors ${isActive("/graduate-program") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
+
+          <Link
+            to="/graduate-program"
+            className={`transition-colors ${isActive("/GraduatePrograme") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
           >
             Graduate Program
           </Link>
-          
-          <Link 
-            to="/student-ambassador" 
-            className={`transition-colors ${isActive("/student-ambassador") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
+
+          <Link
+            to="/studentambassadors"
+            className={`transition-colors ${isActive("/StudentAmbassador") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
           >
             Student Ambassador
           </Link>
-          
-          <Link 
-            to="/startup-journey" 
+
+          <Link
+            to="/startup-journey"
             className={`transition-colors ${isActive("/startup-journey") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
           >
             Startup Journey
@@ -125,7 +126,7 @@ const Navbar = () => {
             <div
               className={`flex items-center gap-1 transition-colors ${
                 showResources || isActive("/blog") || isActive("/webinars")
-                  ? "text-[#3FB628]" 
+                  ? "text-[#3FB628]"
                   : "text-gray-400 hover:text-gray-900"
               }`}
             >
@@ -136,7 +137,12 @@ const Navbar = () => {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2.5"
+                  d="M19 9l-7 7-7-7"
+                />
               </svg>
             </div>
 
@@ -154,8 +160,18 @@ const Navbar = () => {
           {/* Job Portal Button */}
           <button className="bg-[#3FB628] text-white px-5 py-2.5 rounded-full text-xs font-black flex items-center gap-1.5 hover:bg-[#349e1e] transition-all shadow-md shadow-green-100 flex-shrink-0 active:scale-95">
             <span>Job Portal</span>
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <svg
+              className="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
             </svg>
           </button>
 
@@ -165,12 +181,26 @@ const Navbar = () => {
           </button>
 
           {/* Mobile Menu Icon Toggle */}
-          <div 
+          <div
             className="lg:hidden p-2 text-gray-600 cursor-pointer active:bg-gray-50 rounded-lg transition"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={mobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={
+                  mobileMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16m-7 6h7"
+                }
+              />
             </svg>
           </div>
         </div>
@@ -179,11 +209,41 @@ const Navbar = () => {
       {/* ================= MOBILE EXPANDABLE DRAWER MENU ================= */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl py-6 px-6 z-40 flex flex-col gap-4 animate-fadeIn">
-          <Link to="/" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/") ? "text-[#3FB628]" : "text-gray-500"}`}>Home</Link>
-          <Link to="/internships" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/internships") ? "text-[#3FB628]" : "text-gray-500"}`}>Internship</Link>
-          <Link to="/graduate-program" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/graduate-program") ? "text-[#3FB628]" : "text-gray-500"}`}>Graduate Program</Link>
-          <Link to="/student-ambassador" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/student-ambassador") ? "text-[#3FB628]" : "text-gray-500"}`}>Student Ambassador</Link>
-          <Link to="/startup-journey" onClick={() => setMobileMenuOpen(false)} className={`text-sm font-bold ${isActive("/startup-journey") ? "text-[#3FB628]" : "text-gray-500"}`}>Startup Journey</Link>
+          <Link
+            to="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`text-sm font-bold ${isActive("/") ? "text-[#3FB628]" : "text-gray-500"}`}
+          >
+            Home
+          </Link>
+          <Link
+            to="/internships"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`text-sm font-bold ${isActive("/internships") ? "text-[#3FB628]" : "text-gray-500"}`}
+          >
+            Internship
+          </Link>
+          <Link
+            to="/graduate-program"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`text-sm font-bold ${isActive("/graduate-program") ? "text-[#3FB628]" : "text-gray-500"}`}
+          >
+            Graduate Program
+          </Link>
+          <Link
+            to="/student-ambassador"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`text-sm font-bold ${isActive("/student-ambassador") ? "text-[#3FB628]" : "text-gray-500"}`}
+          >
+            Student Ambassador
+          </Link>
+          <Link
+            to="/startup-journey"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`text-sm font-bold ${isActive("/startup-journey") ? "text-[#3FB628]" : "text-gray-500"}`}
+          >
+            Startup Journey
+          </Link>
         </div>
       )}
     </nav>

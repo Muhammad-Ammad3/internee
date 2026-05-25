@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"; 
 import Home from "./pages/Home";
 import Internships from "./pages/Internships";
+import GraduatePrograme from "./pages/GraduatePrograme";
+import StudentAmbassador from "./pages/StudentAmbassador";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/internships" element={<Internships />} />
+            <Route path="/graduate-program" element={<GraduatePrograme />} />
+            <Route path="/studentambassadors" element={<StudentAmbassador />} />
             {/* Agle pages ke routes hum yahan mazeed add karte jayenge */}
           </Routes>
         </main>
