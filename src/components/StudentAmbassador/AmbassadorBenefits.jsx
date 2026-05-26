@@ -1,11 +1,11 @@
 // import React from 'react';
-// import { 
-//   Gift, 
-//   Star, 
-//   BookOpen, 
-//   Rocket, 
-//   Globe, 
-//   Award 
+// import {
+//   Gift,
+//   Star,
+//   BookOpen,
+//   Rocket,
+//   Globe,
+//   Award
 // } from 'lucide-react';
 
 // export default function AmbassadorBenefits() {
@@ -44,7 +44,7 @@
 
 //   return (
 //     <div className="w-full bg-white font-sans antialiased px-6 py-16 md:px-16 md:py-24 max-w-7xl mx-auto">
-      
+
 //       {/* Section Header */}
 //       <div className="text-center space-y-3 mb-16">
 //         <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight">
@@ -58,8 +58,8 @@
 //       {/* Perks Grid Layout (3 Columns on Desktop, 1 on Mobile) */}
 //       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 //         {perks.map((perk, index) => (
-//           <div 
-//             key={index} 
+//           <div
+//             key={index}
 //             className="bg-white border border-gray-100 rounded-2xl p-8 flex flex-col items-start justify-between min-h-[220px] shadow-[0_4px_20px_rgb(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.03)] transition-all group"
 //           >
 //             {/* Icon Container with Light Green Background */}
@@ -84,65 +84,71 @@
 //   );
 // }
 
-
-
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Gift, 
-  Star, 
-  BookOpen, 
-  Rocket, 
-  Globe, 
-  Award,
-  ArrowRight,
-  Sparkles,
-  Users,
-  Briefcase,
-  GraduationCap,
-  TrendingUp,
-  Heart
-} from "lucide-react";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
+import {
+  faGift,
+  faStar,
+  faBookOpen,
+  faRocket,
+  faGlobe,
+  faAward,
+  faArrowRight,
+  faWandMagicSparkles,
+  faUsers,
+  faBriefcase,
+  faGraduationCap,
+  faChartLine,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function AmbassadorBenefits() {
   const perks = [
     {
-      icon: Gift,
+      icon: faGift,
       title: "Exclusive Stipend",
-      description: "Earn competitive stipend based on performance and events organized",
-      color: "from-green-500 to-green-600"
+      description:
+        "Earn competitive stipend based on performance and events organized",
+      color: "from-green-500 to-green-600",
     },
     {
-      icon: Star,
+      icon: faStar,
       title: "Priority Recognition",
-      description: "Get featured on Internee.pk social media and internal platforms",
-      color: "from-yellow-500 to-orange-500"
+      description:
+        "Get featured on Internee.pk social media and internal platforms",
+      color: "from-yellow-500 to-orange-500",
     },
     {
-      icon: BookOpen,
+      icon: faBookOpen,
       title: "Free Learning Resources",
       description: "Access premium courses and certifications at no cost",
-      color: "from-blue-500 to-blue-600"
+      color: "from-blue-500 to-blue-600",
     },
     {
-      icon: Rocket,
+      icon: faRocket,
       title: "Startup Support",
       description: "Launch your own startup with mentorship and resources",
-      color: "from-purple-500 to-purple-600"
+      color: "from-purple-500 to-purple-600",
     },
     {
-      icon: Globe,
+      icon: faGlobe,
       title: "Global Networking",
       description: "Connect with 300+ ambassadors and industry professionals",
-      color: "from-cyan-500 to-cyan-600"
+      color: "from-cyan-500 to-cyan-600",
     },
     {
-      icon: Award,
+      icon: faAward,
       title: "Career Opportunities",
       description: "Direct pathway to internships and full-time positions",
-      color: "from-rose-500 to-rose-600"
-    }
+      color: "from-rose-500 to-rose-600",
+    },
   ];
 
   // Animation variants
@@ -150,50 +156,72 @@ export default function AmbassadorBenefits() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
     <div className="w-full bg-white font-sans antialiased px-6 py-20 lg:py-28 md:px-12 lg:px-16 max-w-7xl mx-auto">
-      
       {/* Section Header */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
         className="text-center space-y-5 mb-20"
       >
-        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
-          <Sparkles className="w-4 h-4 text-[#43A047]" />
-          <span className="text-xs font-bold text-[#43A047] uppercase tracking-wider">Rewards & Benefits</span>
+        <motion.div
+          variants={itemVariants}
+          className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5"
+        >
+          <FontAwesomeIcon
+            icon={faWandMagicSparkles}
+            className="text-xs text-[#43A047]"
+          />
+          <span className="text-xs font-bold text-[#43A047] uppercase tracking-wider">
+            Rewards & Benefits
+          </span>
         </motion.div>
-        
-        <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
+
+        <motion.h2
+          variants={itemVariants}
+          className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight"
+        >
           Ambassador{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#43A047] to-[#388E3C]">
             Benefits & Perks
           </span>
         </motion.h2>
-        
-        <motion.p variants={itemVariants} className="text-gray-500 text-sm lg:text-base max-w-2xl mx-auto font-medium">
-          Get exclusive rewards, recognition, and opportunities as a Student Ambassador
+
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-500 text-sm lg:text-base max-w-2xl mx-auto font-medium"
+        >
+          Get exclusive rewards, recognition, and opportunities as a Student
+          Ambassador
         </motion.p>
       </motion.div>
 
       {/* Perks Grid Layout (3 Columns on Desktop, 2 on Tablet, 1 on Mobile) */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
@@ -208,11 +236,14 @@ export default function AmbassadorBenefits() {
             className="bg-white border border-gray-100 rounded-3xl p-8 flex flex-col items-start justify-between min-h-[230px] shadow-lg hover:shadow-2xl hover:shadow-green-500/10 hover:border-green-200/50 transition-all duration-500 group cursor-pointer"
           >
             {/* Icon Container with Gradient Background */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               className={`p-4 bg-gradient-to-br ${perk.color} rounded-2xl shadow-lg`}
             >
-              <perk.icon className="w-6 h-6 text-white" />
+              <FontAwesomeIcon
+                icon={perk.icon}
+                className="text-lg text-white w-5 h-5 flex items-center justify-center"
+              />
             </motion.div>
 
             {/* Content Area */}
@@ -226,14 +257,16 @@ export default function AmbassadorBenefits() {
             </div>
 
             {/* Arrow indicator */}
-            <div className="flex items-center gap-1 pt-4 text-[#43A047] opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <div className="flex items-center gap-2 pt-4 text-[#43A047] opacity-0 group-hover:opacity-100 transition-all duration-300">
               <span className="text-sm font-bold">Learn more</span>
-              <ArrowRight className="w-4 h-4" />
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className="text-xs group-hover:translate-x-1 transition-transform"
+              />
             </div>
           </motion.div>
         ))}
       </motion.div>
-
     </div>
   );
 }

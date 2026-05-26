@@ -107,20 +107,23 @@
 
 
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  UserPlus, 
-  FileCheck, 
-  ArrowRight, 
-  Zap, 
-  CheckCircle2,
-  Shield,
-  Target,
-  Sparkles,
-  ChevronRight
-} from "lucide-react";
+  faUserPlus, 
+  faFileCircleCheck, 
+  faArrowRight, 
+  faBolt, 
+  faHandSparkles,
+  faChevronRight
+} from "@fortawesome/free-solid-svg-icons";
 
 const Workflow = () => {
   // Animation variants
@@ -142,28 +145,28 @@ const Workflow = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
   };
 
-  // Steps data
+  // Steps data (Font Awesome components mapping ke sath)
   const steps = [
     {
       step: "01",
       title: "Sign Up & Choose a Domain",
       desc: "Explore a wide range of internships across various industries, tailored to your skills and career goals.",
       tags: ["Fast setup", "Guided steps", "Verified outcome"],
-      icon: UserPlus
+      icon: faUserPlus
     },
     {
       step: "02",
       title: "Complete Your Application",
       desc: "Submit a short form and secure your internship opportunity in minutes.",
       tags: ["Quick process", "Expert review", "Direct access"],
-      icon: FileCheck
+      icon: faFileCircleCheck
     },
     {
       step: "03",
       title: "Start Learning & Grow",
       desc: "Begin your virtual internship journey with mentorship and real-world projects.",
       tags: ["Hands-on projects", "Mentor support", "Career pathways"],
-      icon: Sparkles
+      icon: faHandSparkles
     }
   ];
 
@@ -179,7 +182,7 @@ const Workflow = () => {
           variants={containerVariants}
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm">
-            <Zap className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faBolt} className="text-xs text-[#43A047]" />
             <span className="text-sm font-medium text-gray-600">How It Works</span>
           </motion.div>
 
@@ -198,7 +201,7 @@ const Workflow = () => {
           <motion.div variants={itemVariants} whileHover={{ scale: 1.02, y: -2 }} whileTap={{ scale: 0.98 }} className="mt-10">
             <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 group">
               <span>Get Started Now</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <FontAwesomeIcon icon={faArrowRight} className="text-sm group-hover:translate-x-1 transition-transform" />
             </button>
           </motion.div>
         </motion.div>
@@ -220,7 +223,7 @@ const Workflow = () => {
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center text-[#43A047] font-bold border border-green-100 group-hover:scale-110 transition-transform">
-                  <step.icon className="w-6 h-6" />
+                  <FontAwesomeIcon icon={step.icon} className="text-lg" />
                 </div>
 
                 <span className="text-gray-400 text-sm font-medium">Step {step.step}</span>
@@ -245,7 +248,7 @@ const Workflow = () => {
               {/* Arrow indicator */}
               <div className="flex items-center gap-1 mt-4 text-[#43A047] opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <span className="text-sm font-bold">Learn more</span>
-                <ChevronRight className="w-4 h-4" />
+                <FontAwesomeIcon icon={faChevronRight} className="text-xs" />
               </div>
             </motion.div>
           ))}

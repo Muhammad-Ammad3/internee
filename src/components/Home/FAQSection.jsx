@@ -97,19 +97,21 @@
 
 
 
+"use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  HelpCircle, 
-  MessageCircle, 
-  Plus, 
-  Minus,
-  ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  X
-} from "lucide-react";
+  faCircleQuestion, 
+  faCommentDots, 
+  faPlus, 
+  faCircleCheck 
+} from "@fortawesome/free-solid-svg-icons";
 
 const FAQSection = () => {
   // Accordion state manage karne ke liye active index tracking
@@ -166,7 +168,7 @@ const FAQSection = () => {
           className="lg:col-span-5 space-y-7 lg:sticky lg:top-8"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
-            <HelpCircle className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faCircleQuestion} className="w-3.5 h-3.5 text-[#43A047]" />
             <span className="font-bold tracking-wider uppercase text-xs text-[#43A047]">Have Questions?</span>
           </motion.div>
           
@@ -189,7 +191,7 @@ const FAQSection = () => {
           >
             <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group">
               <span>Contact Support</span>
-              <MessageCircle className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+              <FontAwesomeIcon icon={faCommentDots} className="w-3.5 h-3.5 group-hover:rotate-12 transition-transform" />
             </button>
           </motion.div>
         </motion.div>
@@ -224,7 +226,7 @@ const FAQSection = () => {
                     {faq.question}
                   </span>
                   
-                  {/* Plus / Minus Custom Icon Toggle */}
+                  {/* Plus Custom Icon Toggle (Rotates 45 deg to form 'x') */}
                   <motion.div 
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -234,7 +236,7 @@ const FAQSection = () => {
                         : 'bg-gray-50 border-gray-200 text-gray-400 group-hover:border-[#43A047]/50 group-hover:text-[#43A047]'
                     }`}
                   >
-                    <Plus className="w-5 h-5" />
+                    <FontAwesomeIcon icon={faPlus} className="text-sm" />
                   </motion.div>
                 </button>
 
@@ -255,7 +257,7 @@ const FAQSection = () => {
                         
                         {/* Success indicator */}
                         <div className="flex items-center gap-2 mt-4 text-[#43A047]">
-                          <CheckCircle2 className="w-4 h-4" />
+                          <FontAwesomeIcon icon={faCircleCheck} className="w-3.5 h-3.5" />
                           <span className="text-xs font-bold">Answer verified</span>
                         </div>
                       </div>

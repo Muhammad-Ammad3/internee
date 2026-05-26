@@ -124,21 +124,24 @@
 // export default GraduateFeatures;
 
 
-
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Target, 
-  Users, 
-  TrendingUp, 
-  Award, 
-  Clock, 
-  Zap,
-  ArrowRight,
-  CheckCircle2,
-  BadgeCheck,
-  GraduationCap
-} from "lucide-react";
+  faBullseye,
+  faUsers, 
+  faChartLine, 
+  faAward, 
+  faClock, 
+  faBolt,
+  faArrowRight,
+  faCertificate,
+  faGraduationCap
+} from "@fortawesome/free-solid-svg-icons";
 
 const GraduateFeatures = () => {
   // 6 Core Features Dataset
@@ -147,52 +150,52 @@ const GraduateFeatures = () => {
       id: 1,
       title: "Career-Focused Curriculum",
       desc: "Programs aligned with current industry demands and hiring requirements.",
-      icon: Target,
+      icon: faBullseye, // Target icon replacement
       iconBg: "bg-green-500/10 text-[#43A047]"
     },
     {
       id: 2,
       title: "Expert Mentorship",
       desc: "Learn from professionals working at top tech companies worldwide.",
-      icon: Users,
+      icon: faUsers, // Users icon replacement
       iconBg: "bg-green-500/10 text-[#43A047]"
     },
     {
       id: 3,
       title: "Job Placement Support",
       desc: "Direct connections with hiring partners and job interview prep.",
-      icon: TrendingUp,
+      icon: faChartLine, // TrendingUp icon replacement
       iconBg: "bg-green-500/10 text-[#43A047]"
     },
     {
       id: 4,
       title: "Verified Certificates",
       desc: "Industry-recognized credentials that boost your resume.",
-      icon: Award,
+      icon: faAward, // Award icon replacement
       iconBg: "bg-green-500/10 text-[#43A047]"
     },
     {
       id: 5,
       title: "Flexible Scheduling",
       desc: "Learn at your own pace with live and recorded sessions.",
-      icon: Clock,
+      icon: faClock, // Clock icon replacement
       iconBg: "bg-green-500/10 text-[#43A047]"
     },
     {
       id: 6,
       title: "Real Projects",
       desc: "Work on actual client projects and build portfolio pieces.",
-      icon: Zap,
+      icon: faBolt, // Zap icon replacement
       iconBg: "bg-green-500/10 text-[#43A047]"
     }
   ];
 
   // 4 Metrics/Stats Counters
   const stats = [
-    { value: "500+", label: "Graduates", subtext: "Successfully Placed", icon: GraduationCap },
-    { value: "95%", label: "Job Rate", subtext: "Within 3 Months", icon: TrendingUp },
-    { value: "2.5x", label: "Avg Salary", subtext: "Growth Rate", icon: Zap },
-    { value: "4.9/5", label: "Student", subtext: "Satisfaction", icon: BadgeCheck }
+    { value: "500+", label: "Graduates", subtext: "Successfully Placed", icon: faGraduationCap },
+    { value: "95%", label: "Job Rate", subtext: "Within 3 Months", icon: faChartLine },
+    { value: "2.5x", label: "Avg Salary", subtext: "Growth Rate", icon: faBolt },
+    { value: "4.9/5", label: "Student", subtext: "Satisfaction", icon: faCertificate } // BadgeCheck replacement
   ];
 
   // Animation variants
@@ -256,7 +259,7 @@ const GraduateFeatures = () => {
             >
               {/* Circular Icon Wrapper */}
               <div className={`w-12 h-12 rounded-xl ${item.iconBg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                <item.icon className="w-6 h-6" />
+                <FontAwesomeIcon icon={item.icon} className="text-lg" />
               </div>
 
               {/* Text Layout */}
@@ -270,9 +273,9 @@ const GraduateFeatures = () => {
               </div>
 
               {/* Arrow indicator */}
-              <div className="flex items-center gap-1 text-[#43A047] opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="flex items-center gap-2 text-[#43A047] opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <span className="text-xs font-bold">Learn more</span>
-                <ArrowRight className="w-3 h-3" />
+                <FontAwesomeIcon icon={faArrowRight} className="text-[10px]" />
               </div>
             </motion.div>
           ))}
@@ -294,7 +297,7 @@ const GraduateFeatures = () => {
               className="bg-gradient-to-b from-white to-green-50/30 border border-gray-100 rounded-2xl p-6 lg:p-8 text-center space-y-3 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-300"
             >
               <div className="w-10 h-10 mx-auto bg-green-500/10 rounded-xl flex items-center justify-center">
-                <stat.icon className="w-5 h-5 text-[#43A047]" />
+                <FontAwesomeIcon icon={stat.icon} className="text-[#43A047] text-base" />
               </div>
               <div className="text-3xl lg:text-4xl font-black text-[#43A047] tracking-tight">
                 {stat.value}

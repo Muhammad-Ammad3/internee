@@ -80,45 +80,48 @@
 
 // export default HowItWorksSteps;
 
-
-
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  MapPin, 
-  BookOpen, 
-  FolderKanban, 
-  Briefcase, 
-  ArrowRight,
-  CheckCircle2
-} from "lucide-react";
+  faMapMarkerAlt, 
+  faBookOpen, 
+  faFolderOpen, 
+  faBriefcase, 
+  faCheckCircle 
+} from "@fortawesome/free-solid-svg-icons";
 
 const HowItWorksSteps = () => {
-  // 4 Steps Dataset
+  // 4 Steps Dataset (Icons updated to Font Awesome)
   const steps = [
     {
       id: 1,
       title: "Choose Your Track",
       desc: "Select from 20+ specialized programs based on your interests and career goals",
-      icon: MapPin
+      icon: faMapMarkerAlt // MapPin ki jagah standard marker icon
     },
     {
       id: 2,
       title: "Learn & Project",
       desc: "Complete structured lessons and work on real-world projects with expert mentors",
-      icon: BookOpen
+      icon: faBookOpen // BookOpen replacement
     },
     {
       id: 3,
       title: "Build Portfolio",
       desc: "Create a professional portfolio showcasing your verified skills",
-      icon: FolderKanban
+      icon: faFolderOpen // FolderKanban ki jagah safe free set folder icon
     },
     {
       id: 4,
       title: "Land Your Job",
       desc: "Connect with hiring companies and start your career journey",
-      icon: Briefcase
+      icon: faBriefcase // Briefcase replacement
     }
   ];
 
@@ -182,13 +185,13 @@ const HowItWorksSteps = () => {
                 className="relative w-full lg:w-[23%] min-h-[240px] bg-gradient-to-b from-white to-green-50/30 border border-gray-100 rounded-3xl p-7 flex flex-col justify-start space-y-5 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 group"
               >
                 
-                {/* Step Number Badge */}
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#43A047] to-[#388E3C] flex items-center justify-center text-white font-bold shadow-lg shadow-green-500/25">
-                  <step.icon className="w-5 h-5" />
+                {/* Step Icon Badge */}
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-[#43A047] to-[#388E3C] flex items-center justify-center text-white shadow-lg shadow-green-500/25">
+                  <FontAwesomeIcon icon={step.icon} className="text-sm" />
                 </div>
 
                 {/* Step Count */}
-                <div className="absolute top-4 right-4 text-4xl font-black text-gray-100 group-hover:text-green-100 transition-colors">
+                <div className="absolute top-4 right-4 text-4xl font-black text-gray-100 group-hover:text-green-100 transition-colors select-none">
                   {step.id}
                 </div>
 
@@ -204,7 +207,7 @@ const HowItWorksSteps = () => {
 
                 {/* Check Circle for completed feel */}
                 <div className="flex items-center gap-2 pt-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#43A047] opacity-50" />
+                  <FontAwesomeIcon icon={faCheckCircle} className="text-[#43A047] text-xs opacity-50" />
                   <span className="text-xs font-bold text-[#43A047]">Step {step.id}</span>
                 </div>
 

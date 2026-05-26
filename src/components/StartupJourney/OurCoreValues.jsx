@@ -32,17 +32,17 @@
 
 //   return (
 //     <div className="w-full bg-[#F8FAFC]/50 font-sans antialiased px-6 py-16 md:px-16 md:py-24 max-w-7xl mx-auto">
-      
+
 //       {/* --- TOP HEADER TAG & TITLE --- */}
 //       <div className="text-center space-y-4 mb-16">
 //         <div className="inline-flex items-center gap-1.5 bg-[#E8F5E9] border border-[#43A047]/20 rounded-full px-4 py-1.5 text-xs font-bold text-[#43A047] mx-auto select-none">
 //           <Compass className="w-3.5 h-3.5" /> What Drives Us
 //         </div>
-        
+
 //         <h2 className="text-3xl md:text-5xl font-black text-gray-950 tracking-tight">
 //           Our Core Values
 //         </h2>
-        
+
 //         <p className="text-gray-500 text-sm md:text-base max-w-xl mx-auto font-medium">
 //           Principles that guide every decision and action we take
 //         </p>
@@ -51,11 +51,11 @@
 //       {/* --- CORE VALUES CARDS GRID (4 COLUMNS) --- */}
 //       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
 //         {values.map((item, index) => (
-//           <div 
+//           <div
 //             key={index}
 //             className={`bg-white rounded-2xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-300 hover:shadow-[0_15px_40px_rgba(0,0,0,0.04)] group ${
-//               item.isFeatured 
-//                 ? 'border-2 border-[#43A047] shadow-[0_10px_30px_rgba(67,160,71,0.08)]' 
+//               item.isFeatured
+//                 ? 'border-2 border-[#43A047] shadow-[0_10px_30px_rgba(67,160,71,0.08)]'
 //                 : 'border border-gray-100'
 //             }`}
 //           >
@@ -91,49 +91,58 @@
 //   );
 // }
 
-
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Rocket, 
-  Heart, 
-  Lightbulb, 
-  TrendingUp, 
-  Compass, 
-  Sparkles,
-  ArrowRight,
-  Users,
-  Zap
-} from "lucide-react";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
+import {
+  faRocket,
+  faHeart,
+  faLightbulb,
+  faChartLine,
+  faCompass,
+  faWandMagicSparkles,
+  faArrowRight,
+  faUsers,
+  faZap,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function OurCoreValues() {
   const values = [
     {
-      icon: Rocket,
+      icon: faRocket,
       title: "Mission-Driven",
-      description: "Every decision is guided by our commitment to empower youth through real-world experience and skill development.",
-      badge: "Impact First"
+      description:
+        "Every decision is guided by our commitment to empower youth through real-world experience and skill development.",
+      badge: "Impact First",
     },
     {
-      icon: Heart,
+      icon: faHeart,
       title: "Community First",
-      description: "We believe in building strong networks of mentors, partners, and students who support each other's success.",
-      badge: "Collaboration"
+      description:
+        "We believe in building strong networks of mentors, partners, and students who support each other's success.",
+      badge: "Collaboration",
     },
     {
-      icon: Lightbulb,
+      icon: faLightbulb,
       title: "Innovation",
-      description: "We continuously push boundaries, adopting new technologies and methodologies to stay ahead in tech education.",
+      description:
+        "We continuously push boundaries, adopting new technologies and methodologies to stay ahead in tech education.",
       badge: "Forward-Thinking",
-      isFeatured: true
+      isFeatured: true,
     },
     {
-      icon: TrendingUp,
+      icon: faChartLine,
       title: "Growth Focused",
-      description: "Measurable impact is our commitment. We track outcomes, improve continuously, and showcase real results.",
-      badge: "Excellence"
-    }
+      description:
+        "Measurable impact is our commitment. We track outcomes, improve continuously, and showcase real results.",
+      badge: "Excellence",
+    },
   ];
 
   // Animation variants
@@ -141,45 +150,62 @@ export default function OurCoreValues() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
     <div className="w-full bg-gray-50/50 font-sans antialiased px-6 py-20 lg:py-28 md:px-12 lg:px-16 max-w-7xl mx-auto">
-      
       {/* --- TOP HEADER TAG & TITLE --- */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
         className="text-center space-y-5 mb-20"
       >
-        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
-          <Compass className="w-4 h-4 text-[#43A047]" />
-          <span className="text-xs font-bold text-[#43A047] uppercase tracking-wider">What Drives Us</span>
+        <motion.div
+          variants={itemVariants}
+          className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5"
+        >
+          <FontAwesomeIcon
+            icon={faCompass}
+            className="text-xs text-[#43A047]"
+          />
+          <span className="text-xs font-bold text-[#43A047] uppercase tracking-wider">
+            What Drives Us
+          </span>
         </motion.div>
-        
-        <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
+
+        <motion.h2
+          variants={itemVariants}
+          className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight"
+        >
           Our Core{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#43A047] to-[#388E3C]">
             Values
           </span>
         </motion.h2>
-        
-        <motion.p variants={itemVariants} className="text-gray-500 text-sm lg:text-base max-w-xl mx-auto font-medium">
+
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-500 text-sm lg:text-base max-w-xl mx-auto font-medium"
+        >
           Principles that guide every decision and action we take
         </motion.p>
       </motion.div>
 
       {/* --- CORE VALUES CARDS GRID (4 COLUMNS) --- */}
-      <motion.div 
+      <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
@@ -192,21 +218,21 @@ export default function OurCoreValues() {
             variants={itemVariants}
             whileHover={{ y: -8, scale: 1.01 }}
             className={`bg-white rounded-3xl p-6 md:p-8 flex flex-col items-center text-center transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/10 group cursor-pointer ${
-              item.isFeatured 
-                ? 'border-2 border-[#43A047]/30 shadow-xl shadow-green-500/10' 
-                : 'border border-gray-100 shadow-lg'
+              item.isFeatured
+                ? "border-2 border-[#43A047]/30 shadow-xl shadow-green-500/10"
+                : "border border-gray-100 shadow-lg"
             }`}
           >
             {/* Smooth Rounded Icon Container */}
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all ${
-                item.isFeatured 
-                  ? 'bg-gradient-to-br from-[#43A047] to-[#388E3C] text-white shadow-lg shadow-green-500/25' 
-                  : 'bg-green-50 text-[#43A047]'
+                item.isFeatured
+                  ? "bg-gradient-to-br from-[#43A047] to-[#388E3C] text-white shadow-lg shadow-green-500/25"
+                  : "bg-green-50 text-[#43A047]"
               }`}
             >
-              <item.icon className="w-6 h-6" />
+              <FontAwesomeIcon icon={item.icon} className="text-lg" />
             </motion.div>
 
             {/* Content Body */}
@@ -221,25 +247,21 @@ export default function OurCoreValues() {
               </div>
 
               {/* Bottom Mini Badge */}
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="pt-2"
-              >
-                <span className={`inline-block font-bold text-xs px-4 py-1.5 rounded-full border transition-colors ${
-                  item.isFeatured 
-                    ? 'bg-[#43A047] text-white border-[#43A047]' 
-                    : 'bg-green-50 text-[#43A047] border-green-100'
-                }`}
+              <motion.div whileHover={{ scale: 1.05 }} className="pt-2">
+                <span
+                  className={`inline-block font-bold text-xs px-4 py-1.5 rounded-full border transition-colors ${
+                    item.isFeatured
+                      ? "bg-[#43A047] text-white border-[#43A047]"
+                      : "bg-green-50 text-[#43A047] border-green-100"
+                  }`}
                 >
                   {item.badge}
                 </span>
               </motion.div>
             </div>
-
           </motion.div>
         ))}
       </motion.div>
-
     </div>
   );
 }

@@ -141,20 +141,25 @@
 
 
 
+"use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  FileEdit, 
-  Mail, 
-  UserCheck, 
-  Lightbulb, 
-  Compass,
-  ArrowRight,
-  Sparkles,
-  ChevronRight,
-  CheckCircle2
-} from "lucide-react";
+  faEdit, 
+  faEnvelope, 
+  faUserCheck, 
+  faLightbulb, 
+  faCompass,
+  faArrowRight,
+  faWandMagicSparkles,
+  faChevronRight
+} from "@fortawesome/free-solid-svg-icons";
 
 const CareerPath = () => {
   // Active feature tracking for interactive right-side preview element
@@ -164,25 +169,25 @@ const CareerPath = () => {
     {
       title: "AI Resume Building",
       desc: "Stand out in the AI job market with our professional resume-building guide. Learn how to highlight your AI skills, experience, and key accomplishments to catch the attention of top employers.",
-      icon: FileEdit,
+      icon: faEdit, // FileEdit replacement
       color: "from-blue-500 to-blue-600"
     },
     {
       title: "Cover Letter Creation",
       desc: "Create compelling cover letters that showcase your passion for AI and demonstrate your value to employers. Make a strong first impression that speaks directly to your AI expertise.",
-      icon: Mail,
+      icon: faEnvelope, // Mail replacement
       color: "from-purple-500 to-purple-600"
     },
     {
       title: "Interview Preparation",
       desc: "Ace your AI job interviews with confidence through practice questions, interview strategies, and tips for answering technical AI-related queries.",
-      icon: UserCheck,
+      icon: faUserCheck, // UserCheck match
       color: "from-orange-500 to-orange-600"
     },
     {
       title: "Industry Insights",
       desc: "Stay ahead of the curve with up-to-date insights on the latest AI trends, market demands, and emerging technologies in the AI industry.",
-      icon: Lightbulb,
+      icon: faLightbulb, // Lightbulb match
       color: "from-pink-500 to-pink-600"
     }
   ];
@@ -227,7 +232,7 @@ const CareerPath = () => {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5"
             >
-              <Compass className="w-4 h-4 text-[#43A047]" />
+              <FontAwesomeIcon icon={faCompass} className="text-xs text-[#43A047]" />
               <span className="font-bold tracking-wider uppercase text-xs text-[#43A047]">Your AI Career Journey</span>
             </motion.div>
             
@@ -249,11 +254,11 @@ const CareerPath = () => {
             >
               <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group">
                 <span>Start Teaching Today</span>
-                <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                <FontAwesomeIcon icon={faWandMagicSparkles} className="text-xs group-hover:rotate-12 transition-transform" />
               </button>
               <button className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-3.5 rounded-full text-sm font-bold hover:border-gray-300 hover:shadow-lg transition-all">
                 <span>Explore Tools</span>
-                <ArrowRight className="w-4 h-4" />
+                <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
               </button>
             </motion.div>
           </motion.div>
@@ -278,8 +283,8 @@ const CareerPath = () => {
                         : 'bg-white/60 border-gray-200/40 text-gray-500 hover:bg-white hover:border-gray-200'
                     }`}
                   >
-                    <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${f.color} flex items-center justify-center`}>
-                      <f.icon className="w-4 h-4 text-white" />
+                    <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${f.color} flex items-center justify-center flex-shrink-0`}>
+                      <FontAwesomeIcon icon={f.icon} className="text-xs text-white" />
                     </div>
                     <span className="hidden sm:block">{f.title}</span>
                   </motion.div>
@@ -350,7 +355,7 @@ const CareerPath = () => {
               className="bg-white border border-gray-100 rounded-3xl p-8 space-y-5 hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 group cursor-pointer"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-50 to-green-100 border border-green-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <item.icon className="w-6 h-6 text-[#43A047]" />
+                <FontAwesomeIcon icon={item.icon} className="text-base text-[#43A047]" />
               </div>
               
               <div className="space-y-3">
@@ -365,7 +370,7 @@ const CareerPath = () => {
               {/* Learn more indicator */}
               <div className="flex items-center gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0">
                 <span className="text-sm font-bold text-[#43A047]">Learn more</span>
-                <ChevronRight className="w-4 h-4 text-[#43A047]" />
+                <FontAwesomeIcon icon={faChevronRight} className="text-xs text-[#43A047]" />
               </div>
             </motion.div>
           ))}

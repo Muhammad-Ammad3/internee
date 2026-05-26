@@ -239,10 +239,23 @@
   // }
 
 
-
-  import React, { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Play, Rocket, Sparkles, ArrowRight, Video, Users, BookOpen, Clock, Bell, Mic, Mic2 } from "lucide-react";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
+import { 
+  faCalendarDays, 
+  faPlay, 
+  faArrowRight, 
+  faVideo, 
+  faUsers, 
+  faBookOpen, 
+  faClock, 
+  faMicrophone 
+} from "@fortawesome/free-solid-svg-icons";
 
 // Page transition configuration
 const pageTransition = {
@@ -376,7 +389,7 @@ export default function ResourcesWebiners() {
       animate="animate"
       exit="exit"
       variants={pageTransition}
-      className="w-full bg-gray-50/50 min-h-screen font-sans antialiased pb-24"
+      className="w-full bg-gray-50/50 min-h-screen font-sans antialiased pb-24 text-left"
     >
       
       {/* ==========================================
@@ -394,7 +407,7 @@ export default function ResourcesWebiners() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2"
             >
-              <Video className="w-4 h-4 text-[#43A047]" />
+              <FontAwesomeIcon icon={faVideo} className="text-xs text-[#43A047]" />
               <span className="text-xs font-bold text-[#43A047] uppercase tracking-wider">
                 Expert-Led Sessions
               </span>
@@ -462,7 +475,7 @@ export default function ResourcesWebiners() {
                   </div>
                   <div className="absolute top-3 right-3">
                     <span className="bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5" />
+                      <FontAwesomeIcon icon={faClock} className="text-xs" />
                       {item.duration}
                     </span>
                   </div>
@@ -491,7 +504,7 @@ export default function ResourcesWebiners() {
 
                     {/* Date Block */}
                     <div className="flex items-center gap-2 text-gray-400 text-sm font-medium pt-1">
-                      <Calendar className="w-4 h-4" />
+                      <FontAwesomeIcon icon={faCalendarDays} className="text-sm" />
                       <span>{item.date}</span>
                     </div>
                   </div>
@@ -516,7 +529,7 @@ export default function ResourcesWebiners() {
                       whileTap={{ scale: 0.98 }}
                       className="w-full bg-[#0a0a0a] hover:bg-[#43A047] text-white font-bold text-sm py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 group-hover:bg-[#43A047]"
                     >
-                      <Play className="w-4 h-4 fill-white" /> 
+                      <FontAwesomeIcon icon={faPlay} className="text-xs" /> 
                       Watch Recording
                     </motion.button>
                   </div>
@@ -545,7 +558,7 @@ export default function ResourcesWebiners() {
                 viewport={{ once: true }}
                 className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full py-1.5 pl-2 pr-4"
               >
-                <BookOpen className="w-4 h-4 text-[#43A047]" />
+                <FontAwesomeIcon icon={faBookOpen} className="text-xs text-[#43A047]" />
                 <span className="text-xs font-medium text-gray-300">Stay Ahead of the Curve</span>
               </motion.div>
 
@@ -566,16 +579,16 @@ export default function ResourcesWebiners() {
                   whileTap={{ scale: 0.98 }}
                   className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white font-bold px-6 py-3.5 rounded-xl transition-all text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group"
                 >
-                  <Mic2 className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faMicrophone} className="text-sm" />
                   <span>Explore Internships</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <FontAwesomeIcon icon={faArrowRight} className="text-sm group-hover:translate-x-1 transition-transform" />
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   className="flex items-center gap-2 border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm bg-transparent"
                 >
-                  <Users className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faUsers} className="text-sm" />
                   <span>Become Ambassador</span>
                 </motion.button>
               </div>

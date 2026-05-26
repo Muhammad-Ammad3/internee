@@ -181,23 +181,25 @@
 // export default CommunityAndBanner;
 
 
+"use client";
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid aur Brands Icons Imports
 import { 
-  Users, 
-  Star, 
-  TrendingUp, 
-  ArrowRight, 
-  Search,
-  Sparkles,
-  Award,
-  GraduationCap,
-  Linkedin,
-  ChevronRight,
-  Play,
-  CheckCircle2
-} from 'lucide-react';
+  faUsers, 
+  faStar, 
+  faArrowRight, 
+  faMagnifyingGlass,
+  faHandSparkles,
+  faAward,
+  faGraduationCap
+} from "@fortawesome/free-solid-svg-icons";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons"; // Optimized LinkedIn package target
 
 const CommunityAndBanner = () => {
   // Testimonial sliding dataset state management array
@@ -230,11 +232,11 @@ const CommunityAndBanner = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Bottom dark layout metric dataset 
+  // Bottom dark layout metric dataset (Font Awesome references ke sath)
   const bottomCounters = [
-    { value: "20+", label: "Expert-Led Internships", icon: Award },
-    { value: "1,500+", label: "Successful Graduates", icon: GraduationCap },
-    { value: "120k+", label: "LinkedIn Followers", icon: Linkedin }
+    { value: "20+", label: "Expert-Led Internships", icon: faAward },
+    { value: "1,500+", label: "Successful Graduates", icon: faGraduationCap },
+    { value: "120k+", label: "LinkedIn Followers", icon: faLinkedinIn }
   ];
 
   // Animation variants
@@ -261,7 +263,7 @@ const CommunityAndBanner = () => {
       <div className="max-w-7xl mx-auto space-y-24">
         
         {/* ========================================================================= */}
-        {/* 1. TOP VIEW LAYER: TRUSTED COMMUNITY TESTIMONIAL GRID                   */}
+        {/* 1. TOP VIEW LAYER: TRUSTED COMMUNITY TESTIMONIAL GRID                     */}
         {/* ========================================================================= */}
         <motion.div 
           initial="hidden"
@@ -279,7 +281,7 @@ const CommunityAndBanner = () => {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5"
             >
-              <Users className="w-4 h-4 text-[#43A047]" />
+              <FontAwesomeIcon icon={faUsers} className="text-xs text-[#43A047]" />
               <span className="text-xs font-bold uppercase tracking-wider text-gray-600">
                 Trusted By Thousands
               </span>
@@ -300,7 +302,7 @@ const CommunityAndBanner = () => {
             >
               <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-6 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 group">
                 <span>Join Our Community</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <FontAwesomeIcon icon={faArrowRight} className="text-xs group-hover:translate-x-1 transition-transform" />
               </button>
             </motion.div>
           </motion.div>
@@ -343,7 +345,7 @@ const CommunityAndBanner = () => {
                   {/* Graphical Star Ratings micro rendering rows */}
                   <div className="flex items-center gap-0.5">
                     {[...Array(testimonials[activeIndex].rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                      <FontAwesomeIcon key={i} icon={faStar} className="text-sm text-yellow-400" />
                     ))}
                   </div>
                 </motion.div>
@@ -417,14 +419,14 @@ const CommunityAndBanner = () => {
                 className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-6 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 group"
               >
                 <span>Get Started Now</span>
-                <Sparkles className="w-4 h-4" />
+                <FontAwesomeIcon icon={faHandSparkles} className="text-xs" />
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center gap-2 bg-transparent border border-gray-700 hover:border-gray-600 text-white px-6 py-3.5 rounded-full text-sm font-bold transition-all duration-300"
               >
-                <Search className="w-4 h-4" />
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="text-xs" />
                 <span>Explore Internships</span>
               </motion.button>
             </div>
@@ -450,7 +452,7 @@ const CommunityAndBanner = () => {
                 className="flex flex-col items-center justify-center text-center space-y-4 relative sm:border-r last:border-0 border-gray-100 py-4"
               >
                 <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center border border-green-100">
-                  <item.icon className="w-7 h-7 text-[#43A047]" />
+                  <FontAwesomeIcon icon={item.icon} className="text-xl text-[#43A047]" />
                 </div>
                 <div className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tighter">
                   {item.value}

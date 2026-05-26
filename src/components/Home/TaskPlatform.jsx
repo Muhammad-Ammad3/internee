@@ -162,22 +162,23 @@
 // export default TaskPlatform;
 
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Briefcase, 
-  ShieldCheck, 
-  Link2, 
-  BookOpen, 
-  ArrowRight, 
-  Sparkles,
-  CheckCircle2,
-  TrendingUp,
-  Users,
-  Target,
-  Award
-} from "lucide-react";
+  faBriefcase, 
+  faShieldHalved, 
+  faLink, 
+  faBookOpen, 
+  faCircleCheck,
+  faHandSparkles
+} from "@fortawesome/free-solid-svg-icons";
 
 const TaskPlatform = () => {
   // Animation variants
@@ -218,7 +219,7 @@ const TaskPlatform = () => {
         >
           {/* Top Pill Badge */}
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5">
-            <Briefcase className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faBriefcase} className="text-xs text-[#43A047]" />
             <span className="text-xs font-semibold tracking-wide text-gray-300">Task Management Platform</span>
           </motion.div>
 
@@ -255,7 +256,7 @@ const TaskPlatform = () => {
               className="bg-[#111111] border border-gray-800/60 rounded-3xl p-8 space-y-5 hover:border-[#43A047]/30 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-500 group"
             >
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center border border-green-500/20 group-hover:scale-110 transition-transform">
-                <Briefcase className="w-7 h-7 text-[#43A047]" />
+                <FontAwesomeIcon icon={faBriefcase} className="text-xl text-[#43A047]" />
               </div>
               <div className="space-y-3">
                 <h3 className="text-xl lg:text-2xl font-bold text-white">Hands-on Industry Projects</h3>
@@ -266,15 +267,15 @@ const TaskPlatform = () => {
               {/* Feature Checkmarks list */}
               <ul className="space-y-3 text-sm text-gray-300 font-medium pt-2">
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
                   Project-based learning
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
                   Industry-standard practices
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
                   Portfolio building
                 </li>
               </ul>
@@ -287,7 +288,7 @@ const TaskPlatform = () => {
               className="bg-[#111111] border border-gray-800/60 rounded-3xl p-8 space-y-5 hover:border-[#43A047]/30 hover:shadow-xl hover:shadow-green-500/10 transition-all duration-500 group"
             >
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center border border-green-500/20 group-hover:scale-110 transition-transform">
-                <ShieldCheck className="w-7 h-7 text-[#43A047]" />
+                <FontAwesomeIcon icon={faShieldHalved} className="text-xl text-[#43A047]" />
               </div>
               <div className="space-y-3">
                 <h3 className="text-xl lg:text-2xl font-bold text-white">Skill Verification System</h3>
@@ -298,15 +299,15 @@ const TaskPlatform = () => {
               {/* Feature Checkmarks list */}
               <ul className="space-y-3 text-sm text-gray-300 font-medium pt-2">
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
                   Skill verification
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
                   Progress tracking
                 </li>
                 <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
                   Achievement badges
                 </li>
               </ul>
@@ -323,8 +324,8 @@ const TaskPlatform = () => {
               whileHover={{ x: 4 }}
               className="bg-[#111111] border border-gray-800/60 rounded-3xl p-6 flex gap-4 items-start hover:border-[#43A047]/30 transition-all duration-300 group"
             >
-              <div className="p-3 bg-green-500/10 text-[#43A047] rounded-xl flex-shrink-0 border border-green-500/20 group-hover:scale-110 transition-transform">
-                <Link2 className="w-5 h-5" />
+              <div className="p-3 bg-green-500/10 text-[#43A047] rounded-xl flex-shrink-0 border border-green-500/20 group-hover:scale-110 transition-transform flex items-center justify-center w-11 h-11">
+                <FontAwesomeIcon icon={faLink} className="text-sm" />
               </div>
               <div className="space-y-2">
                 <h4 className="font-bold text-white text-base">SDLC Implementation via internee.pk</h4>
@@ -340,8 +341,8 @@ const TaskPlatform = () => {
               whileHover={{ x: 4 }}
               className="bg-[#111111] border border-gray-800/60 rounded-3xl p-6 flex gap-4 items-start hover:border-[#43A047]/30 transition-all duration-300 group"
             >
-              <div className="p-3 bg-green-500/10 text-[#43A047] rounded-xl flex-shrink-0 border border-green-500/20 group-hover:scale-110 transition-transform">
-                <BookOpen className="w-5 h-5" />
+              <div className="p-3 bg-green-500/10 text-[#43A047] rounded-xl flex-shrink-0 border border-green-500/20 group-hover:scale-110 transition-transform flex items-center justify-center w-11 h-11">
+                <FontAwesomeIcon icon={faBookOpen} className="text-sm" />
               </div>
               <div className="space-y-2">
                 <h4 className="font-bold text-white text-base">Guided Learning Path at internee.pk</h4>
@@ -388,7 +389,7 @@ const TaskPlatform = () => {
               >
                 <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-8 py-4 rounded-full font-bold text-sm hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 mx-auto group">
                   <span>Start Your Journey Now</span>
-                  <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                  <FontAwesomeIcon icon={faHandSparkles} className="text-xs group-hover:rotate-12 transition-transform" />
                 </button>
               </motion.div>
             </div>

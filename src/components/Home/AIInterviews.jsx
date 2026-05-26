@@ -143,61 +143,65 @@
 
 // export default AIInterviews;
 
-
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  MessageCircle, 
-  Lightbulb, 
-  ShieldCheck, 
-  Trophy, 
-  TrendingUp, 
-  FileText, 
-  ArrowRight,
-  Sparkles,
-  Zap
-} from "lucide-react";
+  faCommentDots, 
+  faLightbulb, 
+  faShieldAlt, 
+  faTrophy, 
+  faChartLine, 
+  faFileAlt, 
+  faArrowRight,
+  faWandMagicSparkles
+} from "@fortawesome/free-solid-svg-icons";
 
 const AIInterviews = () => {
-  // Right stacked layout cards data
+  // Right stacked layout cards data (Icons updated to Font Awesome)
   const rightFeatures = [
     {
       id: 1,
-      icon: MessageCircle,
+      icon: faCommentDots, // MessageCircle alternative
       title: "Realistic AI Interview Simulations",
       desc: "Simulate real interview environments powered by AI. Perfect for students seeking online internship interview practice or job readiness."
     },
     {
       id: 2,
-      icon: Lightbulb,
+      icon: faLightbulb, // Lightbulb alternative
       title: "Smart Feedback with AI",
       desc: "Instantly analyze your answers, tone, and relevance. Improve every time with feedback tailored for virtual internship candidates."
     },
     {
       id: 3,
-      icon: ShieldCheck,
+      icon: faShieldAlt, // ShieldCheck alternative
       title: "Role-Based Mock Interviews",
       desc: "Practice interviews for software engineering, product management, business, and digital marketing roles."
     }
   ];
 
-  // Bottom row grid items data
+  // Bottom row grid items data (Icons updated to Font Awesome)
   const bottomCards = [
     {
       id: 1,
-      icon: Trophy,
+      icon: faTrophy, // Trophy alternative
       title: "Build Real Interview Confidence",
       desc: "Reduce anxiety and increase success rate through repeated AI-based mock interview sessions."
     },
     {
       id: 2,
-      icon: TrendingUp,
+      icon: faChartLine, // TrendingUp alternative
       title: "Become Job-Ready Fast",
       desc: "Structured interview training that prepares you for real-world scenarios. Perfect for students applying for internships."
     },
     {
       id: 3,
-      icon: FileText,
+      icon: faFileAlt, // FileText alternative
       title: "Track Progress with Reports",
       desc: "Access detailed performance reports you can share with mentors and hiring managers."
     }
@@ -266,14 +270,14 @@ const AIInterviews = () => {
             >
               <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-8 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group">
                 <span>Apply Now</span>
-                <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                <FontAwesomeIcon icon={faWandMagicSparkles} className="text-sm group-hover:rotate-12 transition-transform" />
               </button>
             </motion.div>
           </motion.div>
 
           {/* Right Side Stacked List */}
           <motion.div variants={containerVariants} className="lg:col-span-7 space-y-4">
-            {rightFeatures.map((item, index) => (
+            {rightFeatures.map((item) => (
               <motion.div
                 key={item.id}
                 variants={itemVariants}
@@ -281,7 +285,7 @@ const AIInterviews = () => {
                 className="bg-[#111111] border border-gray-800 rounded-2xl p-6 flex gap-5 hover:border-green-800/50 hover:bg-green-900/10 transition-all duration-300 group cursor-pointer"
               >
                 <div className="w-12 h-12 rounded-xl bg-green-900/30 border border-green-800/50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-5 h-5 text-[#43A047]" />
+                  <FontAwesomeIcon icon={item.icon} className="text-base text-[#43A047]" />
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-base font-bold text-white group-hover:text-[#43A047] transition-colors">
@@ -313,7 +317,7 @@ const AIInterviews = () => {
               className="bg-[#111111]/60 border border-gray-800 p-8 rounded-2xl space-y-5 hover:bg-[#151515] hover:border-green-800/30 hover:shadow-lg hover:shadow-green-500/5 transition-all duration-300 group cursor-pointer"
             >
               <div className="w-12 h-12 rounded-xl bg-green-900/20 border border-green-800/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <card.icon className="w-5 h-5 text-[#43A047]" />
+                <FontAwesomeIcon icon={card.icon} className="text-base text-[#43A047]" />
               </div>
               
               <div className="space-y-2">
@@ -328,7 +332,7 @@ const AIInterviews = () => {
               {/* Arrow indicator */}
               <div className="flex items-center gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0">
                 <span className="text-xs font-bold text-[#43A047]">Learn more</span>
-                <ArrowRight className="w-3 h-3 text-[#43A047]" />
+                <FontAwesomeIcon icon={faArrowRight} className="text-xs text-[#43A047]" />
               </div>
             </motion.div>
           ))}

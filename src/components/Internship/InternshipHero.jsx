@@ -156,24 +156,35 @@
 
 // export default InternshipHero;
 
-
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Play, CheckCircle2, Zap, Award, Clock, 
-  Briefcase, MessageCircle, ArrowRight, TrendingUp, 
-  Globe, Users 
-} from "lucide-react";
+  faPlay, 
+  faCircleCheck, 
+  faBolt, 
+  faAward, 
+  faClock, 
+  faBriefcase, 
+  faCommentDots, 
+  faArrowRight, 
+  faChartLine, 
+  faGlobe, 
+  faUsers 
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function InternshipHero() {
-  // 1. Bottom Counter Section Dataset
+  // 1. Bottom Counter Section Dataset (Font Awesome references ke sath)
   const stats = [
-    { value: "15+", label: "INTERNSHIP TRACKS", icon: TrendingUp },
-    { value: "50,000+", label: "STUDENTS JOINED", icon: Users },
-    { value: "100%", label: "REMOTE-FIRST", icon: Globe }
+    { value: "15+", label: "INTERNSHIP TRACKS", icon: faChartLine },
+    { value: "50,000+", label: "STUDENTS JOINED", icon: faUsers },
+    { value: "100%", label: "REMOTE-FIRST", icon: faGlobe }
   ];
 
   // Master Stagger Animation Configs
@@ -249,7 +260,7 @@ export default function InternshipHero() {
               className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-7 py-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-green-900/10 transition-all group"
             >
               <span>Browse Tracks</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+              <FontAwesomeIcon icon={faArrowRight} className="text-xs transform group-hover:translate-x-1 transition-transform" />
             </motion.button>
 
             <motion.button
@@ -257,7 +268,7 @@ export default function InternshipHero() {
               whileTap={{ scale: 0.98 }}
               className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-4 rounded-xl text-xs sm:text-sm font-bold hover:border-gray-300 hover:bg-gray-50/50 transition-all"
             >
-              <Play className="w-4 h-4 fill-gray-700 stroke-none" />
+              <FontAwesomeIcon icon={faPlay} className="text-xs text-gray-700" />
               <span>How It Works</span>
             </motion.button>
           </motion.div>
@@ -265,11 +276,11 @@ export default function InternshipHero() {
           {/* Value Checks Trust Badges Row Footer */}
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4 border-t border-gray-100">
             <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-700">
-              <CheckCircle2 className="w-4 h-4 text-[#43A047] stroke-[2.5]" />
+              <FontAwesomeIcon icon={faCircleCheck} className="text-sm text-[#43A047]" />
               <span>No Experience Required</span>
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-700">
-              <CheckCircle2 className="w-4 h-4 text-[#43A047] stroke-[2.5]" />
+              <FontAwesomeIcon icon={faCircleCheck} className="text-sm text-[#43A047]" />
               <span>Industry-Ready Projects</span>
             </div>
           </motion.div>
@@ -294,7 +305,7 @@ export default function InternshipHero() {
                 className="bg-white border border-gray-100 rounded-3xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 space-y-3"
               >
                 <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center border border-blue-100/20">
-                  <Zap className="w-4 h-4 fill-blue-500 stroke-none" />
+                  <FontAwesomeIcon icon={faBolt} className="text-sm text-blue-500" />
                 </div>
                 <h4 className="text-sm font-black text-gray-900 tracking-tight">Skill Growth</h4>
                 <p className="text-gray-400 text-[11px] sm:text-xs font-medium leading-relaxed">
@@ -310,7 +321,7 @@ export default function InternshipHero() {
               >
                 <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-xl pointer-events-none" />
                 <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center relative z-10">
-                  <Award className="w-4 h-4 text-white" />
+                  <FontAwesomeIcon icon={faAward} className="text-sm text-white" />
                 </div>
                 <h4 className="text-sm font-black tracking-tight relative z-10">Verified track</h4>
                 <p className="text-white/80 text-[11px] sm:text-xs font-medium leading-relaxed relative z-10">
@@ -328,7 +339,7 @@ export default function InternshipHero() {
                 className="bg-[#1A1A1A] rounded-3xl p-5 sm:p-6 text-white shadow-xl space-y-3"
               >
                 <div className="w-9 h-9 rounded-xl bg-neutral-800 flex items-center justify-center border border-neutral-700/50">
-                  <Clock className="w-4 h-4 text-emerald-400" />
+                  <FontAwesomeIcon icon={faClock} className="text-sm text-emerald-400" />
                 </div>
                 <h4 className="text-sm font-black tracking-tight">Flexible Pace</h4>
                 <p className="text-neutral-400 text-[11px] sm:text-xs font-medium leading-relaxed">
@@ -343,7 +354,7 @@ export default function InternshipHero() {
                 className="bg-white border border-gray-100 rounded-3xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 space-y-3"
               >
                 <div className="w-9 h-9 rounded-xl bg-green-50 text-[#43A047] flex items-center justify-center border border-green-100/20">
-                  <Briefcase className="w-4 h-4 stroke-[2]" />
+                  <FontAwesomeIcon icon={faBriefcase} className="text-sm text-[#43A047]" />
                 </div>
                 <h4 className="text-sm font-black text-gray-900 tracking-tight">Job Support</h4>
                 <p className="text-gray-400 text-[11px] sm:text-xs font-medium leading-relaxed">
@@ -368,7 +379,6 @@ export default function InternshipHero() {
       >
         <div className="grid grid-cols-3 gap-4 text-center max-w-4xl mx-auto items-stretch">
           {stats.map((stat, idx) => {
-            const StatIcon = stat.icon;
             return (
               <motion.div 
                 key={idx}
@@ -377,7 +387,7 @@ export default function InternshipHero() {
                 className="space-y-2 flex flex-col items-center justify-center p-3"
               >
                 <div className="w-10 h-10 bg-gray-50 text-[#43A047] rounded-xl flex items-center justify-center mb-1 shadow-2xs">
-                  <StatIcon className="w-4 h-4 stroke-[2]" />
+                  <FontAwesomeIcon icon={stat.icon} className="text-sm" />
                 </div>
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-950 tracking-tight">
                   {stat.value}
@@ -405,7 +415,7 @@ export default function InternshipHero() {
           whileTap={{ scale: 0.92 }}
           className="w-14 h-14 rounded-full bg-gradient-to-r from-[#43A047] to-[#388E3C] shadow-lg shadow-green-900/20 text-white flex items-center justify-center group"
         >
-          <MessageCircle className="w-5 h-5 fill-white stroke-none group-hover:rotate-12 transition-transform duration-200" />
+          <FontAwesomeIcon icon={faCommentDots} className="text-lg text-white group-hover:rotate-12 transition-transform duration-200" />
         </motion.button>
       </motion.div>
 

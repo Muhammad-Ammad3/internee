@@ -70,55 +70,60 @@
 // export default Partners;
 
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Cloud, 
-  Building2, 
-  Globe, 
-  MapPin, 
-  Landmark,
-  ArrowRight,
-  Sparkles,
-  BadgeCheck
-} from "lucide-react";
+  faCloud, 
+  faBuilding, 
+  faGlobe, 
+  faLocationDot, 
+  faLandmark,
+  faArrowRight, 
+  faCircleCheck 
+} from "@fortawesome/free-solid-svg-icons";
 
 const Partners = () => {
-  // Aap placeholders ki jagah actual image paths bhi daal sakte hain baad mein
+  // Mock data mapping (Font Awesome references ke sath)
   const partnersData = [
     { 
       name: 'Google Cloud', 
-      icon: Cloud, 
+      icon: faCloud, 
       color: "from-blue-500 to-blue-600" 
     },
     { 
       name: 'BEE Pakistan 2024', 
-      icon: Building2, 
+      icon: faBuilding, 
       color: "from-green-500 to-green-600",
       subtitle: "2024"
     },
     { 
       name: 'Microsoft Founders Hub', 
-      icon: Globe, 
+      icon: faGlobe, 
       color: "from-gray-600 to-gray-700",
       subtitle: "for Startups"
     },
     { 
       name: 'ITG', 
-      icon: Landmark, 
+      icon: faLandmark, 
       color: "from-purple-500 to-purple-600",
       isText: true
     },
     { 
       name: 'NATIONAL EXPANSION PLAN OF NICS', 
-      icon: MapPin, 
+      icon: faLocationDot, 
       color: "from-orange-500 to-orange-600",
       isCompact: true
     },
     { 
       name: 'PITB', 
-      icon: Building2, 
+      icon: faBuilding, 
       color: "from-amber-500 to-amber-600"
     }
   ];
@@ -150,7 +155,7 @@ const Partners = () => {
           className="mb-12"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2">
-            <BadgeCheck className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
             <p className="text-xs sm:text-sm font-bold text-gray-400 tracking-[0.15em] uppercase">
               Collaborated with Trusted Worldwide Partners
             </p>
@@ -177,7 +182,7 @@ const Partners = () => {
                 whileHover={{ scale: 1.1 }}
                 className={`w-14 h-14 mb-3 rounded-2xl bg-gradient-to-br ${partner.color} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all`}
               >
-                <partner.icon className="w-7 h-7 text-white" />
+                <FontAwesomeIcon icon={partner.icon} className="text-lg text-white" />
               </motion.div>
               
               {/* Partner Name */}
@@ -210,7 +215,7 @@ const Partners = () => {
             className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-[#43A047] transition-colors group"
           >
             <span>Become a Partner</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <FontAwesomeIcon icon={faArrowRight} className="text-xs group-hover:translate-x-1 transition-transform" />
           </motion.a>
         </motion.div>
 

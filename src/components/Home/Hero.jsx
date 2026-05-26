@@ -109,21 +109,22 @@
 
 
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Briefcase, 
-  UserCheck, 
-  GraduationCap, 
-  ArrowRight, 
-  Sparkles,
-  Users,
-  FileCheck,
-  TrendingUp,
-  CheckCircle2,
-  Play
-} from "lucide-react";
+  faBriefcase, 
+  faUserCheck, 
+  faArrowRight, 
+  faCircleCheck,
+  faFileCircleCheck
+} from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
   // Animation variants
@@ -181,16 +182,16 @@ const Hero = () => {
               whileTap={{ scale: 0.98 }}
               className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group"
             >
-              <Briefcase className="w-4 h-4" />
+              <FontAwesomeIcon icon={faBriefcase} className="text-xs" />
               <span>Our Job Portal</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <FontAwesomeIcon icon={faArrowRight} className="text-xs group-hover:translate-x-1 transition-transform" />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-3.5 rounded-full text-sm font-bold hover:border-gray-300 hover:shadow-lg transition-all"
             >
-              <UserCheck className="w-4 h-4" />
+              <FontAwesomeIcon icon={faUserCheck} className="text-xs" />
               <span>Sign In</span>
             </motion.button>
           </motion.div>
@@ -199,13 +200,13 @@ const Hero = () => {
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4">
             <div className="flex items-center gap-2 text-gray-600 text-sm font-medium">
               <div className="w-5 h-5 rounded-full bg-green-50 border border-green-100 flex items-center justify-center">
-                <CheckCircle2 className="w-3 h-3 text-[#43A047]" />
+                <FontAwesomeIcon icon={faCircleCheck} className="text-[10px] text-[#43A047]" />
               </div>
               No Experience Required
             </div>
             <div className="flex items-center gap-2 text-gray-600 text-sm font-medium">
               <div className="w-5 h-5 rounded-full bg-green-50 border border-green-100 flex items-center justify-center">
-                <CheckCircle2 className="w-3 h-3 text-[#43A047]" />
+                <FontAwesomeIcon icon={faCircleCheck} className="text-[10px] text-[#43A047]" />
               </div>
               Industry-Ready Projects
             </div>
@@ -288,7 +289,7 @@ const Hero = () => {
               <span className="absolute bottom-0 text-lg font-black text-gray-800">92.6%</span>
             </div>
             <p className="text-xs text-center font-bold text-gray-700 mt-2 leading-tight">
-              Internship Rate{" "}
+              Campuses Placed{" "}
               <span className="text-[10px] text-gray-400 font-medium block">Students find internships</span>
             </p>
           </motion.div>
@@ -299,8 +300,8 @@ const Hero = () => {
             whileHover={floatHover}
             className="absolute left-[-5px] sm:left-4 bottom-[10%] bg-white py-4 px-5 rounded-2xl shadow-xl shadow-gray-100/50 border border-gray-100 z-20 flex items-center gap-4 min-w-[200px]"
           >
-            <div className="p-3 bg-green-50 text-[#43A047] rounded-xl border border-green-100">
-              <FileCheck className="w-6 h-6" />
+            <div className="p-3 bg-green-50 text-[#43A047] rounded-xl border border-green-100 flex items-center justify-center">
+              <FontAwesomeIcon icon={faFileCircleCheck} className="text-xl" />
             </div>
             <div>
               <p className="text-xs text-gray-400 font-semibold leading-none">Students finished courses</p>

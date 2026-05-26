@@ -7,7 +7,7 @@
 
 //   return (
 //     <div className="w-full bg-[#F8FAFC]/40 min-h-screen font-sans antialiased pb-24">
-      
+
 //       {/* ==========================================
 //           1. DARK HEADER SECTION
 //           ========================================== */}
@@ -26,7 +26,7 @@
 //       </div>
 
 //       <div className="max-w-7xl mx-auto px-6 mt-8 space-y-12">
-        
+
 //         {/* ==========================================
 //             2. FILTER & SORT BAR
 //             ========================================== */}
@@ -37,7 +37,7 @@
 //               Categories
 //             </span>
 //             <div className="relative inline-block w-48">
-//               <select 
+//               <select
 //                 value={selectedCategory}
 //                 onChange={(e) => setSelectedCategory(e.target.value)}
 //                 className="w-full bg-white border border-gray-200 text-gray-800 text-xs font-bold rounded-xl px-4 py-2.5 appearance-none cursor-pointer focus:outline-none focus:border-[#43A047] transition-colors"
@@ -55,7 +55,7 @@
 //           <div className="flex items-center gap-3 sm:self-end">
 //             <span className="text-xs font-bold text-gray-500">Sort by:</span>
 //             <div className="bg-gray-100/80 border border-gray-200/50 p-1 rounded-xl flex items-center">
-//               <button 
+//               <button
 //                 onClick={() => setSortBy('Newest')}
 //                 className={`text-[11px] font-bold px-3 py-1.5 rounded-lg transition-all ${
 //                   sortBy === 'Newest' ? 'bg-[#43A047] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'
@@ -63,7 +63,7 @@
 //               >
 //                 Newest
 //               </button>
-//               <button 
+//               <button
 //                 onClick={() => setSortBy('Oldest')}
 //                 className={`text-[11px] font-bold px-3 py-1.5 rounded-lg transition-all ${
 //                   sortBy === 'Oldest' ? 'bg-[#43A047] text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'
@@ -181,42 +181,54 @@
 //   );
 // }
 
-
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Clock, Search, SlidersHorizontal, ChevronDown, Rocket, Sparkles, ArrowRight, PenTool, BookOpen, Users, MessageCircle } from "lucide-react";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
+import {
+  faClock,
+  faMagnifyingGlass,
+  faChevronDown,
+  faWandMagicSparkles,
+  faArrowRight,
+  faPenNib,
+  faBookOpen,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 
 // Page transition configuration
 const pageTransition = {
   initial: { opacity: 0 },
-  animate: { 
+  animate: {
     opacity: 1,
     transition: {
       duration: 0.5,
       staggerChildren: 0.1,
-      delayChildren: 0.1
-    }
+      delayChildren: 0.1,
+    },
   },
-  exit: { 
+  exit: {
     opacity: 0,
     transition: {
-      duration: 0.3
-    }
-  }
+      duration: 0.3,
+    },
+  },
 };
 
 // Section animation variants
 const sectionVariants = {
   initial: { opacity: 0, y: 40 },
-  animate: { 
-    opacity: 1, 
+  animate: {
+    opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut"
-    }
-  }
+      ease: "easeOut",
+    },
+  },
 };
 
 // Animated section wrapper
@@ -246,34 +258,36 @@ const AnimatedSectionLate = ({ children, className }) => (
 );
 
 export default function ResourcesBlogDashboard() {
-  const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [sortBy, setSortBy] = useState('Newest');
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const [sortBy, setSortBy] = useState("Newest");
 
   return (
-    <motion.div 
+    <motion.div
       initial="initial"
       animate="animate"
       exit="exit"
       variants={pageTransition}
-      className="w-full bg-gray-50/50 min-h-screen font-sans antialiased pb-24"
+      className="w-full bg-gray-50/50 min-h-screen font-sans antialiased pb-24 text-left"
     >
-      
       {/* ==========================================
           1. DARK HEADER SECTION
           ========================================== */}
       <AnimatedSection className="w-full">
-        <motion.div 
+        <motion.div
           whileInView="animate"
           className="w-full bg-[#0a0a0a] text-white px-6 py-16 md:px-16 md:py-20"
         >
           <div className="max-w-7xl mx-auto space-y-5">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="inline-flex items-center gap-2"
             >
-              <Sparkles className="w-4 h-4 text-[#43A047]" />
+              <FontAwesomeIcon
+                icon={faWandMagicSparkles}
+                className="text-xs text-[#43A047]"
+              />
               <span className="text-xs font-bold text-[#43A047] uppercase tracking-wider">
                 Our blog
               </span>
@@ -285,14 +299,14 @@ export default function ResourcesBlogDashboard() {
               </span>
             </h1>
             <p className="text-gray-400 text-sm lg:text-base max-w-2xl leading-relaxed font-medium">
-              Expert insights on user research, product development, and building evidence-based products.
+              Expert insights on user research, product development, and
+              building evidence-based products.
             </p>
           </div>
         </motion.div>
       </AnimatedSection>
 
       <div className="max-w-7xl mx-auto px-6 mt-10 space-y-14">
-        
         {/* ==========================================
             2. FILTER & SORT BAR
             ========================================== */}
@@ -304,7 +318,7 @@ export default function ResourcesBlogDashboard() {
                 Categories
               </span>
               <div className="relative inline-block w-52">
-                <select 
+                <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className="w-full bg-white border border-gray-200 text-gray-800 text-sm font-bold rounded-xl px-4 py-2.5 appearance-none cursor-pointer focus:outline-none focus:border-[#43A047] transition-colors"
@@ -314,7 +328,10 @@ export default function ResourcesBlogDashboard() {
                   <option>UI/UX Design</option>
                   <option>AI & Tech</option>
                 </select>
-                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-xs"
+                />
               </div>
             </div>
 
@@ -322,22 +339,26 @@ export default function ResourcesBlogDashboard() {
             <div className="flex items-center gap-3 sm:self-end">
               <span className="text-sm font-bold text-gray-500">Sort by:</span>
               <div className="bg-gray-100/80 border border-gray-200/50 p-1 rounded-xl flex items-center">
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setSortBy('Newest')}
+                  onClick={() => setSortBy("Newest")}
                   className={`text-sm font-bold px-4 py-2 rounded-lg transition-all ${
-                    sortBy === 'Newest' ? 'bg-[#43A047] text-white shadow-lg shadow-green-500/25' : 'text-gray-600 hover:text-gray-900'
+                    sortBy === "Newest"
+                      ? "bg-[#43A047] text-white shadow-lg shadow-green-500/25"
+                      : "text-gray-600 hover:text-gray-900"
                   }`}
                 >
                   Newest
                 </motion.button>
-                <motion.button 
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setSortBy('Oldest')}
+                  onClick={() => setSortBy("Oldest")}
                   className={`text-sm font-bold px-4 py-2 rounded-lg transition-all ${
-                    sortBy === 'Oldest' ? 'bg-[#43A047] text-white shadow-lg shadow-green-500/25' : 'text-gray-600 hover:text-gray-900'
+                    sortBy === "Oldest"
+                      ? "bg-[#43A047] text-white shadow-lg shadow-green-500/25"
+                      : "text-gray-600 hover:text-gray-900"
                   }`}
                 >
                   Oldest
@@ -354,21 +375,23 @@ export default function ResourcesBlogDashboard() {
           <h2 className="text-xl lg:text-2xl font-black text-gray-900 tracking-tight">
             Featured Article
           </h2>
-          <motion.div 
+          <motion.div
             whileHover={{ y: -4 }}
             className="w-full bg-white border border-gray-100 rounded-3xl p-12 flex flex-col items-center justify-center text-center min-h-[260px] shadow-xl hover:shadow-2xl transition-all cursor-pointer group"
           >
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               className="w-14 h-14 rounded-2xl bg-green-50 text-[#43A047] border border-green-100 flex items-center justify-center mb-5"
             >
-              <Clock className="w-7 h-7" />
+              <FontAwesomeIcon icon={faClock} className="text-xl" />
             </motion.div>
             <h3 className="text-lg font-bold text-gray-900 tracking-tight group-hover:text-[#43A047] transition-colors">
               Stay Tuned for Features
             </h3>
             <p className="text-gray-500 text-sm max-w-md mt-2 leading-relaxed">
-              We're currently preparing our next big featured article. Check back soon for deep dives and exclusive insights from our top writers.
+              We're currently preparing our next big featured article. Check
+              back soon for deep dives and exclusive insights from our top
+              writers.
             </p>
           </motion.div>
         </AnimatedSection>
@@ -382,25 +405,28 @@ export default function ResourcesBlogDashboard() {
               Our Recent Blog Entries
             </h2>
             <p className="text-gray-400 text-sm max-w-xl">
-              Stay updated with the latest articles covering emerging threats, innovative solutions, and timely insights to keep your business secure.
+              Stay updated with the latest articles covering emerging threats,
+              innovative solutions, and timely insights to keep your business
+              secure.
             </p>
           </div>
 
-          <motion.div 
+          <motion.div
             whileHover={{ y: -4 }}
             className="w-full bg-white border border-gray-100 rounded-3xl p-12 flex flex-col items-center justify-center text-center min-h-[280px] shadow-xl hover:shadow-2xl transition-all cursor-pointer group"
           >
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.1 }}
               className="w-14 h-14 rounded-2xl bg-gray-50 text-gray-400 border border-gray-100 flex items-center justify-center mb-5 group-hover:bg-green-50 group-hover:text-[#43A047] group-hover:border-green-100 transition-all"
             >
-              <Search className="w-7 h-7" />
+              <FontAwesomeIcon icon={faMagnifyingGlass} className="text-xl" />
             </motion.div>
             <h3 className="text-lg font-bold text-gray-900 tracking-tight group-hover:text-[#43A047] transition-colors">
               No posts found
             </h3>
             <p className="text-gray-500 text-sm max-w-sm mt-2 leading-relaxed">
-              We couldn't find any articles matching your current filters. Try selecting a different category or clearing your search.
+              We couldn't find any articles matching your current filters. Try
+              selecting a different category or clearing your search.
             </p>
           </motion.div>
         </AnimatedSectionLate>
@@ -409,20 +435,20 @@ export default function ResourcesBlogDashboard() {
             5. PAGINATION ROW
             ========================================== */}
         <AnimatedSectionLate className="flex items-center justify-between border-t border-gray-200/80 pt-8 text-sm font-bold">
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="text-gray-400 hover:text-gray-600 cursor-not-allowed opacity-50 transition-colors"
           >
             ← Previous
           </motion.button>
-          <motion.span 
+          <motion.span
             whileHover={{ scale: 1.1 }}
             className="bg-[#43A047] text-white px-4 py-2 rounded-xl border border-[#43A047] shadow-lg shadow-green-500/25 select-none"
           >
             1
           </motion.span>
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="text-gray-400 hover:text-gray-600 cursor-not-allowed opacity-50 transition-colors"
@@ -435,23 +461,28 @@ export default function ResourcesBlogDashboard() {
             6. BOTTOM PREMIUM DARK CTA BANNER
             ========================================== */}
         <AnimatedSectionLate className="mt-8">
-          <motion.div 
+          <motion.div
             whileInView="animate"
             className="w-full bg-[#0a0a0a] rounded-3xl p-8 md:p-12 lg:p-16 text-white relative overflow-hidden shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-12"
           >
             {/* Background decorations */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#43A047]/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
-            
+
             <div className="space-y-6 max-w-xl z-10 relative">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full py-1.5 pl-2 pr-4"
               >
-                <BookOpen className="w-4 h-4 text-[#43A047]" />
-                <span className="text-xs font-medium text-gray-300">Stay in the Loop</span>
+                <FontAwesomeIcon
+                  icon={faBookOpen}
+                  className="text-xs text-[#43A047]"
+                />
+                <span className="text-xs font-medium text-gray-300">
+                  Stay in the Loop
+                </span>
               </motion.div>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight">
@@ -462,7 +493,8 @@ export default function ResourcesBlogDashboard() {
               </h2>
 
               <p className="text-gray-400 text-sm lg:text-base font-medium leading-relaxed">
-                Discover practical strategies from product, design, and research teams to help you ship better work faster.
+                Discover practical strategies from product, design, and research
+                teams to help you ship better work faster.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
@@ -471,16 +503,19 @@ export default function ResourcesBlogDashboard() {
                   whileTap={{ scale: 0.98 }}
                   className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white font-bold px-6 py-3.5 rounded-xl transition-all text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group"
                 >
-                  <PenTool className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faPenNib} className="text-sm" />
                   <span>Explore Internships</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="text-sm group-hover:translate-x-1 transition-transform"
+                  />
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   className="flex items-center gap-2 border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm bg-transparent"
                 >
-                  <Users className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faUsers} className="text-sm" />
                   <span>Become Ambassador</span>
                 </motion.button>
               </div>
@@ -495,9 +530,7 @@ export default function ResourcesBlogDashboard() {
             </div>
           </motion.div>
         </AnimatedSectionLate>
-
       </div>
-
     </motion.div>
   );
 }

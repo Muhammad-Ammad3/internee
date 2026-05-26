@@ -69,38 +69,43 @@
 // export default HowItWorks;
 
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  MapPin, 
-  Zap, 
-  Award, 
-  ArrowRight, 
-  CheckCircle2,
-  ChevronRight
-} from "lucide-react";
+  faMapPin, 
+  faBolt, 
+  faAward, 
+  faCircleCheck,
+  faChevronRight
+} from "@fortawesome/free-solid-svg-icons";
 
 const HowItWorks = () => {
-  // Array dataset holding structured information exactly matching image_559a4a.png
+  // Array dataset holding structured information (Font Awesome references ke sath)
   const steps = [
     {
       id: 1,
       title: "Choose Your Path",
       desc: "Browse our diverse tracks and select the internship that aligns with your career goals.",
-      icon: MapPin
+      icon: faMapPin
     },
     {
       id: 2,
       title: "Accelerated Learning",
       desc: "Dive into hands-on projects, follow our structured guide, and start building.",
-      icon: Zap
+      icon: faBolt
     },
     {
       id: 3,
       title: "Get Certified",
       desc: "Complete your tasks, submit your final project, and receive your verified certificate.",
-      icon: Award
+      icon: faAward
     }
   ];
 
@@ -131,7 +136,7 @@ const HowItWorks = () => {
           className="text-center space-y-4"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm">
-            <CheckCircle2 className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
             <span className="text-sm font-medium text-gray-600">How It Works</span>
           </motion.div>
           
@@ -160,12 +165,12 @@ const HowItWorks = () => {
               className="bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 flex items-start gap-5 sm:gap-6 shadow-lg hover:shadow-xl hover:shadow-green-500/10 hover:border-green-200/50 transition-all duration-300 group cursor-pointer"
             >
               
-              {/* Left Circular Green Numeric Counter Badge */}
+              /* Left Circular Green Numeric Counter Badge */
               <motion.div 
                 whileHover={{ scale: 1.1 }}
                 className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#43A047] to-[#388E3C] flex items-center justify-center text-white font-bold shrink-0 shadow-lg shadow-green-500/25 group-hover:shadow-green-500/40 transition-shadow"
               >
-                <step.icon className="w-6 h-6" />
+                <FontAwesomeIcon icon={step.icon} className="text-lg" />
               </motion.div>
 
               {/* Right Content Context Blocks */}
@@ -183,7 +188,7 @@ const HowItWorks = () => {
 
               {/* Right Arrow Indicator */}
               <div className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-gray-50 text-gray-300 group-hover:bg-[#43A047] group-hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0">
-                <ChevronRight className="w-5 h-5" />
+                <FontAwesomeIcon icon={faChevronRight} className="text-xs" />
               </div>
 
             </motion.div>

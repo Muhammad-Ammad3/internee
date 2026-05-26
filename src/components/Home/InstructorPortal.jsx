@@ -210,53 +210,52 @@
 // export default InstructorPortal;
 
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Upload, 
-  Wallet, 
-  UserCheck, 
-  ShieldCheck, 
-  Globe, 
-  TrendingUp, 
-  ArrowRight, 
-  Sparkles,
-  CheckCircle2,
-  BookOpen,
-  DollarSign,
-  Star,
-  Users,
-  ChevronRight
-} from "lucide-react";
+  faUpload, 
+  faUserCheck, 
+  faShieldHalved, 
+  faBookOpen, 
+  faHandSparkles,
+  faDollarSign,
+  faChevronRight
+} from "@fortawesome/free-solid-svg-icons";
 
 const InstructorPortal = () => {
-  // Bottom ke 4 main feature cards ka data
+  // Bottom ke 4 main feature cards ka data (Font Awesome Icons reference ke sath)
   const featureCards = [
     {
       id: 1,
-      icon: Upload,
+      icon: faUpload,
       title: "Upload Tutorials & Exercises",
       desc: "Use internee.pk to share tutorials, exercises, and projects. Help others learn while you grow with virtual internships that reward your skills.",
       color: "from-blue-500 to-blue-600"
     },
     {
       id: 2,
-      icon: DollarSign,
+      icon: faDollarSign,
       title: "Earn from Your Expertise",
       desc: "Internee.pk offers virtual internships in Pakistan where tech creators and instructors can earn passive income by sharing their knowledge.",
       color: "from-green-500 to-green-600"
     },
     {
       id: 3,
-      icon: UserCheck,
+      icon: faUserCheck,
       title: "Build Your Instructor Profile",
       desc: "Become a trusted voice on internee.pk. Our virtual internship ecosystem helps you build your personal brand in the online learning space.",
       color: "from-purple-500 to-purple-600"
     },
     {
       id: 4,
-      icon: ShieldCheck,
+      icon: faShieldHalved,
       title: "Fair Revenue Sharing",
       desc: "We keep it transparent. Join internee.pk and benefit from a fair model that pays you well — all while gaining experience in virtual internships.",
       color: "from-orange-500 to-orange-600"
@@ -310,7 +309,7 @@ const InstructorPortal = () => {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5"
             >
-              <BookOpen className="w-4 h-4 text-[#43A047]" />
+              <FontAwesomeIcon icon={faBookOpen} className="text-xs text-[#43A047]" />
               <span className="font-bold tracking-wider uppercase text-xs text-[#43A047]">Instructor Portal</span>
             </motion.div>
             
@@ -332,7 +331,7 @@ const InstructorPortal = () => {
             >
               <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group">
                 <span>Start Teaching Today</span>
-                <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                <FontAwesomeIcon icon={faHandSparkles} className="text-sm group-hover:rotate-12 transition-transform" />
               </button>
             </motion.div>
           </motion.div>
@@ -380,7 +379,7 @@ const InstructorPortal = () => {
               <div className="space-y-5">
                 {/* Icon Wrapper with gradient background */}
                 <div className={`w-14 h-14 bg-gradient-to-br ${card.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <card.icon className="w-7 h-7 text-white" />
+                  <FontAwesomeIcon icon={card.icon} className="text-xl text-white" />
                 </div>
 
                 <div className="space-y-3">
@@ -396,7 +395,7 @@ const InstructorPortal = () => {
               {/* Learn More Active Link Arrow trigger */}
               <div className="flex items-center gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0">
                 <span className="text-sm font-bold text-[#43A047]">Learn more</span>
-                <ChevronRight className="w-4 h-4 text-[#43A047]" />
+                <FontAwesomeIcon icon={faChevronRight} className="text-xs text-[#43A047]" />
               </div>
             </motion.div>
           ))}

@@ -143,28 +143,31 @@
 // export default GraduateProgramHero;
 
 
-
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  GraduationCap, 
-  Sparkles, 
-  ArrowRight, 
-  Clock, 
-  FolderKanban, 
-  Users, 
-  Briefcase, 
-  CheckCircle2,
-  TrendingUp,
-  Play
-} from "lucide-react";
+  faGraduationCap, 
+  faWandMagicSparkles, 
+  faArrowRight, 
+  faClock, 
+  faFolderOpen, // FolderKanban ki jagah clean look ke liye
+  faUsers, 
+  faBriefcase, 
+  faCheckCircle,
+  faChartLine
+} from "@fortawesome/free-solid-svg-icons";
 
 const GraduateProgramHero = () => {
-  // Mini metrics dataset
+  // Mini metrics dataset (Icons ko Font Awesome se replace kiya)
   const miniMetrics = [
-    { value: "20+", label: "Tracks", icon: FolderKanban },
-    { value: "80+", label: "Projects", icon: TrendingUp },
-    { value: "35+", label: "Mentors", icon: Users }
+    { value: "20+", label: "Tracks", icon: faFolderOpen },
+    { value: "80+", label: "Projects", icon: faChartLine },
+    { value: "35+", label: "Mentors", icon: faUsers }
   ];
 
   // Animation variants
@@ -202,7 +205,7 @@ const GraduateProgramHero = () => {
         >
           {/* Micro Graduate Program Capsule Tag */}
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
-            <GraduationCap className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faGraduationCap} className="w-4 h-4 text-[#43A047]" />
             <span className="text-[#43A047] text-xs font-bold uppercase tracking-widest">
               Graduate Programs
             </span>
@@ -229,7 +232,7 @@ const GraduateProgramHero = () => {
               className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group"
             >
               <span>Browse Programs</span>
-              <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+              <FontAwesomeIcon icon={faWandMagicSparkles} className="w-4 h-4 group-hover:rotate-12 transition-transform" />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
@@ -237,7 +240,7 @@ const GraduateProgramHero = () => {
               className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-3.5 rounded-full text-sm font-bold hover:border-gray-300 hover:shadow-lg transition-all"
             >
               <span>Get Started</span>
-              <ArrowRight className="w-4 h-4" />
+              <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
             </motion.button>
           </motion.div>
         </motion.div>
@@ -260,7 +263,7 @@ const GraduateProgramHero = () => {
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
-                  <GraduationCap className="w-6 h-6 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faGraduationCap} className="w-6 h-6 text-[#43A047] text-lg" />
                 </div>
                 <div>
                   <span className="text-xs font-medium text-gray-400 tracking-wider uppercase block">
@@ -274,7 +277,7 @@ const GraduateProgramHero = () => {
               
               {/* Duration badge */}
               <span className="bg-gray-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                <Clock className="w-3 h-3" />
+                <FontAwesomeIcon icon={faClock} className="w-3 h-3" />
                 12 Weeks
               </span>
             </div>
@@ -287,7 +290,7 @@ const GraduateProgramHero = () => {
                   whileHover={{ scale: 1.03 }}
                   className="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center space-y-2 hover:border-green-200 hover:bg-green-50/30 transition-all cursor-pointer"
                 >
-                  <metric.icon className="w-5 h-5 mx-auto text-gray-400" />
+                  <FontAwesomeIcon icon={metric.icon} className="w-5 h-5 mx-auto text-gray-400" />
                   <div className="text-lg font-black text-gray-900 tracking-tight">
                     {metric.value}
                   </div>
@@ -332,7 +335,7 @@ const GraduateProgramHero = () => {
                 whileHover={{ scale: 1.02 }}
                 className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 flex items-center gap-3 cursor-pointer hover:border-neutral-700 transition-all"
               >
-                <Briefcase className="w-5 h-5 text-neutral-400" />
+                <FontAwesomeIcon icon={faBriefcase} className="text-neutral-400 w-4 h-4" />
                 <span className="text-neutral-300 text-sm font-bold tracking-tight">
                   Real-World Work
                 </span>
@@ -341,7 +344,7 @@ const GraduateProgramHero = () => {
                 whileHover={{ scale: 1.02 }}
                 className="bg-neutral-900 border border-neutral-800 rounded-xl p-4 flex items-center gap-3 cursor-pointer hover:border-neutral-700 transition-all"
               >
-                <CheckCircle2 className="w-5 h-5 text-[#43A047]" />
+                <FontAwesomeIcon icon={faCheckCircle} className="text-[#43A047] w-4 h-4" />
                 <span className="text-neutral-300 text-sm font-bold tracking-tight">
                   Verified Skills
                 </span>

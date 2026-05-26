@@ -140,25 +140,29 @@
 
 // export default InternshipGrid;
 
-
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Palette, 
-  MessageSquareCode, 
-  Code2, 
-  Smartphone, 
-  Server, 
-  Rocket,
-  ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  Zap
-} from "lucide-react";
+  faPalette, 
+  faCommentDots, 
+  faCode, 
+  faMobileScreenButton, 
+  faServer, 
+  faRocket,
+  faArrowRight,
+  faWandMagicSparkles,
+  faCircleCheck
+} from "@fortawesome/free-solid-svg-icons";
 
 const InternshipGrid = () => {
-  // Complete tracks dataset array containing accurate values
+  // Complete tracks dataset array containing accurate values (Font Awesome references ke sath)
   const tracks = [
     {
       id: 1,
@@ -166,7 +170,7 @@ const InternshipGrid = () => {
       desc: "Master UI/UX, branding, and visual communication",
       bgText: "LEARN DESIGN THAT STANDS OUT",
       subTag: "BUILD REAL CREATIVE SKILLS",
-      icon: Palette,
+      icon: faPalette,
       color: "from-pink-500/20 to-transparent"
     },
     {
@@ -175,7 +179,7 @@ const InternshipGrid = () => {
       desc: "Build AI-powered conversational experiences",
       bgText: "SMART AI BOTS THAT CONVERSE",
       subTag: "HANDS-ON AI EXPERIENCE",
-      icon: MessageSquareCode,
+      icon: faCommentDots,
       color: "from-purple-500/20 to-transparent"
     },
     {
@@ -184,7 +188,7 @@ const InternshipGrid = () => {
       desc: "Create stunning, responsive web interfaces",
       bgText: "BUILD REAL APPS FROM SCRATCH",
       subTag: "REAL-WORLD APP PROJECTS",
-      icon: Code2,
+      icon: faCode,
       color: "from-cyan-500/20 to-transparent"
     },
     {
@@ -193,7 +197,7 @@ const InternshipGrid = () => {
       desc: "Design and develop mobile applications",
       bgText: "BUILD REAL APPS FROM SCRATCH",
       subTag: "REAL-WORLD APP PROJECTS",
-      icon: Smartphone,
+      icon: faMobileScreenButton,
       color: "from-indigo-500/20 to-transparent"
     },
     {
@@ -202,7 +206,7 @@ const InternshipGrid = () => {
       desc: "Build scalable APIs and server infrastructure",
       bgText: "LEARN THE TECH BEHIND BIG APPS",
       subTag: "REAL-WORLD BACKEND EXPERIENCE",
-      icon: Server,
+      icon: faServer,
       color: "from-orange-500/20 to-transparent"
     },
     {
@@ -211,7 +215,7 @@ const InternshipGrid = () => {
       desc: "Explore diverse tech career opportunities",
       bgText: "SKILLS THAT LAST FOR EVERY ROLE",
       subTag: "TRY SOMETHING NEW GROW WITH TECH",
-      icon: Rocket,
+      icon: faRocket,
       color: "from-emerald-500/20 to-transparent"
     }
   ];
@@ -248,7 +252,7 @@ const InternshipGrid = () => {
           className="text-center space-y-5 max-w-xl mx-auto"
         >
           <motion.div variants={headerVariants} className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
-            <Sparkles className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faWandMagicSparkles} className="text-xs text-[#43A047]" />
             <span className="text-xs font-bold uppercase tracking-wider text-gray-600">
               Explore Now
             </span>
@@ -293,7 +297,7 @@ const InternshipGrid = () => {
                 {/* Branding Small Minimal Watermark Logomark Row */}
                 <div className="w-full flex justify-end relative z-10">
                   <div className="flex items-center gap-1 text-[10px] text-white/40 font-bold tracking-wider">
-                    <CheckCircle2 className="w-3 h-3 text-[#43A047]" />
+                    <FontAwesomeIcon icon={faCircleCheck} className="text-[10px] text-[#43A047]" />
                     Internee<span className="text-[#43A047]">.pk</span>
                   </div>
                 </div>
@@ -312,7 +316,7 @@ const InternshipGrid = () => {
                 <motion.div 
                   className="absolute right-4 bottom-4 w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
                 >
-                  <track.icon className="w-7 h-7 text-white" />
+                  <FontAwesomeIcon icon={track.icon} className="text-xl text-white" />
                 </motion.div>
 
                 {/* Sleek Bottom Wave Geometry */}
@@ -337,7 +341,7 @@ const InternshipGrid = () => {
                   className="w-full bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white text-sm font-bold py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 flex items-center justify-center gap-2 group"
                 >
                   <span>Apply Now</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <FontAwesomeIcon icon={faArrowRight} className="text-xs group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </div>
 

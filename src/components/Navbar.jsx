@@ -253,12 +253,24 @@
 // export default Navbar;
 
 
-
-
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Briefcase, ArrowUpRight, Menu, X, User } from "lucide-react";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
+import { 
+  faChevronDown, 
+  faBriefcase, 
+  faArrowUpRightFromSquare, 
+  faBars, 
+  faXmark, 
+  faUser,
+  faBookOpenReader,
+  faChalkboardUser
+} from "@fortawesome/free-solid-svg-icons";
 
 // Logo Component with premium styling
 const Logo = () => (
@@ -292,15 +304,13 @@ const ResourcesDropdown = () => (
     transition={{ duration: 0.2, ease: "easeOut" }}
     className="absolute top-[calc(100%+12px)] right-0 md:left-1/2 md:-translate-x-1/2 bg-white/95 backdrop-blur-xl p-2 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100 z-50 w-[280px]"
   >
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 text-left">
       <Link
         to="/blog"
         className="flex items-center gap-3 group p-3 rounded-xl hover:bg-gray-50 transition-all duration-200"
       >
-        <div className="p-2.5 bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl text-[#43A047] group-hover:scale-110 transition-transform">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
+        <div className="w-10 h-10 bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl text-[#43A047] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+          <FontAwesomeIcon icon={faBookOpenReader} className="text-sm" />
         </div>
         <div className="flex-1">
           <p className="text-gray-900 font-bold text-sm">Blog</p>
@@ -314,10 +324,8 @@ const ResourcesDropdown = () => (
         to="/webinars"
         className="flex items-center gap-3 group p-3 rounded-xl hover:bg-gray-50 transition-all duration-200"
       >
-        <div className="p-2.5 bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl text-[#43A047] group-hover:scale-110 transition-transform">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-          </svg>
+        <div className="w-10 h-10 bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl text-[#43A047] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+          <FontAwesomeIcon icon={faChalkboardUser} className="text-sm" />
         </div>
         <div className="flex-1">
           <p className="text-gray-900 font-bold text-sm">Webinars</p>
@@ -339,7 +347,7 @@ const Navbar = () => {
 
   const navLinks = [
     { path: "/", label: "Home" },
-    { path: "/internships", label: "Internship" },
+    { path: "/internships", label: "Intership" },
     { path: "/graduate-program", label: "Graduate Program" },
     { path: "/studentambassadors", label: "Student Ambassador" },
     { path: "/startupjourney", label: "Startup Journey" },
@@ -386,8 +394,9 @@ const Navbar = () => {
               <motion.div
                 animate={{ rotate: showResources ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
+                className="flex items-center justify-center"
               >
-                <ChevronDown className="w-4 h-4" />
+                <FontAwesomeIcon icon={faChevronDown} className="text-xs" />
               </motion.div>
             </button>
 
@@ -404,9 +413,9 @@ const Navbar = () => {
             whileTap={{ scale: 0.98 }}
             className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all"
           >
-            <Briefcase className="w-3.5 h-3.5" />
+            <FontAwesomeIcon icon={faBriefcase} className="text-xs" />
             <span>Job Portal</span>
-            <ArrowUpRight className="w-3 h-3" />
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[10px]" />
           </motion.button>
 
           <motion.button
@@ -414,20 +423,20 @@ const Navbar = () => {
             whileTap={{ scale: 0.98 }}
             className="flex items-center gap-2 border border-gray-200 bg-white text-gray-700 px-4 py-2.5 rounded-full text-xs font-bold hover:border-gray-300 hover:shadow-md transition-all"
           >
-            <User className="w-3.5 h-3.5" />
+            <FontAwesomeIcon icon={faUser} className="text-xs" />
             <span className="hidden sm:inline">Sign In</span>
           </motion.button>
 
           {/* Mobile Menu Toggle */}
           <motion.button
             whileTap={{ scale: 0.9 }}
-            className="lg:hidden p-2.5 text-gray-600 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+            className="lg:hidden w-10 h-10 flex items-center justify-center text-gray-600 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className="w-5 h-5" />
+              <FontAwesomeIcon icon={faXmark} className="text-base" />
             ) : (
-              <Menu className="w-5 h-5" />
+              <FontAwesomeIcon icon={faBars} className="text-base" />
             )}
           </motion.button>
         </div>
@@ -441,7 +450,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl overflow-hidden"
+            className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl overflow-hidden text-left"
           >
             <div className="px-6 py-4 flex flex-col gap-2">
               {navLinks.map((link, index) => (
@@ -501,7 +510,7 @@ const Navbar = () => {
                 transition={{ delay: (navLinks.length + 2) * 0.05 }}
                 className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-5 py-3 rounded-xl text-sm font-bold shadow-lg"
               >
-                <Briefcase className="w-4 h-4" />
+                <FontAwesomeIcon icon={faBriefcase} className="text-sm" />
                 <span>Job Portal</span>
               </motion.button>
             </div>

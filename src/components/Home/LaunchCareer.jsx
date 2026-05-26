@@ -171,29 +171,31 @@
 // export default LaunchCareer;
 
 
+"use client";
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid aur Brand Icons Imports
 import { 
-  Users, 
-  Star, 
-  TrendingUp, 
-  ArrowRight, 
-  Briefcase, 
-  Search,
-  Award,
-  GraduationCap,
-  Linkedin,
-  ChevronRight,
-  Sparkles,
-  Play
-} from "lucide-react";
+  faUsers, 
+  faStar, 
+  faArrowRight, 
+  faBriefcase, 
+  faMagnifyingGlass,
+  faGraduationCap,
+  faHandSparkles
+} from "@fortawesome/free-solid-svg-icons";
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 const LaunchCareer = () => {
   // Testimonials Slider State Controller
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Dynamic user objects data bank matching the reference UI perfectly
+  // Dynamic user objects data bank
   const testimonials = [
     {
       name: "Mohammad Rafiq",
@@ -215,11 +217,11 @@ const LaunchCareer = () => {
     }
   ];
 
-  // Metrics data
+  // Metrics data (Font Awesome references ke sath)
   const metrics = [
-    { value: "20+", label: "Expert-Led Internships", icon: Briefcase },
-    { value: "1,500+", label: "Successful Graduates", icon: GraduationCap },
-    { value: "120k+", label: "LinkedIn Followers", icon: Linkedin }
+    { value: "20+", label: "Expert-Led Internships", icon: faBriefcase },
+    { value: "1,500+", label: "Successful Graduates", icon: faGraduationCap },
+    { value: "120k+", label: "LinkedIn Followers", icon: faLinkedinIn }
   ];
 
   // Animation variants
@@ -234,11 +236,6 @@ const LaunchCareer = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
-  };
-
-  const slideVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } }
   };
 
   return (
@@ -262,7 +259,7 @@ const LaunchCareer = () => {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5"
             >
-              <Users className="w-4 h-4 text-[#43A047]" />
+              <FontAwesomeIcon icon={faUsers} className="text-xs text-[#43A047]" />
               <span className="text-xs font-bold tracking-wider text-gray-600">Trusted By Thousands</span>
             </motion.div>
             
@@ -281,7 +278,7 @@ const LaunchCareer = () => {
             >
               <button className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-6 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all">
                 <span>Join Our Community</span>
-                <ArrowRight className="w-4 h-4" />
+                <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
               </button>
             </motion.div>
           </motion.div>
@@ -321,7 +318,7 @@ const LaunchCareer = () => {
 
                   <div className="flex items-center gap-0.5 pt-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-[#43A047] fill-[#43A047]" />
+                      <FontAwesomeIcon key={i} icon={faStar} className="text-xs text-[#43A047]" />
                     ))}
                   </div>
                 </motion.div>
@@ -396,14 +393,14 @@ const LaunchCareer = () => {
                   className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-6 py-3.5 rounded-xl text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all"
                 >
                   <span>Get Started Now</span>
-                  <Sparkles className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faHandSparkles} className="text-xs" />
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   className="flex items-center gap-2 bg-transparent text-white border border-gray-700 px-5 py-3.5 rounded-xl text-sm font-bold hover:bg-white/5 hover:border-gray-600 transition-all"
                 >
-                  <Search className="w-4 h-4" />
+                  <FontAwesomeIcon icon={faMagnifyingGlass} className="text-xs" />
                   <span>Explore Internships</span>
                 </motion.button>
               </div>
@@ -437,7 +434,7 @@ const LaunchCareer = () => {
               className="space-y-3 sm:border-r sm:border-gray-100 last:border-0 py-4"
             >
               <div className="w-12 h-12 mx-auto bg-green-50 rounded-xl flex items-center justify-center mb-3">
-                <metric.icon className="w-6 h-6 text-[#43A047]" />
+                <FontAwesomeIcon icon={metric.icon} className="text-lg text-[#43A047]" />
               </div>
               <h4 className="text-4xl lg:text-5xl font-black text-gray-900 tracking-tight">
                 {metric.value}

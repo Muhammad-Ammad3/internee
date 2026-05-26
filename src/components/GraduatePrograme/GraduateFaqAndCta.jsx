@@ -198,7 +198,6 @@
 
 // export default GraduateFaqAndCta;
 
-
 "use client";
 
 import React, { useState } from "react";
@@ -206,7 +205,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Zap, ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 
 export default function GraduateFaqAndCta() {
-  const [expandedIndex, setExpandedIndex] = useState<number>(0);
+  // TypeScript ka <number> type remove kar diya hai
+  const [expandedIndex, setExpandedIndex] = useState(0);
 
   const faqs = [
     { 
@@ -235,7 +235,8 @@ export default function GraduateFaqAndCta() {
     }
   ];
 
-  const toggleFaq = (index: number) => {
+  // Argument se type (: number) remove kar diya hai
+  const toggleFaq = (index) => {
     setExpandedIndex(expandedIndex === index ? -1 : index);
   };
 

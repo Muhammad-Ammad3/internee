@@ -195,117 +195,123 @@
 //   );
 // }
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Target, 
-  Globe, 
-  Clock, 
-  Zap, 
-  Gift,
-  Users,
-  Video,
-  MessageSquare,
-  BarChart3,
-  GraduationCap,
-  Megaphone,
-  Calendar,
-  Award,
-  PenTool,
-  ArrowRight,
-  Star,
-  CheckCircle2,
-  Mail,
-  Share2,
-  HeadphonesIcon
-} from "lucide-react";
+  faCrosshairs, 
+  faGlobe, 
+  faClock, 
+  faBolt, 
+  faGift,
+  faUsers,
+  faVideo,
+  faCommentAlt,
+  faChartBar,
+  faGraduationCap,
+  faBullhorn,
+  faCalendarAlt,
+  faAward,
+  faPenNib,
+  faArrowRight,
+  faStar,
+  faCheckCircle,
+  faEnvelope,
+  faShareAlt,
+  faHeadphones
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function AmbassadorResponsibilities() {
-  // Campus tasks data
+  // Campus tasks data with Font Awesome icons
   const campusTasks = [
     {
       num: 1,
       title: "Organize Events",
       desc: "Host 2-3 events monthly - workshops, hackathons, talks, networking sessions",
-      icon: Megaphone
+      icon: faBullhorn
     },
     {
       num: 2,
       title: "Recruit Students",
       desc: "Connect with students and share Internee.pk opportunities and programs",
-      icon: Users
+      icon: faUsers
     },
     {
       num: 3,
       title: "Share Updates",
       desc: "Keep campus informed about new programs and success stories",
-      icon: Share2
+      icon: faShareAlt
     },
     {
       num: 4,
       title: "Mentor Peers",
       desc: "Guide new students through programs and opportunity selection",
-      icon: GraduationCap
+      icon: faGraduationCap
     },
     {
       num: 5,
       title: "Brand Representation",
       desc: "Represent Internee.pk at college events and competitions",
-      icon: Award
+      icon: faAward
     },
   ];
 
-  // Online tasks data
+  // Online tasks data with Font Awesome icons
   const onlineTasks = [
     {
       num: 1,
       title: "Content Creation",
       desc: "Share engaging posts, stories, and testimonials on social media",
-      icon: PenTool
+      icon: faPenNib
     },
     {
       num: 2,
       title: "Community Engagement",
       desc: "Answer questions on forums and support ambassador community",
-      icon: MessageSquare
+      icon: faCommentAlt
     },
     {
       num: 3,
       title: "Track Metrics",
       desc: "Report event attendance, engagement, and outcomes monthly",
-      icon: BarChart3
+      icon: faChartBar
     },
     {
       num: 4,
       title: "Attend Training",
       desc: "Participate in monthly ambassador training and webinars",
-      icon: Video
+      icon: faVideo
     },
     {
       num: 5,
       title: "Provide Feedback",
       desc: "Share insights and suggestions to help improve our programs",
-      icon: HeadphonesIcon
+      icon: faHeadphones
     },
   ];
 
-  // Bottom metadata bars data
+  // Bottom metadata bars data with Font Awesome icons
   const metadata = [
     { 
-      icon: Clock, 
+      icon: faClock, 
       title: "Time Required", 
       desc: "8-10 hours per week (flexible)",
       color: "green"
     },
     { 
-      icon: Calendar, 
+      icon: faCalendarAlt, 
       title: "Commitment", 
       desc: "6-12 months (negotiable)",
       color: "blue"
     },
     { 
-      icon: Gift, 
+      icon: faGift, 
       title: "Compensation", 
       desc: "Monthly stipend + performance bonus",
       color: "green"
@@ -343,7 +349,7 @@ export default function AmbassadorResponsibilities() {
         className="text-center space-y-5 mb-8"
       >
         <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-green-50 border border-green-100 rounded-full px-4 py-1.5">
-          <Star className="w-4 h-4 text-[#43A047]" />
+          <FontAwesomeIcon icon={faStar} className="text-xs text-[#43A047]" />
           <span className="text-xs font-bold text-[#43A047] uppercase tracking-wider">Your Role</span>
         </motion.div>
         
@@ -375,8 +381,8 @@ export default function AmbassadorResponsibilities() {
         >
           {/* Header area */}
           <motion.div variants={itemVariants} className="flex items-center gap-4">
-            <div className="p-3 bg-gradient-to-br from-[#43A047] to-[#388E3C] text-white rounded-2xl">
-              <Target className="w-6 h-6" />
+            <div className="p-3 bg-gradient-to-br from-[#43A047] to-[#388E3C] text-white rounded-2xl w-12 h-12 flex items-center justify-center">
+              <FontAwesomeIcon icon={faCrosshairs} className="text-xl" />
             </div>
             <div>
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900">On Campus</h3>
@@ -396,7 +402,7 @@ export default function AmbassadorResponsibilities() {
                 className="bg-gray-50/50 rounded-xl p-4 flex items-start gap-4 border border-gray-100 hover:border-green-200 hover:bg-green-50/30 transition-all duration-300 group cursor-pointer"
               >
                 <span className="w-7 h-7 rounded-full bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white flex items-center justify-center text-xs font-bold shrink-0">
-                  <task.icon className="w-3.5 h-3.5" />
+                  <FontAwesomeIcon icon={task.icon} className="text-[10px]" />
                 </span>
                 <div className="space-y-1">
                   <h4 className="font-bold text-gray-900 text-sm group-hover:text-[#43A047] transition-colors">
@@ -419,8 +425,8 @@ export default function AmbassadorResponsibilities() {
         >
           {/* Header area */}
           <motion.div variants={itemVariants} className="flex items-center gap-4">
-            <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl">
-              <Globe className="w-6 h-6" />
+            <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-2xl w-12 h-12 flex items-center justify-center">
+              <FontAwesomeIcon icon={faGlobe} className="text-xl" />
             </div>
             <div>
               <h3 className="text-xl lg:text-2xl font-bold text-gray-900">Online</h3>
@@ -440,7 +446,7 @@ export default function AmbassadorResponsibilities() {
                 className="bg-gray-50/50 rounded-xl p-4 flex items-start gap-4 border border-gray-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-300 group cursor-pointer"
               >
                 <span className="w-7 h-7 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 text-white flex items-center justify-center text-xs font-bold shrink-0">
-                  <task.icon className="w-3.5 h-3.5" />
+                  <FontAwesomeIcon icon={task.icon} className="text-[10px]" />
                 </span>
                 <div className="space-y-1">
                   <h4 className="font-bold text-gray-900 text-sm group-hover:text-blue-600 transition-colors">
@@ -471,12 +477,12 @@ export default function AmbassadorResponsibilities() {
             whileHover={{ scale: 1.02 }}
             className="p-6 flex items-center gap-4 md:justify-center hover:bg-gray-50/50 transition-colors cursor-pointer"
           >
-            <div className={`p-2.5 rounded-xl ${
+            <div className={`p-2.5 rounded-xl w-10 h-10 flex items-center justify-center shrink-0 ${
               item.color === "green" 
                 ? "bg-green-100 text-[#43A047]" 
                 : "bg-blue-100 text-blue-600"
             }`}>
-              <item.icon className="w-5 h-5" />
+              <FontAwesomeIcon icon={item.icon} className="text-base" />
             </div>
             <div>
               <h5 className="font-bold text-gray-900 text-sm">{item.title}</h5>

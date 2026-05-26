@@ -183,59 +183,72 @@
 // export default CareerLaunchpad;
 
 
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Target, Users, Award, Briefcase, Building2, 
-  GraduationCap, TrendingUp, FileText, MessageSquare, 
-  BarChart3, BookOpen, CheckCircle2 
-} from "lucide-react";
+  faBriefcase, 
+  faBuilding, 
+  faGraduationCap, 
+  faChartLine, 
+  faBullseye, 
+  faUsers, 
+  faAward, 
+  faFileAlt, 
+  faCommentAlt, 
+  faBarChart, 
+  faBookOpen, 
+  faCheckCircle 
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function CareerLaunchpad() {
-  // 1. Four Counter Blocks Data
+  // 1. Four Counter Blocks Data (Icons updated to Font Awesome)
   const stats = [
-    { value: "1000+", label: "Active Internships", icon: Briefcase },
-    { value: "500+", label: "Partner Companies", icon: Building2 },
-    { value: "10,000+", label: "Success Stories", icon: GraduationCap },
-    { value: "50+", label: "Industry Sectors", icon: TrendingUp }
+    { value: "1000+", label: "Active Internships", icon: faBriefcase },
+    { value: "500+", label: "Partner Companies", icon: faBuilding },
+    { value: "10,000+", label: "Success Stories", icon: faGraduationCap },
+    { value: "50+", label: "Industry Sectors", icon: faChartLine }
   ];
 
-  // 2. Three Central Matrix Cards Data
+  // 2. Three Central Matrix Cards Data (Icons updated to Font Awesome)
   const featureCards = [
     { 
       id: 1, 
       title: "Targeted Learning", 
       desc: "Industry-specific virtual internships designed to build practical skills and experience.", 
-      icon: Target, 
+      icon: faBullseye, 
       features: ["Web Development", "Digital Marketing", "UI/UX Design"] 
     },
     { 
       id: 2, 
       title: "Mentorship Program", 
       desc: "Learn directly from industry experts with guided weekly sessions.", 
-      icon: Users, 
+      icon: faUsers, 
       features: ["One-on-One Guidance", "Project Reviews", "Career Planning"] 
     },
     { 
       id: 3, 
       title: "Certification Track", 
       desc: "Earn recognized certifications and build a portfolio that employers trust.", 
-      icon: Award, 
+      icon: faAward, 
       features: ["Skill Verification", "Performance Badges", "Digital Certificates"] 
     }
   ];
 
-  // 3. Career Resources Grid Data
+  // 3. Career Resources Grid Data (Icons updated to Font Awesome)
   const resources = [
-    { icon: FileText, label: "Resume Templates" },
-    { icon: MessageSquare, label: "Mock Interviews" },
-    { icon: BarChart3, label: "Skill Analysis" },
-    { icon: BookOpen, label: "Learning Paths" },
-    { icon: CheckCircle2, label: "Goal Tracking" },
-    { icon: Users, label: "Peer Feedback" }
+    { icon: faFileAlt, label: "Resume Templates" },
+    { icon: faCommentAlt, label: "Mock Interviews" },
+    { icon: faBarChart, label: "Skill Analysis" },
+    { icon: faBookOpen, label: "Learning Paths" },
+    { icon: faCheckCircle, label: "Goal Tracking" },
+    { icon: faUsers, label: "Peer Feedback" }
   ];
 
   // 4. Learning Journey Phases Data
@@ -279,7 +292,7 @@ export default function CareerLaunchpad() {
         >
           {/* Badge Pill */}
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 bg-[#E8F5E9] border border-[#43A047]/20 rounded-full px-4 py-1.5 mx-auto select-none">
-            <GraduationCap className="w-4 h-4 text-[#43A047]" />
+            <FontAwesomeIcon icon={faGraduationCap} className="text-xs text-[#43A047]" />
             <span className="font-bold tracking-wider uppercase text-[10px] sm:text-xs text-[#43A047]">
               Professional Development
             </span>
@@ -310,16 +323,15 @@ export default function CareerLaunchpad() {
           className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
         >
           {stats.map((stat, index) => {
-            const StatIcon = stat.icon;
             return (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -4 }}
-                className="bg-white border border-gray-100 p-6 lg:p-8 rounded-2xl text-center shadow-xs hover:shadow-lg hover:shadow-gray-100/60 transition-all duration-300 group"
+                className="bg-white border border-gray-100 p-6 lg:p-8 rounded-2xl text-center shadow-sm hover:shadow-lg hover:shadow-gray-100/60 transition-all duration-300 group"
               >
                 <div className="w-10 h-10 rounded-xl bg-gray-50 text-[#43A047] flex items-center justify-center mx-auto mb-4 group-hover:bg-[#E8F5E9] transition-colors">
-                  <StatIcon className="w-5 h-5 stroke-[2]" />
+                  <FontAwesomeIcon icon={stat.icon} className="text-sm" />
                 </div>
                 <span className="block text-2xl lg:text-3xl font-black text-gray-950 tracking-tight">
                   {stat.value}
@@ -343,7 +355,6 @@ export default function CareerLaunchpad() {
           className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
         >
           {featureCards.map((card) => {
-            const CardIcon = card.icon;
             return (
               <motion.div
                 key={card.id}
@@ -354,7 +365,7 @@ export default function CareerLaunchpad() {
                 <div className="space-y-4">
                   {/* Icon Wrapper */}
                   <div className="w-12 h-12 bg-[#E8F5E9] text-[#43A047] rounded-xl flex items-center justify-center border border-green-100/30 transition-transform group-hover:scale-105">
-                    <CardIcon className="w-5 h-5 stroke-[2]" />
+                    <FontAwesomeIcon icon={card.icon} className="text-base" />
                   </div>
                   
                   {/* Title and Desc */}
@@ -372,7 +383,7 @@ export default function CareerLaunchpad() {
                 <ul className="space-y-2.5 pt-4 border-t border-gray-50">
                   {card.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-gray-600">
-                      <CheckCircle2 className="w-4 h-4 text-[#43A047] shrink-0 stroke-[2.5]" />
+                      <FontAwesomeIcon icon={faCheckCircle} className="text-[#43A047] text-xs shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -432,15 +443,14 @@ export default function CareerLaunchpad() {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {resources.map((resource, index) => {
-                const ResourceIcon = resource.icon;
                 return (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.02, x: 2 }}
                     className="bg-[#F8FAFC]/80 border border-gray-100 p-3.5 rounded-xl flex items-center gap-3 hover:bg-[#E8F5E9]/50 hover:border-[#43A047]/20 transition-all cursor-pointer group"
                   >
-                    <div className="w-9 h-9 bg-white border border-gray-100 rounded-lg flex items-center justify-center group-hover:bg-white group-hover:text-[#43A047] transition-colors shadow-2xs shrink-0">
-                      <ResourceIcon className="w-4 h-4 text-[#43A047]" />
+                    <div className="w-9 h-9 bg-white border border-gray-100 rounded-lg flex items-center justify-center group-hover:bg-white group-hover:text-[#43A047] transition-colors shadow-sm shrink-0">
+                      <FontAwesomeIcon icon={resource.icon} className="text-xs text-[#43A047]" />
                     </div>
                     <span className="text-xs font-bold text-gray-700 group-hover:text-gray-900 transition-colors">
                       {resource.label}

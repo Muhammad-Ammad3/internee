@@ -103,30 +103,39 @@
 
 // export default GraduateTracks;
 
-
-
 "use client";
 
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, Stethoscope, Cpu, Code, Zap } from "lucide-react";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
+import { 
+  faArrowRight, 
+  faStethoscope, 
+  faMicrochip, // Cpu icon ki jagah standard microchip icon
+  faCode, 
+  faBolt 
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function GraduateTracks() {
-  // Dataset matching the categories grid
+  // Dataset matching the categories grid (Icons updated to Font Awesome)
   const tracks = [
     {
       id: 1,
       category: "Health Care",
       desc: "Step into the world where every second counts and lives are changed. Whether it's assisting in patient care, supporting medical research, or exploring health tech innovation our internships put you at the heart of the action.",
-      icon: Stethoscope,
+      icon: faStethoscope,
       gradient: "from-slate-300 to-slate-400"
     },
     {
       id: 2,
       category: "Engineering",
       desc: "Enter the realm where ideas turn into structures, circuits, and code. From building the future to solving real-world challenges, our engineering internships place you in the driver's seat of innovation.",
-      icon: Cpu,
+      icon: faMicrochip,
       gradient: "from-slate-400 to-slate-500",
       isFeatured: true
     },
@@ -134,7 +143,7 @@ export default function GraduateTracks() {
       id: 3,
       category: "Information Technology",
       desc: "Dive into the digital battlefield where code is power and innovation never sleeps. From software development to cybersecurity, data analytics to cloud computing our IT internships equip you to lead the tech revolution.",
-      icon: Code,
+      icon: faCode,
       isDigitalBg: true
     }
   ];
@@ -196,7 +205,10 @@ export default function GraduateTracks() {
               className="inline-flex items-center gap-2 text-[#43A047] hover:text-[#388E3C] text-xs sm:text-sm font-bold transition-colors group"
             >
               <span>View All Programs</span>
-              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" />
+              <FontAwesomeIcon 
+                icon={faArrowRight} 
+                className="text-xs transform group-hover:translate-x-1 transition-transform duration-200" 
+              />
             </Link>
           </motion.div>
         </motion.div>
@@ -212,8 +224,6 @@ export default function GraduateTracks() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
         >
           {tracks.map((track) => {
-            const IconComponent = track.icon;
-            
             return (
               <motion.div
                 key={track.id}
@@ -235,7 +245,7 @@ export default function GraduateTracks() {
                       <div className="relative z-10 grid grid-cols-3 gap-3 opacity-20">
                         {[...Array(9)].map((_, i) => (
                           <div key={i} className="w-7 h-7 border border-[#43A047] rounded flex items-center justify-center">
-                            <Zap className="w-3 h-3 text-[#43A047] fill-[#43A047]" />
+                            <FontAwesomeIcon icon={faBolt} className="text-[10px] text-[#43A047]" />
                           </div>
                         ))}
                       </div>
@@ -257,7 +267,7 @@ export default function GraduateTracks() {
                       ? "bg-[#43A047] text-white"
                       : "bg-white text-gray-800"
                   }`}>
-                    <IconComponent className="w-5 h-5 stroke-[2]" />
+                    <FontAwesomeIcon icon={track.icon} className="text-base" />
                   </div>
                 </div>
 
@@ -278,10 +288,10 @@ export default function GraduateTracks() {
                   <div className="pt-2 border-t border-gray-50 flex items-center transition-transform group-hover:translate-x-1 duration-200">
                     <Link
                       to={`/programs/${track.category.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="inline-flex items-center gap-1.5 text-[#43A047] text-xs sm:text-sm font-bold"
+                      className="inline-flex items-center gap-2 text-[#43A047] text-xs sm:text-sm font-bold"
                     >
                       <span>Learn more</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <FontAwesomeIcon icon={faArrowRight} className="text-[10px]" />
                     </Link>
                   </div>
                 </div>

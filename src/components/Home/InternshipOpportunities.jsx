@@ -143,31 +143,35 @@
 // export default InternshipOpportunities;
 
 
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
+
+// Font Awesome Core aur Component Imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Solid Icons Imports
 import { 
-  Palette, 
-  MessageSquareCode, 
-  Code2, 
-  Smartphone, 
-  Server, 
-  Rocket,
-  ArrowRight,
-  Sparkles,
-  CheckCircle2,
-  Zap
-} from "lucide-react";
+  faPalette, 
+  faRobot, 
+  faCode, 
+  faMobileScreenButton, 
+  faServer, 
+  faRocket,
+  faArrowRight, 
+  faCircleCheck 
+} from "@fortawesome/free-solid-svg-icons";
 
 const InternshipOpportunities = () => {
-  // Mock data matching the exact 6 layout category cards in your screenshots
+  // Mock data matching the exact 6 layout category cards (Font Awesome icons reference ke sath)
   const categories = [
     {
       title: "Graphic Design",
       desc: "Master UI/UX, branding, and visual communication",
       bannerText: "LEARN DESIGN THAT STANDS OUT",
       badge: "BUILD REAL CREATIVE SKILLS",
-      icon: Palette,
+      icon: faPalette,
       color: "from-pink-500 to-rose-500"
     },
     {
@@ -175,7 +179,7 @@ const InternshipOpportunities = () => {
       desc: "Build AI-powered conversational experiences",
       bannerText: "SMART AI BOTS THAT CONVERSE",
       badge: "HANDS-ON AI EXPERIENCE",
-      icon: MessageSquareCode,
+      icon: faRobot,
       color: "from-cyan-500 to-blue-500"
     },
     {
@@ -183,7 +187,7 @@ const InternshipOpportunities = () => {
       desc: "Create stunning, responsive web interfaces",
       bannerText: "BUILD REAL APPS FROM SCRATCH",
       badge: "REAL-WORLD APP PROJECTS",
-      icon: Code2,
+      icon: faCode,
       color: "from-violet-500 to-purple-500"
     },
     {
@@ -191,7 +195,7 @@ const InternshipOpportunities = () => {
       desc: "Design and develop mobile applications",
       bannerText: "BUILD REAL APPS FROM SCRATCH",
       badge: "REAL-WORLD APP PROJECTS",
-      icon: Smartphone,
+      icon: faMobileScreenButton,
       color: "from-emerald-500 to-green-500"
     },
     {
@@ -199,7 +203,7 @@ const InternshipOpportunities = () => {
       desc: "Build scalable APIs and server infrastructure",
       bannerText: "LEARN THE TECH BEHIND BIG APPS",
       badge: "REAL-WORLD BACKEND EXPERIENCE",
-      icon: Server,
+      icon: faServer,
       color: "from-orange-500 to-amber-500"
     },
     {
@@ -207,7 +211,7 @@ const InternshipOpportunities = () => {
       desc: "Explore diverse tech career opportunities",
       bannerText: "SKILLS THAT LAST FOR EVERY ROLE",
       badge: "TRY SOMETHING NEW GROW WITH TECH",
-      icon: Rocket,
+      icon: faRocket,
       color: "from-red-500 to-rose-500"
     }
   ];
@@ -262,7 +266,7 @@ const InternshipOpportunities = () => {
           </motion.p>
         </motion.div>
 
-        {/* ================= RESPONISVE 3-COLUMN CARDS GRID ================= */}
+        {/* ================= RESPONSIVE 3-COLUMN CARDS GRID ================= */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -286,7 +290,7 @@ const InternshipOpportunities = () => {
                 
                 {/* Simulated geometric layout branding accent */}
                 <div className="absolute top-4 right-4 text-xs font-bold text-neutral-500 tracking-tight flex items-center gap-1.5 opacity-80">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#43A047]" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xs text-[#43A047]" />
                   <span>internee.pk</span>
                 </div>
                 
@@ -301,9 +305,9 @@ const InternshipOpportunities = () => {
 
                 {/* Big Absolute Graphic Icon */}
                 <motion.div 
-                  className="absolute right-4 bottom-4 text-[64px] opacity-20 group-hover:scale-110 group-hover:opacity-35 transition-all duration-300 select-none"
+                  className="absolute right-4 bottom-4 text-5xl opacity-20 group-hover:scale-110 group-hover:opacity-35 transition-all duration-300 select-none text-white flex items-center justify-center w-16 h-16"
                 >
-                  <item.icon className="w-16 h-16" />
+                  <FontAwesomeIcon icon={item.icon} className="w-12 h-12" />
                 </motion.div>
                 
                 {/* Smooth Dark Radial Ambient Glow */}
@@ -328,7 +332,7 @@ const InternshipOpportunities = () => {
                   className="w-full bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white py-3.5 px-4 rounded-xl text-sm font-bold tracking-wide flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-200 group"
                 >
                   <span>Apply Now</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <FontAwesomeIcon icon={faArrowRight} className="text-xs group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </div>
 

@@ -137,21 +137,26 @@
 // export default Footer;
 
 
-
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { 
-  GraduationCap, 
-  Mail, 
-  Phone, 
-  Facebook, 
-  Twitter, 
-  Linkedin, 
-  Instagram, 
-  ArrowRight,
-  Send
-} from "lucide-react";
+  faGraduationCap, 
+  faEnvelope, 
+  faPhone, 
+  faArrowRight, 
+  faPaperPlane 
+} from "@fortawesome/free-solid-svg-icons";
+
+// Brand Icons (Social Media Icons)
+import { 
+  faFacebookF, 
+  faTwitter, 
+  faLinkedinIn, 
+  faInstagram 
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -166,11 +171,12 @@ const Footer = () => {
     }
   };
 
+  // Icons ko Font Awesome objects se replace kiya gaya hai
   const socialLinks = [
-    { icon: Facebook, label: "Facebook", href: "#facebook" },
-    { icon: Twitter, label: "Twitter", href: "#twitter" },
-    { icon: Linkedin, label: "LinkedIn", href: "#linkedin" },
-    { icon: Instagram, label: "Instagram", href: "#instagram" },
+    { icon: faFacebookF, label: "Facebook", href: "#facebook" },
+    { icon: faTwitter, label: "Twitter", href: "#twitter" },
+    { icon: faLinkedinIn, label: "LinkedIn", href: "#linkedin" },
+    { icon: faInstagram, label: "Instagram", href: "#instagram" },
   ];
 
   const companyLinks = [
@@ -232,8 +238,8 @@ const Footer = () => {
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#43A047] to-[#388E3C] rounded-full opacity-0 group-focus-within:opacity-30 transition-opacity duration-300" />
               <div className="relative bg-neutral-900/80 backdrop-blur-sm border border-neutral-800 p-1.5 rounded-full flex items-center">
-                <div className="flex items-center gap-2 pl-4 text-neutral-500">
-                  <Mail className="w-4 h-4" />
+                <div className="flex items-center gap-2.5 pl-4 text-neutral-500 w-full">
+                  <FontAwesomeIcon icon={faEnvelope} className="text-neutral-500" />
                   <input
                     type="email"
                     value={email}
@@ -248,26 +254,24 @@ const Footer = () => {
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={isSubscribed}
-                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold transition-all ${
+                  className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
                     isSubscribed
                       ? "bg-green-500 text-white"
                       : "bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
                   }`}
                 >
                   {isSubscribed ? (
-                    <>
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        className="text-xs font-black"
-                      >
-                        Subscribed!
-                      </motion.div>
-                    </>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="text-xs font-black"
+                    >
+                      Subscribed!
+                    </motion.div>
                   ) : (
                     <>
                       <span>Subscribe</span>
-                      <Send className="w-3 h-3" />
+                      <FontAwesomeIcon icon={faPaperPlane} className="text-[10px]" />
                     </>
                   )}
                 </motion.button>
@@ -283,7 +287,7 @@ const Footer = () => {
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#43A047] to-[#388E3C] rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20">
-                  <GraduationCap className="w-6 h-6 text-white" />
+                  <FontAwesomeIcon icon={faGraduationCap} className="text-white text-xl" />
                 </div>
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full shadow-sm" />
               </div>
@@ -303,8 +307,8 @@ const Footer = () => {
 
             {/* Contact Information */}
             <div className="flex items-center gap-3 text-sm font-medium text-neutral-300">
-              <div className="p-2 bg-green-500/10 rounded-lg">
-                <Phone className="w-4 h-4 text-[#43A047]" />
+              <div className="p-2 bg-green-500/10 rounded-lg flex items-center justify-center w-8 h-8">
+                <FontAwesomeIcon icon={faPhone} className="text-[#43A047]" />
               </div>
               <span>+92 312 3023645</span>
             </div>
@@ -320,7 +324,10 @@ const Footer = () => {
                   className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center hover:bg-[#43A047] hover:border-[#43A047] group transition-all duration-200"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-4 h-4 text-neutral-400 group-hover:text-white transition-colors" />
+                  <FontAwesomeIcon 
+                    icon={social.icon} 
+                    className="text-neutral-400 group-hover:text-white transition-colors text-sm" 
+                  />
                 </motion.a>
               ))}
             </div>
@@ -341,7 +348,10 @@ const Footer = () => {
                       className="group flex items-center gap-2 hover:text-white transition-colors"
                     >
                       <span>{link.label}</span>
-                      <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      <FontAwesomeIcon 
+                        icon={faArrowRight} 
+                        className="text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" 
+                      />
                     </a>
                   </li>
                 ))}
@@ -361,7 +371,10 @@ const Footer = () => {
                       className="group flex items-center gap-2 hover:text-white transition-colors"
                     >
                       <span>{link.label}</span>
-                      <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      <FontAwesomeIcon 
+                        icon={faArrowRight} 
+                        className="text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" 
+                      />
                     </a>
                   </li>
                 ))}
