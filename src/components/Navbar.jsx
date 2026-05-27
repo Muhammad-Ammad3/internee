@@ -1,315 +1,61 @@
-// import React, { useState } from "react";
-// // React Router links aur active state check karne ke liye hooks import kiye hain
-// import { Link, useLocation } from "react-router-dom";
-
-// // Internee.pk logo component
-// const Logo = () => (
-//   <Link to="/" className="flex items-center gap-1.5 cursor-pointer select-none">
-//     <div className="p-1.5 bg-black rounded-lg">
-//       <div className="w-4 h-4 rounded-full border-2 border-white flex items-center justify-center relative">
-//         <div className="absolute top-[-5px] right-[-5px] text-[8px] text-white font-sans">
-//           ^
-//         </div>
-//       </div>
-//     </div>
-//     <span className="text-[#3FB628] font-black text-xl tracking-tight">
-//       Internee
-//     </span>
-//     <span className="text-gray-900 font-black text-xl tracking-tight">.pk</span>
-//     <span className="text-[9px] text-gray-400 font-bold mt-2 block ml-1 tracking-wider uppercase">
-//       VIRTUAL INTERNSHIP PLATFORM
-//     </span>
-//   </Link>
-// );
-
-// // Dropdown item structure
-// const ResourcesDropdown = () => (
-//   <div className="absolute top-[calc(100%+10px)] right-0 md:left-[-50%] bg-white p-5 rounded-2xl shadow-[0_15px_50px_rgba(0,0,0,0.08)] border border-gray-100/80 z-50 w-[270px]">
-//     {/* Blog Item */}
-//     <Link
-//       to="/blog"
-//       className="flex items-start gap-3.5 group p-2 rounded-xl hover:bg-gray-50 transition"
-//     >
-//       <div className="p-2.5 bg-green-50 rounded-xl text-green-700 text-base group-hover:bg-green-100 transition-colors">
-//         📚
-//       </div>
-//       <div>
-//         <p className="text-gray-900 font-black text-sm tracking-tight">Blog</p>
-//         <p className="text-gray-400 text-[11px] font-semibold mt-0.5 leading-normal">
-//           Read our latest insights and articles
-//         </p>
-//       </div>
-//     </Link>
-
-//     {/* Webinars Item */}
-//     <Link
-//       to="/webinars"
-//       className="flex items-start gap-3.5 group p-2 rounded-xl hover:bg-gray-50 transition mt-3"
-//     >
-//       <div className="p-2.5 bg-green-50 rounded-xl text-green-700 text-base group-hover:bg-green-100 transition-colors">
-//         🎙️
-//       </div>
-//       <div>
-//         <p className="text-gray-900 font-black text-sm tracking-tight">
-//           Webinars
-//         </p>
-//         <p className="text-gray-400 text-[11px] font-semibold mt-0.5 leading-normal">
-//           Join expert-led sessions and masterclasses
-//         </p>
-//       </div>
-//     </Link>
-//   </div>
-// );
-
-// const Navbar = () => {
-//   const [showResources, setShowResources] = useState(false);
-//   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-//   // Current active route track karne ke liye location hook call kiya
-//   const location = useLocation();
-
-//   // Helper function: check karega ke kaunsa link active hai taake color styling upgrade ho ske
-//   const isActive = (path) => location.pathname === path;
-
-//   return (
-//     <nav className="w-full h-20 bg-white border-b border-gray-100 sticky top-0 z-50 font-sans select-none">
-//       <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 h-full flex items-center justify-between">
-//         {/* Left Side: Logo */}
-//         <div className="flex-shrink-0">
-//           <Logo />
-//         </div>
-
-//         {/* Center: Desktop Navigation Links with route parameters */}
-//         <div className="hidden lg:flex items-center gap-7 text-gray-700 text-sm font-semibold">
-//           <Link
-//             to="/"
-//             className={`transition-colors ${isActive("/") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
-//           >
-//             Home
-//           </Link>
-
-//           {/* INTERNSHIP ROUTE ADDED HERE */}
-//           <Link
-//             to="/internships"
-//             className={`transition-colors ${isActive("/internships") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
-//           >
-//             Internship
-//           </Link>
-
-//           <Link
-//             to="/graduate-program"
-//             className={`transition-colors ${isActive("/GraduatePrograme") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
-//           >
-//             Graduate Program
-//           </Link>
-
-//           <Link
-//             to="/studentambassadors"
-//             className={`transition-colors ${isActive("/StudentAmbassador") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
-//           >
-//             Student Ambassador
-//           </Link>
-
-//           <Link
-//             to="/startupjourney"
-//             className={`transition-colors ${isActive("/startupjourney") ? "text-[#3FB628] font-bold" : "text-gray-400 hover:text-gray-900"}`}
-//           >
-//             Startup Journey
-//           </Link>
-
-//           {/* Resources Dropdown Core */}
-//           <div
-//             className="relative group cursor-pointer py-2"
-//             onClick={() => setShowResources(!showResources)}
-//             onMouseLeave={() => setShowResources(false)}
-//           >
-//             <div
-//               className={`flex items-center gap-1 transition-colors ${
-//                 showResources || isActive("/blog") || isActive("/webinars")
-//                   ? "text-[#3FB628]"
-//                   : "text-gray-400 hover:text-gray-900"
-//               }`}
-//             >
-//               <span className="font-semibold text-[14px]">Resources</span>
-//               <svg
-//                 className={`w-3.5 h-3.5 transition-transform duration-200 ${showResources ? "rotate-180" : ""}`}
-//                 fill="none"
-//                 stroke="currentColor"
-//                 viewBox="0 0 24 24"
-//               >
-//                 <path
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                   strokeWidth="2.5"
-//                   d="M19 9l-7 7-7-7"
-//                 />
-//               </svg>
-//             </div>
-
-//             {/* Dropdown visibility handlers */}
-//             {showResources && (
-//               <div onMouseEnter={() => setShowResources(true)}>
-//                 <ResourcesDropdown />
-//               </div>
-//             )}
-//           </div>
-//         </div>
-
-//         {/* Right Side: Action Buttons */}
-//         <div className="flex items-center gap-3.5">
-//           {/* Job Portal Button */}
-//           <button className="bg-[#3FB628] text-white px-5 py-2.5 rounded-full text-xs font-black flex items-center gap-1.5 hover:bg-[#349e1e] transition-all shadow-md shadow-green-100 flex-shrink-0 active:scale-95">
-//             <span>Job Portal</span>
-//             <svg
-//               className="w-3.5 h-3.5"
-//               fill="none"
-//               stroke="currentColor"
-//               viewBox="0 0 24 24"
-//             >
-//               <path
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2.5"
-//                 d="M14 5l7 7m0 0l-7 7m7-7H3"
-//               />
-//             </svg>
-//           </button>
-
-//           {/* Sign In Button */}
-//           <button className="border border-gray-200 text-gray-800 px-5 py-2.5 rounded-full text-xs font-bold hover:bg-gray-50 transition-colors whitespace-nowrap flex-shrink-0 active:scale-95">
-//             Sign In
-//           </button>
-
-//           {/* Mobile Menu Icon Toggle */}
-//           <div
-//             className="lg:hidden p-2 text-gray-600 cursor-pointer active:bg-gray-50 rounded-lg transition"
-//             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-//           >
-//             <svg
-//               className="w-6 h-6"
-//               fill="none"
-//               stroke="currentColor"
-//               viewBox="0 0 24 24"
-//             >
-//               <path
-//                 strokeLinecap="round"
-//                 strokeLinejoin="round"
-//                 strokeWidth="2"
-//                 d={
-//                   mobileMenuOpen
-//                     ? "M6 18L18 6M6 6l12 12"
-//                     : "M4 6h16M4 12h16m-7 6h7"
-//                 }
-//               />
-//             </svg>
-//           </div>
-//         </div>
-//       </div>
-
-//       {/* ================= MOBILE EXPANDABLE DRAWER MENU ================= */}
-//       {mobileMenuOpen && (
-//         <div className="lg:hidden fixed top-20 left-0 w-full bg-white border-b border-gray-100 shadow-xl py-6 px-6 z-40 flex flex-col gap-4 animate-fadeIn">
-//           <Link
-//             to="/"
-//             onClick={() => setMobileMenuOpen(false)}
-//             className={`text-sm font-bold ${isActive("/") ? "text-[#3FB628]" : "text-gray-500"}`}
-//           >
-//             Home
-//           </Link>
-//           <Link
-//             to="/internships"
-//             onClick={() => setMobileMenuOpen(false)}
-//             className={`text-sm font-bold ${isActive("/internships") ? "text-[#3FB628]" : "text-gray-500"}`}
-//           >
-//             Internship
-//           </Link>
-//           <Link
-//             to="/graduate-program"
-//             onClick={() => setMobileMenuOpen(false)}
-//             className={`text-sm font-bold ${isActive("/graduate-program") ? "text-[#3FB628]" : "text-gray-500"}`}
-//           >
-//             Graduate Program
-//           </Link>
-//           <Link
-//             to="/student-ambassador"
-//             onClick={() => setMobileMenuOpen(false)}
-//             className={`text-sm font-bold ${isActive("/student-ambassador") ? "text-[#3FB628]" : "text-gray-500"}`}
-//           >
-//             Student Ambassador
-//           </Link>
-//           <Link
-//             to="/startup-journey"
-//             onClick={() => setMobileMenuOpen(false)}
-//             className={`text-sm font-bold ${isActive("/startup-journey") ? "text-[#3FB628]" : "text-gray-500"}`}
-//           >
-//             Startup Journey
-//           </Link>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Font Awesome Core aur Component Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logo from "../assets/logo.png";
 
-// Solid Icons Imports
-import { 
-  faChevronDown, 
-  faBriefcase, 
-  faArrowUpRightFromSquare, 
-  faBars, 
-  faXmark, 
+import {
+  faChevronDown,
+  faBriefcase,
+  faBars,
+  faXmark,
   faUser,
   faBookOpenReader,
-  faChalkboardUser
+  faChalkboardUser,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Logo Component with premium styling
 const Logo = () => (
-  <Link to="/" className="flex items-center gap-2 cursor-pointer select-none group">
+  <Link
+    to="/"
+    className="flex items-center gap-2 cursor-pointer select-none group"
+  >
     <div className="relative">
-      <div className="w-10 h-10 bg-gradient-to-br from-[#43A047] to-[#388E3C] rounded-xl flex items-center justify-center shadow-lg shadow-green-500/20 group-hover:scale-105 transition-transform duration-300">
-        <span className="text-white font-black text-lg">i</span>
+      <div className="w-16 h-16 bg-linear-to-br rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <img src={logo} alt="" className="w-48 h-16" />
       </div>
       <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full shadow-sm" />
     </div>
     <div className="flex flex-col">
       <div className="flex items-baseline gap-0.5">
-        <span className="text-[#43A047] font-black text-xl tracking-tight">
+        <span className="text-[#50d523] font-medium text-2xl tracking-tight">
           Internee
         </span>
-        <span className="text-gray-900 font-black text-xl tracking-tight">.pk</span>
+        <span className="text-gray-900 font-bold text-xl tracking-tight">
+          .pk
+        </span>
       </div>
-      <span className="text-[9px] text-gray-400 font-bold mt-0.5 tracking-widest uppercase">
+      <span className="text-[7px] text-purple-400 font-bold mt-0.5 tracking-widest uppercase">
         Virtual Internship Platform
       </span>
     </div>
   </Link>
 );
 
-// Dropdown Component with premium animations
 const ResourcesDropdown = () => (
   <motion.div
     initial={{ opacity: 0, y: 10, scale: 0.95 }}
     animate={{ opacity: 1, y: 0, scale: 1 }}
     exit={{ opacity: 0, y: 10, scale: 0.95 }}
     transition={{ duration: 0.2, ease: "easeOut" }}
-    className="absolute top-[calc(100%+12px)] right-0 md:left-1/2 md:-translate-x-1/2 bg-white/95 backdrop-blur-xl p-2 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100 z-50 w-[280px]"
+    className="absolute top-[calc(100%+12px)] right-0 md:left-1/2 md:-translate-x-1/2 bg-white/95 backdrop-blur-xl p-2 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100 z-50 w-70"
   >
     <div className="flex flex-col gap-1 text-left">
       <Link
         to="/blog"
         className="flex items-center gap-3 group p-3 rounded-xl hover:bg-gray-50 transition-all duration-200"
       >
-        <div className="w-10 h-10 bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl text-[#43A047] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+        <div className="w-10 h-10 bg-linear-to-br from-green-50 to-green-100/50 rounded-xl text-[#50d523] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
           <FontAwesomeIcon icon={faBookOpenReader} className="text-sm" />
         </div>
         <div className="flex-1">
@@ -324,7 +70,7 @@ const ResourcesDropdown = () => (
         to="/webinars"
         className="flex items-center gap-3 group p-3 rounded-xl hover:bg-gray-50 transition-all duration-200"
       >
-        <div className="w-10 h-10 bg-gradient-to-br from-green-50 to-green-100/50 rounded-xl text-[#43A047] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
+        <div className="w-10 h-10 bg-linear-to-br from-green-50 to-green-100/50 rounded-xl text-[#50d523] flex items-center justify-center group-hover:scale-110 transition-transform shrink-0">
           <FontAwesomeIcon icon={faChalkboardUser} className="text-sm" />
         </div>
         <div className="flex-1">
@@ -354,10 +100,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full h-20 bg-white/80 backdrop-blur-xl border-b border-gray-100/50 sticky top-0 z-50 font-sans select-none">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 h-full flex items-center justify-between">
+    <nav className="w-full h-20 bg-white backdrop-blur-xl border-b border-gray-100/50 sticky top-0 z-50 font-sans select-none">
+      <div className="max-w-7xl mx-auto px-6 lg:px-2 h-full flex items-center justify-between">
         {/* Left Side: Logo */}
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <Logo />
         </div>
 
@@ -369,8 +115,8 @@ const Navbar = () => {
               to={link.path}
               className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
                 isActive(link.path)
-                  ? "text-[#43A047] bg-green-50/50"
-                  : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+                  ? "text-[#50d523] bg-green-50/50"
+                  : "text-black hover:text-gray-900 hover:bg-gray-50"
               }`}
             >
               {link.label}
@@ -386,8 +132,8 @@ const Navbar = () => {
             <button
               className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
                 showResources || isActive("/blog") || isActive("/webinars")
-                  ? "text-[#43A047] bg-green-50/50"
-                  : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
+                  ? "text-[#50d523] bg-green-50/50"
+                  : "text-black hover:text-gray-900 hover:bg-gray-50"
               }`}
             >
               <span>Resources</span>
@@ -411,11 +157,9 @@ const Navbar = () => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all"
+            className="hidden sm:flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all"
           >
-            <FontAwesomeIcon icon={faBriefcase} className="text-xs" />
             <span>Job Portal</span>
-            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[10px]" />
           </motion.button>
 
           <motion.button
@@ -465,7 +209,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
                       isActive(link.path)
-                        ? "text-[#43A047] bg-green-50"
+                        ? "text-[#50d523] bg-green-50"
                         : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
                     }`}
                   >
@@ -473,7 +217,7 @@ const Navbar = () => {
                   </Link>
                 </motion.div>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -487,7 +231,7 @@ const Navbar = () => {
                   Blog
                 </Link>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -501,14 +245,14 @@ const Navbar = () => {
                   Webinars
                 </Link>
               </motion.div>
-              
+
               <hr className="my-2 border-gray-100" />
-              
+
               <motion.button
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navLinks.length + 2) * 0.05 }}
-                className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-5 py-3 rounded-xl text-sm font-bold shadow-lg"
+                className="flex items-center justify-center gap-2 w-full bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-5 py-3 rounded-xl text-sm font-bold shadow-lg"
               >
                 <FontAwesomeIcon icon={faBriefcase} className="text-sm" />
                 <span>Job Portal</span>
