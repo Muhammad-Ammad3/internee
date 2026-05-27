@@ -21,7 +21,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import InternshipHero from '../components/Internship/InternshipHero';
-import CommunityAndBanner from '../components/Internship/CommunityAndBanner';
+import FAQSection from '../components/Internship/FAQSection';
 import HowItWorks from '../components/Internship/HowItWorks';
 import InternshipGrid from '../components/Internship/InternshipGrid';
 
@@ -108,7 +108,7 @@ const Internships = () => {
       
       {/* Community and Banner Section */}
       <AnimatedSectionLate className="w-full">
-        <CommunityAndBanner />
+        <FAQSection />
       </AnimatedSectionLate>
       
       {/* Additional sections can be added here */}
