@@ -1,190 +1,99 @@
-// import React from 'react';
-
-// const Hero = () => {
-//   return (
-//     <section className="w-full bg-white pt-12 pb-24 px-6 lg:px-16 overflow-hidden font-sans">
-//       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        
-//         {/* ================= LEFT CONTENT COLUMN ================= */}
-//         <div className="lg:col-span-6 space-y-6">
-//           <h1 className="text-[44px] sm:text-[56px] font-bold text-gray-950 leading-[1.15] tracking-tight">
-//             Build Skills. <br />
-//             Get Experience. <br />
-//             <span className="text-[#3FB628]">Land Your Job.</span>
-//           </h1>
-          
-//           <p className="text-gray-500 text-base sm:text-[17px] max-w-xl leading-relaxed font-normal">
-//             Stop waiting for opportunities. Start building real skills with Pakistan's largest virtual internship platform. Your dream tech career begins here.
-//           </p>
-
-//           {/* Action Buttons */}
-//           <div className="flex flex-wrap items-center gap-4 pt-2">
-//             <button className="bg-[#3FB628] text-white px-7 py-3.5 rounded-full text-[15px] font-bold flex items-center gap-2 hover:bg-[#349e1e] transition shadow-sm shadow-green-100">
-//               Our Job Portal
-//               <svg className="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-//                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-//               </svg>
-//             </button>
-//             <button className="border border-gray-200 text-gray-800 px-7 py-3.5 rounded-full text-[15px] font-semibold hover:bg-gray-50 transition">
-//               Sign In
-//             </button>
-//           </div>
-
-//           {/* Bottom Trust Badges */}
-//           <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-6 text-[14px] font-medium text-gray-6xl">
-//             <div className="flex items-center gap-2 text-gray-600">
-//               <span className="text-[#3FB628] text-base border border-green-200 bg-green-50 w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]">✓</span> 
-//               No Experience Required
-//             </div>
-//             <div className="flex items-center gap-2 text-gray-600">
-//               <span className="text-[#3FB628] text-base border border-green-200 bg-green-50 w-5 h-5 rounded-full flex items-center justify-center font-bold text-[10px]">✓</span> 
-//               Industry-Ready Projects
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* ================= RIGHT GRAPHICAL COLUMN ================= */}
-//         <div className="lg:col-span-6 relative flex justify-center items-center mt-12 lg:mt-0">
-          
-//           {/* Main Rounded Green Backdrop Grid Block */}
-//           <div className="relative w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] bg-[#3FB628] rounded-[40px] flex items-end justify-center overflow-visible">
-            
-//             {/* Girl/Instructor Image */}
-//             <img 
-//               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
-//               alt="Internee Professional" 
-//               className="absolute bottom-0 w-[95%] h-[115%] object-cover object-top drop-shadow-2xl pointer-events-none"
-//             />
-//           </div>
-
-//           {/* --- Floating Card 1: 200k+ Students (Middle Left) --- */}
-//           <div className="absolute left-[-20px] sm:left-4 top-[22%] bg-white p-3.5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-50 z-20 flex flex-col items-center gap-2 max-w-[155px]">
-//             <div className="flex -space-x-1.5 overflow-hidden">
-//               <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=80" alt="Student"/>
-//               <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=80" alt="Student"/>
-//               <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=80" alt="Student"/>
-//               <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=80" alt="Student"/>
-//             </div>
-//             <p className="text-[11px] font-bold text-center text-gray-800 leading-tight">
-//               Join our community of <br /> <span className="text-gray-500 font-medium">200K+ Students</span>
-//             </p>
-//           </div>
-
-//           {/* --- Floating Card 2: Internship Rate (Top Right Gauge) --- */}
-//           <div className="absolute right-[-20px] sm:right-6 top-[5%] bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-50 z-20 flex flex-col items-center w-[165px]">
-//             {/* Custom SVG Half-Circle Gauge for 92.6% view */}
-//             <div className="relative w-24 h-12 flex items-end justify-center">
-//               <svg className="w-full h-full" viewBox="0 0 100 50">
-//                 <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#f3f4f6" strokeWidth="10" strokeLinecap="round" />
-//                 <path d="M 10 50 A 40 40 0 0 1 85 22" fill="none" stroke="#3FB628" strokeWidth="10" strokeLinecap="round" />
-//               </svg>
-//               <span className="absolute bottom-0 text-[14px] font-bold text-gray-800">92.6 %</span>
-//             </div>
-//             <p className="text-[11px] text-center text-gray-700 font-bold mt-2 leading-tight">
-//               Internship Rate <br />
-//               <span className="text-[10px] text-gray-400 font-medium">Students find internships</span>
-//             </p>
-//           </div>
-
-//           {/* --- Floating Card 3: Courses Finished (Bottom Left) --- */}
-//           <div className="absolute left-[-10px] sm:left-4 bottom-[10%] bg-white py-3.5 px-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-50 z-20 flex items-center gap-3 min-w-[190px]">
-//             <div className="p-2.5 bg-green-50 text-[#3FB628] rounded-xl font-bold text-lg border border-green-100">
-//               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-//                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-//               </svg>
-//             </div>
-//             <div>
-//               <p className="text-[11px] text-gray-400 font-semibold leading-none">Students finished courses</p>
-//               <p className="text-xl font-extrabold text-gray-800 mt-1">12,000+</p>
-//             </div>
-//           </div>
-
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Hero;
-
-
-
-"use client";
-
-import React from "react";
 import { motion } from "framer-motion";
 
-// Font Awesome Core aur Component Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// Solid Icons Imports
-import { 
-  faBriefcase, 
-  faUserCheck, 
-  faArrowRight, 
+import {
+  faBriefcase,
+  faUserCheck,
+  faArrowRight,
   faCircleCheck,
-  faFileCircleCheck
 } from "@fortawesome/free-solid-svg-icons";
+import girlImage from "../../assets/girlImage.png";
 
 const Hero = () => {
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
-    }
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const floatVariants = {
     hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const floatHover = {
     y: -8,
-    transition: { duration: 0.3 }
+    transition: { duration: 0.3 },
   };
 
+  const communityAvatars = [
+    "https://ui-avatars.com/api/?name=Ali&background=FFC107&color=fff&rounded=true",
+    "https://ui-avatars.com/api/?name=Zain&background=E91E63&color=fff&rounded=true",
+    "https://ui-avatars.com/api/?name=Sara&background=00BCD4&color=fff&rounded=true",
+    "https://ui-avatars.com/api/?name=Hamza&background=9C27B0&color=fff&rounded=true",
+    "https://ui-avatars.com/api/?name=Ayesha&background=4CAF50&color=fff&rounded=true",
+  ];
+
   return (
-    <section className="w-full bg-white pt-16 pb-24 lg:pt-20 lg:pb-32 px-6 lg:px-12 overflow-hidden font-sans">
+    <section className="w-full bg-white pt-4 pb-20 lg:pt-6 lg:pb-10 px-6 lg:px-12 overflow-hidden font-sans">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        {/* ================= LEFT CONTENT COLUMN ================= */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="lg:col-span-6 space-y-7"
         >
-          <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight tracking-tight">
+          <motion.h1
+            variants={itemVariants}
+            className="text-4xl sm:text-5xl lg:text-[56px] font-bold text-gray-950 leading-[1.15] tracking-tight"
+          >
             Build Skills. <br />
             Get Experience. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#43A047] to-[#388E3C]">
-              Land Your Job.
-            </span>
+            <span className="text-[#50d523]">Land Your Job.</span>
           </motion.h1>
-          
-          <motion.p variants={itemVariants} className="text-gray-500 text-base lg:text-lg max-w-xl leading-relaxed font-medium">
-            Stop waiting for opportunities. Start building real skills with Pakistan's largest virtual internship platform. Your dream tech career begins here.
+
+          <motion.p
+            variants={itemVariants}
+            className="text-gray-500 text-base lg:text-lg max-w-xl leading-relaxed font-medium"
+          >
+            Stop waiting for opportunities. Start building real skills with
+            Pakistan's largest virtual internship platform. Your dream tech
+            career begins here.
           </motion.p>
 
           {/* Action Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-4 pt-2">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-4 pt-2"
+          >
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group"
+              className="flex items-center gap-2 bg-[#50d523] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-600/20 hover:shadow-green-600/30 transition-all group"
             >
               <FontAwesomeIcon icon={faBriefcase} className="text-xs" />
               <span>Our Job Portal</span>
-              <FontAwesomeIcon icon={faArrowRight} className="text-xs group-hover:translate-x-1 transition-transform" />
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className="text-xs group-hover:translate-x-1 transition-transform"
+              />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
@@ -197,118 +106,149 @@ const Hero = () => {
           </motion.div>
 
           {/* Bottom Trust Badges */}
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4">
-            <div className="flex items-center gap-2 text-gray-600 text-sm font-medium">
-              <div className="w-5 h-5 rounded-full bg-green-50 border border-green-100 flex items-center justify-center">
-                <FontAwesomeIcon icon={faCircleCheck} className="text-[10px] text-[#43A047]" />
-              </div>
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4"
+          >
+            <div className="flex items-center gap-2 text-gray-600 text-sm font-semibold">
+              <FontAwesomeIcon
+                icon={faCircleCheck}
+                className="text-[18px] text-[#50d523]"
+              />
               No Experience Required
             </div>
-            <div className="flex items-center gap-2 text-gray-600 text-sm font-medium">
-              <div className="w-5 h-5 rounded-full bg-green-50 border border-green-100 flex items-center justify-center">
-                <FontAwesomeIcon icon={faCircleCheck} className="text-[10px] text-[#43A047]" />
-              </div>
+            <div className="flex items-center gap-2 text-gray-600 text-sm font-semibold">
+              <FontAwesomeIcon
+                icon={faCircleCheck}
+                className="text-[18px] text-[#50d523]"
+              />
               Industry-Ready Projects
             </div>
           </motion.div>
         </motion.div>
 
-        {/* ================= RIGHT GRAPHICAL COLUMN ================= */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
           className="lg:col-span-6 relative flex justify-center items-center mt-12 lg:mt-0"
         >
-          
-          {/* Main Rounded Green Backdrop Grid Block */}
-          <motion.div 
+          <motion.div
             variants={floatVariants}
-            className="relative w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] bg-gradient-to-br from-[#43A047] to-[#388E3C] rounded-[40px] flex items-end justify-center overflow-visible shadow-2xl shadow-green-500/20"
+            className="relative w-[320px] h-80 sm:w-105 sm:h-105 rounded-[60px] rounded-tr-[160px] rounded-bl-[160px] flex items-end justify-center overflow-visible"
           >
-            {/* Decorative circle */}
-            <div className="absolute top-[-20%] right-[-10%] w-32 h-32 bg-white/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-[-10%] left-[-10%] w-40 h-40 bg-white/10 rounded-full blur-3xl" />
-            
-            {/* Girl/Instructor Image with overlay */}
-            <div className="relative z-10 w-full h-full">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop" 
-                alt="Internee Professional" 
-                className="absolute bottom-0 w-[95%] h-[115%] object-cover object-top drop-shadow-2xl"
+            {/* Girl Image Wrapper */}
+            <div className="absolute inset-0 z-10 flex items-end justify-center overflow-visible">
+              <img
+                src={girlImage}
+                alt="Internee Professional"
+                className="w-full h-[120%] object-contain object-bottom select-none pointer-events-none transform translate-y-2"
               />
-              {/* Gradient overlay for better blending */}
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-[#43A047] to-transparent" />
             </div>
           </motion.div>
 
-          {/* --- Floating Card 1: 200k+ Students (Middle Left) --- */}
-          <motion.div 
+          {/* --- Card 1: 200k+ Students (Top Left with Fix Avatars) --- */}
+          <motion.div
             variants={floatVariants}
             whileHover={floatHover}
-            className="absolute left-[-10px] sm:left-4 top-[22%] bg-white p-4 rounded-2xl shadow-xl shadow-gray-100/50 border border-gray-100 z-20 flex flex-col items-center gap-3 max-w-[170px]"
+            className="absolute -left-4 sm:-left-2.5 top-[15%] bg-white p-4 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-100/80 z-20 w-52.5"
           >
-            <div className="flex -space-x-2">
-              {[1, 2, 3, 4].map((i) => (
-                <img 
+            <div className="flex -space-x-2 mb-3">
+              {communityAvatars.map((url, i) => (
+                <img
                   key={i}
-                  className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover" 
-                  src={`https://images.unsplash.com/photo-${1494790108377 + i * 1000}-be9c29b29330?q=80&w=80`} 
-                  alt="Student"
+                  className="inline-block h-8 w-8 rounded-full ring-2 ring-white object-cover"
+                  src={url}
+                  alt={`Student Avatar ${i + 1}`}
                 />
               ))}
             </div>
-            <p className="text-xs font-bold text-center text-gray-800 leading-tight">
-              Join our community of{" "}
-              <span className="text-gray-500 font-medium block">200K+ Students</span>
-            </p>
+            <div>
+              <p className="text-sm font-medium text-gray-500 leading-tight">
+                Join our community of
+              </p>
+              <p className="text-sm font-medium text-gray-500 mt-0.5">
+                200K+ Students
+              </p>
+            </div>
           </motion.div>
 
-          {/* --- Floating Card 2: Internship Rate (Top Right Gauge) --- */}
-          <motion.div 
+          {/* --- Card 2: Internship Rate (Top Right Gauge Fixed Angle) --- */}
+          <motion.div
             variants={floatVariants}
             whileHover={floatHover}
-            className="absolute right-[-10px] sm:right-4 top-[5%] bg-white p-4 rounded-2xl shadow-xl shadow-gray-100/50 border border-gray-100 z-20 flex flex-col items-center w-[180px]"
+            className="absolute -right-4 sm:-right-2.5 top-[5%] bg-white p-5 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-100/80 z-20 flex flex-col items-center w-52.5"
           >
-            {/* Custom SVG Half-Circle Gauge for 92.6% view */}
-            <div className="relative w-24 h-12 flex items-end justify-center">
-              <svg className="w-full h-full" viewBox="0 0 100 50">
-                <path d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#f3f4f6" strokeWidth="10" strokeLinecap="round" />
-                <motion.path 
+            {/* Custom SVG Gauge (Original design direction standard) */}
+            <div className="relative w-28 h-14 flex items-end justify-center">
+              <svg
+                className="w-full h-full transform -scale-x-100"
+                viewBox="0 0 100 50"
+              >
+                <path
+                  d="M 10 50 A 40 40 0 0 1 90 50"
+                  fill="none"
+                  stroke="#E8F5E9"
+                  strokeWidth="10"
+                  strokeLinecap="round"
+                />
+                <motion.path
                   initial={{ pathLength: 0 }}
                   whileInView={{ pathLength: 0.926 }}
                   transition={{ duration: 1.5, delay: 0.5 }}
-                  d="M 10 50 A 40 40 0 0 1 85 22" 
-                  fill="none" 
-                  stroke="#43A047" 
-                  strokeWidth="10" 
-                  strokeLinecap="round" 
+                  d="M 10 50 A 40 40 0 0 1 90 50"
+                  fill="none"
+                  stroke="#50d523"
+                  strokeWidth="10"
+                  strokeLinecap="round"
                 />
               </svg>
-              <span className="absolute bottom-0 text-lg font-black text-gray-800">92.6%</span>
+              <span className="absolute bottom-0 text-xl font-bold text-black">
+                92.6 %
+              </span>
             </div>
-            <p className="text-xs text-center font-bold text-gray-700 mt-2 leading-tight">
-              Campuses Placed{" "}
-              <span className="text-[10px] text-gray-400 font-medium block">Students find internships</span>
-            </p>
+            <div className="text-center mt-3">
+              <p className="text-sm font-medium text-gray-500 leading-tight">
+                Internship Rate
+              </p>
+              <p className="text-sm text-gray-500 font-medium mt-1">
+                Students find internships
+              </p>
+            </div>
           </motion.div>
 
-          {/* --- Floating Card 3: Courses Finished (Bottom Left) --- */}
-          <motion.div 
+          {/* --- Card 3: Courses Finished (Bottom Left) --- */}
+          <motion.div
             variants={floatVariants}
             whileHover={floatHover}
-            className="absolute left-[-5px] sm:left-4 bottom-[10%] bg-white py-4 px-5 rounded-2xl shadow-xl shadow-gray-100/50 border border-gray-100 z-20 flex items-center gap-4 min-w-[200px]"
+            className="absolute -left-6 sm:-left-5 bottom-[12%] bg-white p-4 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-neutral-100/80 z-20 flex items-start gap-3.5 w-65"
           >
-            <div className="p-3 bg-green-50 text-[#43A047] rounded-xl border border-green-100 flex items-center justify-center">
-              <FontAwesomeIcon icon={faFileCircleCheck} className="text-xl" />
+            {/* Custom Clean SVG Badge */}
+            <div className="p-2.5 bg-[#50d523] text-white rounded-xl flex items-center justify-center shrink-0 shadow-md shadow-green-600/10">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="3"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
             </div>
             <div>
-              <p className="text-xs text-gray-400 font-semibold leading-none">Students finished courses</p>
-              <p className="text-2xl font-black text-gray-800 mt-1">12,000+</p>
+              <p className="text-md font-semibold text-gray-400 leading-none">
+                Students finished courses
+              </p>
+              <p className="text-2xl font-medium text-gray-900 mt-1.5">
+                12,000+
+              </p>
             </div>
           </motion.div>
-
         </motion.div>
       </div>
     </section>
