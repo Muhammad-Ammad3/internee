@@ -81,7 +81,7 @@ export default function Apply() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submitted Application Data:", formData);
-    toast.success("🚀 Application Submitted Successfully!");
+    toast.success("Application Submitted Successfully!");
   };
 
   // Jab tak Clerk backend se status confirm nahi karta, loading screen dikhao
