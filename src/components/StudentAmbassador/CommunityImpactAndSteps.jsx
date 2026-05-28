@@ -1,134 +1,7 @@
-// import React from 'react';
-
-// export default function CommunityImpactAndSteps() {
-//   const stats = [
-//     { value: "300+", label: "Active Ambassadors", sub: "Across Pakistan" },
-//     { value: "50+", label: "Campuses", sub: "Represented" },
-//     { value: "1000+", label: "Events", sub: "Organized" },
-//     { value: "15K+", label: "Students", sub: "Reached" }
-//   ];
-
-//   const steps = [
-//     {
-//       number: "1",
-//       title: "Apply Online",
-//       description: "Fill out the application form and tell us about yourself"
-//     },
-//     {
-//       number: "2",
-//       title: "Get Verified",
-//       description: "Undergo quick eligibility check and assessment"
-//     },
-//     {
-//       number: "3",
-//       title: "Training",
-//       description: "Attend onboarding and receive ambassador tools & resources"
-//     },
-//     {
-//       number: "4",
-//       title: "Start Representing",
-//       description: "Organize events and grow Internee.pk on your campus"
-//     }
-//   ];
-
-//   return (
-//     <div className="w-full bg-white font-sans antialiased space-y-32 px-6 py-16 md:px-16 md:py-24 max-w-7xl mx-auto">
-
-//       {/* ==========================================
-//           1. AMBASSADOR COMMUNITY IMPACT SECTION
-//           ========================================== */}
-//       <div className="space-y-12">
-//         {/* Section Header */}
-//         <div className="text-center space-y-3">
-//           <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight">
-//             Ambassador Community Impact
-//           </h2>
-//           <p className="text-gray-500 text-sm md:text-base">
-//             Join a thriving community making real impact
-//           </p>
-//         </div>
-
-//         {/* Stats Grid Layout (4 Columns) */}
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//           {stats.map((stat, index) => (
-//             <div
-//               key={index}
-//               className="bg-[#F4F6F5]/60 border border-gray-100 rounded-2xl p-8 text-center flex flex-col justify-center items-center min-h-[160px] shadow-[0_4px_20px_rgb(0,0,0,0.01)] hover:scale-[1.02] transition-transform duration-200"
-//             >
-//               <span className="text-3xl md:text-4xl font-black text-[#43A047] tracking-tight">
-//                 {stat.value}
-//               </span>
-//               <h4 className="font-bold text-gray-900 text-sm md:text-base mt-2 tracking-tight">
-//                 {stat.label}
-//               </h4>
-//               <p className="text-gray-400 text-[11px] md:text-xs mt-1 font-medium">
-//                 {stat.sub}
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* ==========================================
-//           2. HOW TO BECOME AN AMBASSADOR SECTION
-//           ========================================== */}
-//       <div className="space-y-16">
-//         {/* Section Header */}
-//         <div className="text-center space-y-3">
-//           <h2 className="text-3xl md:text-4xl font-extrabold text-black tracking-tight">
-//             How to Become an Ambassador
-//           </h2>
-//           <p className="text-gray-500 text-sm md:text-base">
-//             Simple steps to join our growing community
-//           </p>
-//         </div>
-
-//         {/* Steps Horizontal/Vertical Responsive Layout */}
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-//           {steps.map((step, index) => (
-//             <div key={index} className="relative group">
-
-//               {/* Main Step Card */}
-//               <div className="bg-white border border-gray-100 rounded-2xl p-6 flex flex-col items-start min-h-[200px] shadow-[0_4px_20px_rgb(0,0,0,0.01)] hover:shadow-[0_10px_30px_rgb(0,0,0,0.03)] transition-all z-10 relative">
-
-//                 {/* Step Circle Number */}
-//                 <div className="w-8 h-8 rounded-full bg-[#43A047] text-white flex items-center justify-center text-xs font-bold mb-6 shadow-sm shadow-green-600/20">
-//                   {step.number}
-//                 </div>
-
-//                 {/* Step Text Content */}
-//                 <div className="space-y-2 mt-auto">
-//                   <h3 className="text-base md:text-lg font-bold text-gray-900 tracking-tight">
-//                     {step.title}
-//                   </h3>
-//                   <p className="text-gray-500 text-xs md:text-sm leading-relaxed">
-//                     {step.description}
-//                   </p>
-//                 </div>
-//               </div>
-
-//               {/* Connecting Line Indicator (Only visible on Large Screens desktop and avoids last card) */}
-//               {index < steps.length - 1 && (
-//                 <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-[2px] bg-gradient-to-r from-[#43A047] to-transparent z-0 transform -translate-y-1/2" />
-//               )}
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//     </div>
-//   );
-// }
-
-"use client";
-
-import React from "react";
 import { motion } from "framer-motion";
 
-// Font Awesome Core aur Component Imports
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// Solid Icons Imports
 import {
   faUsers,
   faBuilding,
@@ -143,7 +16,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function CommunityImpactAndSteps() {
-  // 1. Metrics Statistics Dataset with Font Awesome icons
   const stats = [
     {
       value: "300+",
@@ -156,7 +28,6 @@ export default function CommunityImpactAndSteps() {
     { value: "15K+", label: "Students", sub: "Reached", icon: faUserCheck },
   ];
 
-  // 2. Step-by-Step Roadmap Dataset with Font Awesome icons
   const steps = [
     {
       number: "1",
@@ -184,7 +55,6 @@ export default function CommunityImpactAndSteps() {
     },
   ];
 
-  // Master Framer Motion Stagger Animation Schemas
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -213,9 +83,6 @@ export default function CommunityImpactAndSteps() {
 
   return (
     <div className="w-full bg-white font-sans antialiased space-y-32 px-6 py-20 lg:py-28 md:px-12 lg:px-16 max-w-7xl mx-auto">
-      {/* ========================================================================= */}
-      {/* 1. AMBASSADOR COMMUNITY IMPACT STATISTICS GRID LAYER                      */}
-      {/* ========================================================================= */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -223,21 +90,20 @@ export default function CommunityImpactAndSteps() {
         variants={containerVariants}
         className="space-y-14"
       >
-        {/* Section Headings Banner */}
         <motion.div variants={itemVariants} className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 bg-[#E8F5E9] border border-[#43A047]/10 rounded-full px-4 py-1.5 select-none">
+          <div className="inline-flex items-center gap-2 bg-[#E8F5E9] border border-[#50d523]/10 rounded-full px-4 py-1.5 select-none">
             <FontAwesomeIcon
               icon={faGlobe}
-              className="text-xs text-[#43A047]"
+              className="text-xs text-[#50d523]"
             />
-            <span className="text-[10px] sm:text-xs font-black text-[#388E3C] uppercase tracking-wider">
+            <span className="text-[10px] sm:text-xs font-bold text-[#50d523] uppercase tracking-wider">
               Our Community
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-950 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-950 tracking-tight">
             Ambassador{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#43A047] to-[#388E3C]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#50d523] to-[#50d523]">
               Community Impact
             </span>
           </h2>
@@ -248,7 +114,6 @@ export default function CommunityImpactAndSteps() {
           </p>
         </motion.div>
 
-        {/* Dynamic 4-Column Metrics Info Grid */}
         <motion.div
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -259,18 +124,18 @@ export default function CommunityImpactAndSteps() {
                 key={index}
                 variants={statCardVariants}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className="bg-[#F8FAFC] border border-gray-100 rounded-3xl p-6 text-center flex flex-col justify-center items-center min-h-[180px] hover:shadow-xl hover:shadow-gray-200/40 hover:border-green-200 transition-all duration-300 cursor-pointer group"
+                className="bg-[#F8FAFC] border border-gray-100 rounded-3xl p-6 text-center flex flex-col justify-center items-center min-h-45 hover:shadow-xl hover:shadow-gray-200/40 hover:border-green-200 transition-all duration-300 cursor-pointer group"
               >
-                <div className="w-11 h-11 mb-3.5 bg-white border border-gray-100/50 text-[#43A047] rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
-                  <FontAwesomeIcon icon={stat.icon} className="text-sm" />
+                <div className="w-11 h-11 mb-3.5 bg-white border border-gray-100/50 text-[#50d523] rounded-xl flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform shrink-0">
+                  <FontAwesomeIcon icon={stat.icon} className="text-lg" />
                 </div>
-                <span className="text-4xl lg:text-5xl font-black text-gray-950 tracking-tight">
+                <span className="text-3xl lg:text-4xl font-bold text-[#50d523] tracking-tight">
                   {stat.value}
                 </span>
-                <h4 className="font-black text-gray-800 text-sm mt-2.5 tracking-tight">
+                <h4 className="font-bold text-gray-800 text-md mt-2.5 tracking-tight">
                   {stat.label}
                 </h4>
-                <p className="text-gray-400 text-[11px] mt-0.5 font-semibold">
+                <p className="text-gray-500 text-[13px] mt-0.5 font-semibold">
                   {stat.sub}
                 </p>
               </motion.div>
@@ -279,9 +144,6 @@ export default function CommunityImpactAndSteps() {
         </motion.div>
       </motion.div>
 
-      {/* ========================================================================= */}
-      {/* 2. ONBOARDING ROADMAP: HOW TO BECOME AN AMBASSADOR SEGMENT               */}
-      {/* ========================================================================= */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -289,32 +151,29 @@ export default function CommunityImpactAndSteps() {
         variants={containerVariants}
         className="space-y-16"
       >
-        {/* Section Headings Banner */}
         <motion.div variants={itemVariants} className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 bg-[#E8F5E9] border border-[#43A047]/10 rounded-full px-4 py-1.5 select-none">
+          <div className="inline-flex items-center gap-2 bg-[#E8F5E9] border border-[#50d523]/10 rounded-full px-4 py-1.5 select-none">
             <FontAwesomeIcon
               icon={faWandMagicSparkles}
-              className="text-xs text-[#43A047]"
+              className="text-xs text-[#50d523]"
             />
-            <span className="text-[10px] sm:text-xs font-black text-[#388E3C] uppercase tracking-wider">
+            <span className="text-[10px] sm:text-xs font-bold text-[#50d523] uppercase tracking-wider">
               Join Us
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-950 tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-950 tracking-tight">
             How to Become{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#43A047] to-[#388E3C]">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-[#50d523] to-[#50d523]">
               an Ambassador
             </span>
           </h2>
 
-          <p className="text-gray-500 text-xs sm:text-sm font-medium">
-            Simple steps to launch and manage the platform community inside your
-            campus.
+          <p className="text-gray-500 text-md font-medium">
+            Simple steps to join our growing community.
           </p>
         </motion.div>
 
-        {/* Steps Cards Layout Grid */}
         <motion.div
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative"
@@ -322,20 +181,17 @@ export default function CommunityImpactAndSteps() {
           {steps.map((step, index) => {
             return (
               <div key={index} className="relative group">
-                {/* Main Interactive Step Container Card */}
                 <motion.div
                   variants={itemVariants}
                   whileHover={{ y: -5, scale: 1.01 }}
-                  className="bg-white border border-gray-100 rounded-3xl p-6 flex flex-col items-start min-h-[220px] shadow-xs hover:shadow-xl hover:shadow-gray-200/30 hover:border-green-200 transition-all duration-300 z-10 relative cursor-pointer"
+                  className="bg-white border border-gray-100 rounded-3xl p-6 flex flex-col items-start min-h-55 shadow-xs hover:shadow-xl hover:shadow-gray-200/30 hover:border-green-200 transition-all duration-300 z-10 relative cursor-pointer"
                 >
-                  {/* Icon Metric Badge */}
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-r from-[#43A047] to-[#388E3C] text-white flex items-center justify-center mb-5 shadow-md shadow-green-900/10 shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-linear-to-r from-[#50d523] to-[#50d523] text-white flex items-center justify-center mb-5 shadow-md shadow-green-900/10 shrink-0">
                     <FontAwesomeIcon icon={step.icon} className="text-xs" />
                   </div>
 
-                  {/* Step Descriptive Contents */}
                   <div className="space-y-2 mt-auto text-left">
-                    <h3 className="text-base font-black text-gray-950 tracking-tight group-hover:text-[#43A047] transition-colors">
+                    <h3 className="text-base font-bold text-gray-950 tracking-tight group-hover:text-[#50d523] transition-colors">
                       {step.number}. {step.title}
                     </h3>
                     <p className="text-gray-400 text-xs font-medium leading-relaxed">
@@ -344,9 +200,8 @@ export default function CommunityImpactAndSteps() {
                   </div>
                 </motion.div>
 
-                {/* Micro Horizontal Visual Link Connectors (Visible on Desktop) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-[1.5px] bg-gradient-to-r from-gray-200 to-transparent z-0 transform -translate-y-1/2 pointer-events-none" />
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-[1.5px] bg-linear-to-r from-gray-200 to-transparent z-0 transform -translate-y-1/2 pointer-events-none" />
                 )}
               </div>
             );
