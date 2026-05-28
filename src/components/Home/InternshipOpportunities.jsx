@@ -1,42 +1,49 @@
+import { Link } from "react-router-dom"; 
 import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import graphicDesign from "../../assets/graphicDesign.jpg";
-import chatbot from "../../assets/chatbot.jpg";
-import frontend from "../../assets/frontend.jpg";
-import backend from "../../assets/backend.jpg";
-import other from "../../assets/other.jpg";
+import graphicDesign from "../../assets/graphicDesign.png";
+import chatbot from "../../assets/chatbot.png";
+import frontend from "../../assets/frontend.png";
+import backend from "../../assets/backend.png";
+import other from "../../assets/other.png";
 
 const InternshipOpportunities = () => {
   const categories = [
     {
+      id: "graphic-design", // Dynamic route ke liye ID add ki
       title: "Graphic Design",
       desc: "Master UI/UX, branding, and visual communication",
       imgAsset: graphicDesign,
     },
     {
+      id: "chatbot-development",
       title: "Chatbot Development",
       desc: "Build AI-powered conversational experiences",
       imgAsset: chatbot,
     },
     {
+      id: "frontend-development",
       title: "Frontend Internship",
       desc: "Create stunning, responsive web interfaces",
       imgAsset: frontend,
     },
     {
+      id: "app-development",
       title: "App Development",
       desc: "Design and develop mobile applications",
       imgAsset: frontend,
     },
     {
+      id: "backend-development",
       title: "Backend Development",
       desc: "Build scalable APIs and server infrastructure",
       imgAsset: backend,
     },
     {
+      id: "other-internships",
       title: "Other Internships",
       desc: "Explore diverse tech career opportunities",
       imgAsset: other,
@@ -134,7 +141,6 @@ const InternshipOpportunities = () => {
                   <div className="absolute inset-0 bg-linear-to-t " />
                   <div className="absolute inset-0 bg-linear-to-r via-transparent to-transparent" />
                 </div>
-
                 <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl z-10 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full blur-2xl z-10 pointer-events-none" />
               </div>
@@ -149,17 +155,20 @@ const InternshipOpportunities = () => {
                   </p>
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-linear-to-r from-[#50d523] to-[#50d523] text-white py-3 sm:py-3.5 px-4 rounded-xl text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-200 group"
-                >
-                  <span>Apply Now</span>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="text-[10px] sm:text-xs group-hover:translate-x-1 transition-transform"
-                  />
-                </motion.button>
+                {/* Yahan humne pure button ko Link se wrap kar diya */}
+                <Link to={`/internships/${item.id}`} className="w-full">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full bg-linear-to-r from-[#50d523] to-[#50d523] text-white py-3 sm:py-3.5 px-4 rounded-xl text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-200 group cursor-pointer"
+                  >
+                    <span>Apply Now</span>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-[10px] sm:text-xs group-hover:translate-x-1 transition-transform"
+                    />
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
           ))}

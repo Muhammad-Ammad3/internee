@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+// Clerk Components Import Kiye
+import { SignedIn, SignedOut, SignInButton } from "@clerk/clerk-react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -7,6 +11,7 @@ import {
   faUserCheck,
   faArrowRight,
   faCircleCheck,
+  faGaugeHigh, // Dashboard ke liye ek naya icon add kiya
 } from "@fortawesome/free-solid-svg-icons";
 import girlImage from "../../assets/girlImage.png";
 
@@ -85,7 +90,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#50d523] text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold shadow-lg shadow-green-600/20 hover:shadow-green-600/30 transition-all group"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#50d523] text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold shadow-lg shadow-green-600/20 hover:shadow-green-600/30 transition-all group cursor-pointer"
             >
               <FontAwesomeIcon icon={faBriefcase} className="text-xs" />
               <span>Our Job Portal</span>
@@ -94,14 +99,37 @@ const Hero = () => {
                 className="text-xs group-hover:translate-x-1 transition-transform"
               />
             </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold hover:border-gray-300 hover:shadow-lg transition-all"
-            >
-              <FontAwesomeIcon icon={faUserCheck} className="text-xs" />
-              <span>Sign In</span>
-            </motion.button>
+
+            {/* --- HERO AUTH BUTTONS LOGIC START --- */}
+            {/* Jab user log out ho toh Sign In dikhao */}
+            <SignedOut>
+              <SignInButton mode="modal">
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold hover:border-gray-300 hover:shadow-lg transition-all cursor-pointer"
+                >
+                  <FontAwesomeIcon icon={faUserCheck} className="text-xs" />
+                  <span>Sign In</span>
+                </motion.button>
+              </SignInButton>
+            </SignedOut>
+
+            {/* Jab user successfully login ho jaye toh Dashboard dikhao */}
+            <SignedIn>
+              <Link to="/dashboard" className="w-full sm:w-auto">
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-green-50 text-[#50d523] border border-green-200 px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold hover:bg-green-100/70 hover:shadow-md transition-all cursor-pointer"
+                >
+                  <FontAwesomeIcon icon={faGaugeHigh} className="text-xs" />
+                  <span>Go to Dashboard</span>
+                </motion.button>
+              </Link>
+            </SignedIn>
+            {/* --- HERO AUTH BUTTONS LOGIC END --- */}
+
           </motion.div>
 
           <motion.div
@@ -204,7 +232,7 @@ const Hero = () => {
             </div>
             <div className="text-center mt-2 sm:mt-3">
               <p className="text-[11px] sm:text-sm font-bold text-gray-800 leading-tight">
-                Internship Rate
+                Intership Rate
               </p>
               <p className="text-[10px] sm:text-xs text-gray-400 font-medium mt-0.5 hidden sm:block">
                 Students find internships

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../assets/logo.png";
 
@@ -123,7 +125,6 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Resources Dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setShowResources(true)}
@@ -154,6 +155,20 @@ const Navbar = () => {
 
         {/* Right Side: Action Buttons */}
         <div className="flex items-center gap-3">
+          
+          {/* --- DESKTOP DASHBOARD BUTTON (ONLY WHEN SIGNED IN) --- */}
+          <SignedIn>
+            <Link to="/dashboard" className="hidden sm:inline-block">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2 border border-green-200 bg-green-50 text-[#50d523] px-5 py-2.5 rounded-full text-xs font-bold hover:bg-green-100/70 transition-all cursor-pointer"
+              >
+                <span>Dashboard</span>
+              </motion.button>
+            </Link>
+          </SignedIn>
+
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -162,14 +177,24 @@ const Navbar = () => {
             <span>Job Portal</span>
           </motion.button>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="flex items-center gap-2 border border-gray-200 bg-white text-gray-700 px-4 py-2.5 rounded-full text-xs font-bold hover:border-gray-300 hover:shadow-md transition-all"
-          >
-            <FontAwesomeIcon icon={faUser} className="text-xs" />
-            <span className="hidden sm:inline">Sign In</span>
-          </motion.button>
+          <SignedOut>
+            <SignInButton mode="modal">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2 border border-gray-200 bg-white text-gray-700 px-4 py-2.5 rounded-full text-xs font-bold hover:border-gray-300 hover:shadow-md transition-all cursor-pointer"
+              >
+                <FontAwesomeIcon icon={faUser} className="text-xs" />
+                <span className="hidden sm:inline">Sign In</span>
+              </motion.button>
+            </SignInButton>
+          </SignedOut>
+
+          <SignedIn>
+            <div className="flex items-center justify-center border border-gray-100 p-0.5 rounded-full shadow-sm hover:shadow transition-all">
+              <UserButton afterSignOutUrl="/" />
+            </div>
+          </SignedIn>
 
           {/* Mobile Menu Toggle */}
           <motion.button
@@ -248,10 +273,27 @@ const Navbar = () => {
 
               <hr className="my-2 border-gray-100" />
 
+              {/* --- MOBILE DASHBOARD BUTTON (ONLY WHEN SIGNED IN) --- */}
+              <SignedIn>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (navLinks.length + 2) * 0.05 }}
+                >
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-2 w-full border border-green-200 bg-green-50 text-[#50d523] px-5 py-3 rounded-xl text-sm font-bold mb-2 transition-all"
+                  >
+                    <span>Dashboard</span>
+                  </Link>
+                </motion.div>
+              </SignedIn>
+
               <motion.button
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navLinks.length + 2) * 0.05 }}
+                transition={{ delay: (navLinks.length + 3) * 0.05 }}
                 className="flex items-center justify-center gap-2 w-full bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-5 py-3 rounded-xl text-sm font-bold shadow-lg"
               >
                 <FontAwesomeIcon icon={faBriefcase} className="text-sm" />

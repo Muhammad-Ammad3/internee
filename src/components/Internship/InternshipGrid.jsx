@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import graphicDesign from "../../assets/graphicDesign.jpg";
-import chatbot from "../../assets/chatbot.jpg";
-import frontend from "../../assets/frontend.jpg";
-import backend from "../../assets/backend.jpg";
-import other from "../../assets/other.jpg";
+import graphicDesign from "../../assets/graphicDesign.png";
+import chatbot from "../../assets/chatbot.png";
+import frontend from "../../assets/frontend.png";
+import backend from "../../assets/backend.png";
+import other from "../../assets/other.png";
 
 const InternshipOpportunities = () => {
   const tracks = [
