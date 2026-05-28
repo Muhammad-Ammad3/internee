@@ -81,7 +81,7 @@ export default function OurJourneySection() {
   };
 
   return (
-    <div className="w-full bg-white font-sans antialiased px-6 py-20 lg:py-1 md:px-12 lg:px-16 max-w-7xl mx-auto">
+    <div className="w-full bg-white font-sans antialiased px-6 py-1 lg:py-1 md:px-12 lg:px-16 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <motion.div
           initial="hidden"
