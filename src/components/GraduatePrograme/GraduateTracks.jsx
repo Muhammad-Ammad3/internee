@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import {
   faArrowRight,
   faStethoscope,
@@ -12,10 +10,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function GraduateTracks() {
+  // 1. Tracks Array ko complete dynamic details ke sath update kiya hai taake click hone par accurate data forward ho
   const tracks = [
     {
       id: 1,
       category: "Health Care",
+      slug: "health-care", // Routing endpoint identifier
       desc: "Step into the world where every second counts and lives are changed. Whether it's assisting in patient care, supporting medical research, or exploring health tech innovation our internships put you at the heart of the action.",
       icon: faStethoscope,
       linear: "from-slate-300 to-slate-400",
@@ -23,6 +23,7 @@ export default function GraduateTracks() {
     {
       id: 2,
       category: "Engineering",
+      slug: "engineering",
       desc: "Enter the realm where ideas turn into structures, circuits, and code. From building the future to solving real-world challenges, our engineering internships place you in the driver's seat of innovation.",
       icon: faMicrochip,
       linear: "from-slate-400 to-slate-500",
@@ -31,6 +32,7 @@ export default function GraduateTracks() {
     {
       id: 3,
       category: "Information Technology",
+      slug: "information-technology",
       desc: "Dive into the digital battlefield where code is power and innovation never sleeps. From software development to cybersecurity, data analytics to cloud computing our IT internships equip you to lead the tech revolution.",
       icon: faCode,
       isDigitalBg: true,
@@ -57,6 +59,7 @@ export default function GraduateTracks() {
   return (
     <section className="w-full bg-white py-20 lg:py-28 px-6 lg:px-12 font-sans antialiased max-w-7xl mx-auto">
       <div className="space-y-16">
+        {/* Top Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -64,7 +67,7 @@ export default function GraduateTracks() {
           variants={containerVariants}
           className="flex flex-col sm:flex-row items-start sm:items-end justify-between w-full border-b border-gray-100 pb-6 gap-4"
         >
-          <div className="space-y-3">
+          <div className="space-y-3 text-left">
             <motion.h2
               variants={itemVariants}
               className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-950 tracking-tight"
@@ -78,8 +81,7 @@ export default function GraduateTracks() {
               variants={itemVariants}
               className="text-gray-500 text-xs sm:text-sm font-medium"
             >
-              Choose from diverse program tracks tailored to your interests and
-              career goals
+              Choose from diverse program tracks tailored to your interests and career goals
             </motion.p>
           </div>
 
@@ -97,6 +99,7 @@ export default function GraduateTracks() {
           </motion.div>
         </motion.div>
 
+        {/* Dynamic Cards Grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -110,12 +113,9 @@ export default function GraduateTracks() {
                 key={track.id}
                 variants={itemVariants}
                 whileHover={{ y: -6, scale: 1.01 }}
-                className={`bg-white border rounded-3xl overflow-hidden flex flex-col h-full group transition-all duration-300 ${
-                  track.isFeatured
-                    ? "border-[#50d523] shadow-[0_15px_40px_rgba(67,160,71,0.08)]"
-                    : "border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-gray-100/40"
-                }`}
+                className="bg-white border rounded-3xl overflow-hidden flex flex-col h-full group transition-all duration-300 border-[#50d523] shadow-[0_15px_40px_rgba(67,160,71,0.08)]"
               >
+                {/* Visual Header Block */}
                 <div className="h-48 lg:h-52 w-full relative bg-gray-50 overflow-hidden shrink-0 select-none">
                   {track.isDigitalBg ? (
                     <div className="w-full h-full bg-[#1A1A1A] flex items-center justify-center relative">
@@ -147,23 +147,16 @@ export default function GraduateTracks() {
                   </div>
 
                   <div
-                    className={`absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center shadow-md ${
-                      track.isFeatured
-                        ? "bg-[#50d523] text-white"
-                        : "bg-white text-gray-800"
-                    }`}
+                    className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center shadow-md bg-[#50d523] text-white"
                   >
                     <FontAwesomeIcon icon={track.icon} className="text-base" />
                   </div>
                 </div>
 
-                <div className="p-6 md:p-7 flex flex-col flex-1 justify-between gap-6">
+                {/* Content Details Block */}
+                <div className="p-6 md:p-7 flex flex-col flex-1 justify-between gap-6 text-left">
                   <div className="space-y-3">
-                    <h3
-                      className={`text-lg font-black tracking-tight ${
-                        track.isFeatured ? "text-[#50d523]" : "text-gray-900"
-                      }`}
-                    >
+                    <h3 className="text-lg font-black tracking-tight text-[#50d523]">
                       {track.category}
                     </h3>
                     <p className="text-gray-500 text-xs sm:text-sm font-medium leading-relaxed line-clamp-4">
@@ -171,9 +164,10 @@ export default function GraduateTracks() {
                     </p>
                   </div>
 
+                  {/* 2. Link Parameter Configured Properly for Dynamic Route Handling */}
                   <div className="pt-2 border-t border-gray-50 flex items-center transition-transform group-hover:translate-x-1 duration-200">
                     <Link
-                      to={`/programs/${track.category.toLowerCase().replace(/\s+/g, "-")}`}
+                      to={`/programs/${track.slug}`}
                       className="inline-flex items-center gap-2 text-[#50d523] text-xs sm:text-sm font-bold"
                     >
                       <span>Learn more</span>

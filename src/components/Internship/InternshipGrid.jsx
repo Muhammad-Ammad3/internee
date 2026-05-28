@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -13,37 +13,37 @@ import other from "../../assets/other.png";
 const InternshipOpportunities = () => {
   const tracks = [
     {
-      id: 1,
+      id: "graphic-design",
       title: "Graphic Design",
       desc: "Master UI/UX, branding, and visual communication",
       imgAsset: graphicDesign,
     },
     {
-      id: 2,
+      id: "chatbot-development",
       title: "Chatbot Development",
       desc: "Build AI-powered conversational experiences",
       imgAsset: chatbot,
     },
     {
-      id: 3,
+      id: "frontend-development",
       title: "Frontend Internship",
       desc: "Create stunning, responsive web interfaces",
       imgAsset: frontend,
     },
     {
-      id: 4,
+      id: "app-development",
       title: "App Development",
       desc: "Design and develop mobile applications",
       imgAsset: frontend,
     },
     {
-      id: 5,
+      id: "backend-development",
       title: "Backend Development",
       desc: "Build scalable APIs and server infrastructure",
       imgAsset: backend,
     },
     {
-      id: 6,
+      id: "other-internships",
       title: "Other Internships",
       desc: "Explore diverse tech career opportunities",
       imgAsset: other,
@@ -152,7 +152,7 @@ const InternshipOpportunities = () => {
                     {track.desc}
                   </p>
                 </div>
-
+                <Link to={`/internships/${track.id}`} className="w-full">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -164,6 +164,7 @@ const InternshipOpportunities = () => {
                     className="text-[10px] sm:text-xs group-hover:translate-x-1 transition-transform"
                   />
                 </motion.button>
+                </Link>
               </div>
             </motion.div>
           ))}

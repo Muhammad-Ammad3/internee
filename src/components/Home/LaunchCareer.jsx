@@ -7,7 +7,7 @@ import {
   animate,
   useInView,
 } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -160,10 +160,12 @@ const LaunchCareer = () => {
               whileTap={{ scale: 0.98 }}
               className="pt-2"
             >
+              <Link to="/internships">
               <button className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-6 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all">
                 <span>Join Our Community</span>
                 <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
               </button>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -275,6 +277,7 @@ const LaunchCareer = () => {
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link to="/graduate-program">
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
@@ -283,6 +286,8 @@ const LaunchCareer = () => {
                   <span>Get Started Now</span>
                   <FontAwesomeIcon icon={faHandSparkles} className="text-xs" />
                 </motion.button>
+                </Link>
+                <Link to="internships">
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
@@ -294,6 +299,7 @@ const LaunchCareer = () => {
                   />
                   <span>Explore Internships</span>
                 </motion.button>
+                </Link>
               </div>
             </motion.div>
 

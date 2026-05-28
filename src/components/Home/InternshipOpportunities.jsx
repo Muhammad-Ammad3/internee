@@ -13,7 +13,7 @@ import other from "../../assets/other.png";
 const InternshipOpportunities = () => {
   const categories = [
     {
-      id: "graphic-design", // Dynamic route ke liye ID add ki
+      id: "graphic-design",
       title: "Graphic Design",
       desc: "Master UI/UX, branding, and visual communication",
       imgAsset: graphicDesign,

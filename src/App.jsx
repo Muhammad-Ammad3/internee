@@ -1,5 +1,5 @@
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"; // 1. useLocation ko import kiya
+import { useEffect } from "react"; 
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";  
 import Footer from "./components/Footer"; 
@@ -10,17 +10,35 @@ import StudentAmbassador from "./pages/StudentAmbassador";
 import StartupJourney from "./pages/StartupJourney";
 import ResourcesBlogDashboard from "./pages/ResourcesBlogDashboard";
 import ResourcesWebiners from "./pages/ResourcesWebiners";
+import JobPortal from "./pages/JobPortal";
+import GraduateTrackDetail from "./pages/GraduateTrackDetail";
+import Agreement from "./pages/Agreement";
+import Apply from "./pages/Apply";
 import InternshipDetail from "./components/InternshipDetail";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant", 
+    });
+  }, [pathname]);
+
+  return null; 
+}
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
+      
       <div className="w-full min-h-screen bg-white text-gray-900 antialiased selection:bg-green-100 selection:text-green-700 flex flex-col justify-between">
         
-        {/* Navbar - fixed at top */}
         <Navbar />
         
-        {/* Dynamic Route Content with Smooth Transitions */}
         <main className="grow pt-2">
           <AnimatePresence mode="wait">
             <Routes>
@@ -40,7 +58,14 @@ function App() {
                   </PageWrapper>
                 } 
               />
-              <Route path="/internships/:trackId" element={<InternshipDetail />} />
+              <Route 
+                path="/internships/:trackId" 
+                element={
+                  <PageWrapper>
+                    <InternshipDetail />
+                  </PageWrapper>
+                } 
+              />
               <Route 
                 path="/graduate-program" 
                 element={
@@ -81,12 +106,42 @@ function App() {
                   </PageWrapper>
                 } 
               />
-              {/* Additional routes can be added here */}
+              <Route 
+                path="/jobportal" 
+                element={
+                  <PageWrapper>
+                    <JobPortal />
+                  </PageWrapper>
+                } 
+              />
+              <Route 
+                path="/programs/:trackSlug" 
+                element={
+                  <PageWrapper>
+                    <GraduateTrackDetail />
+                  </PageWrapper>
+                } 
+              />
+              <Route 
+                path="/studentambassadors/agreement" 
+                element={
+                  <PageWrapper>
+                    <Agreement />
+                  </PageWrapper>
+                } 
+              />
+              <Route 
+                path="/studentambassadors/apply" 
+                element={
+                  <PageWrapper>
+                    <Apply />
+                  </PageWrapper>
+                } 
+              />
             </Routes>
           </AnimatePresence>
         </main>
         
-        {/* Footer - fixed at bottom */}
         <Footer />
         
       </div>
@@ -94,7 +149,6 @@ function App() {
   );
 }
 
-// Page wrapper component for smooth transitions
 function PageWrapper({ children }) {
   return (
     <motion.div

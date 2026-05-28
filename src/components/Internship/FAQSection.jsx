@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Link } from "react-router-dom"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -125,8 +125,8 @@ const FAQSection = () => {
             <p className="text-gray-400 text-sm sm:text-base font-normal tracking-wide max-w-lg">
               Take the first step toward a successful career with Internee.pk.
             </p>
-
             <div className="flex flex-wrap items-center gap-4 pt-2">
+            <Link to="/graduate-program">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -134,7 +134,8 @@ const FAQSection = () => {
               >
                 Get Started Now
               </motion.button>
-
+            </Link>
+              <Link to="/internships">
               <motion.button
                 whileHover={{
                   scale: 1.02,
@@ -150,6 +151,7 @@ const FAQSection = () => {
                 />
                 <span>Explore Internships</span>
               </motion.button>
+              </Link>
             </div>
           </div>
         </div>

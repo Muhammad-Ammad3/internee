@@ -32,10 +32,22 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: faFacebookF, label: "Facebook", href: "#facebook" },
-    { icon: faTwitter, label: "Twitter", href: "#twitter" },
-    { icon: faLinkedinIn, label: "LinkedIn", href: "#linkedin" },
-    { icon: faInstagram, label: "Instagram", href: "#instagram" },
+    {
+      icon: faFacebookF,
+      label: "Facebook",
+      href: "https://www.facebook.com/internee.pk/",
+    },
+    { icon: faTwitter, label: "Twitter", href: "https://x.com/interneepk" },
+    {
+      icon: faLinkedinIn,
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/checkpoint/challengesV3/AQGxHRB584m5dwAAAZ5uyhvEPE-UsSUbLHiTcpFAFt6TV3iXgPe9BTIHcEAar9nrP-IDESmEV5l55VP1rZ2lBzityqgAmg",
+    },
+    {
+      icon: faInstagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/internee.pk/",
+    },
   ];
 
   const companyLinks = [
@@ -260,7 +272,7 @@ const Footer = () => {
           variants={itemVariants}
           className="pt-6 border-t border-neutral-800/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-neutral-600"
         >
-          <p>© 2025 internee.pk — All rights reserved.</p>
+          <p>© 2026 internee.pk — All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a
               href="#terms"

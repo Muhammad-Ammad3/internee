@@ -13,6 +13,8 @@ import {
   faRocket,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
 
 export default function StudentAmbassadorsHero() {
   const features = [
@@ -110,6 +112,7 @@ export default function StudentAmbassadorsHero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+            <Link to="/studentambassadors/agreement">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -122,6 +125,7 @@ export default function StudentAmbassadorsHero() {
                 className="text-sm group-hover:translate-x-1 transition-transform"
               />
             </motion.button>
+            </Link>
 
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
