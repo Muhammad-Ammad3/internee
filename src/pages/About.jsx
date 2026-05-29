@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import InternshipHero from '../components/Internship/InternshipHero';
-import FAQSection from '../components/Internship/FAQSection';
-import HowItWorks from '../components/Internship/HowItWorks';
-import InternshipGrid from '../components/Internship/InternshipGrid';
+import AboutHero from '../components/About/AboutHero';
+import QualityInternship from '../components/About/QualityInternship';
+import CoreValue from '../components/About/CoreValue';
+
 
 // Page transition configuration
 const pageTransition = {
@@ -62,7 +62,7 @@ const AnimatedSectionLate = ({ children, className }) => (
   </motion.div>
 );
 
-const Internships = () => {
+const About = () => {
   return (
     <motion.div 
       initial="initial"
@@ -72,27 +72,21 @@ const Internships = () => {
     >
       {/* Internship Hero Section - First section with larger margin */}
       <AnimatedSection className="w-full">
-        <InternshipHero />
+        <AboutHero />
       </AnimatedSection>
       
       {/* Internship Grid Section */}
       <AnimatedSection className="w-full">
-        <InternshipGrid />
+        <QualityInternship />
       </AnimatedSection>
       
       {/* How It Works Section */}
       <AnimatedSectionLate className="w-full">
-        <HowItWorks />
+        <CoreValue />
       </AnimatedSectionLate>
-      
-      {/* Community and Banner Section */}
-      <AnimatedSectionLate className="w-full">
-        <FAQSection />
-      </AnimatedSectionLate>
-      
-      {/* Additional sections can be added here */}
+
     </motion.div>
   );
 };
 
-export default Internships;
+export default About;

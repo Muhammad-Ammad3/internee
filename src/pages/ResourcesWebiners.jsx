@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -70,9 +70,11 @@ const AnimatedSectionLate = ({ children, className }) => (
 
 export default function ResourcesWebiners() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const navigate = useNavigate();
 
   const filters = ["All", "Upcoming", "Live", "Completed", "Webinars"];
 
+  // Note: Data mein time aur dates ko handle karne ke liye helper values add ki hain taake flyer bilkul exact match kare
   const webinars = [
     {
       id: 1,
@@ -83,23 +85,33 @@ export default function ResourcesWebiners() {
       speaker: "Umair Ahmed",
       role: "Career Coach and Industry Expert",
       date: "Mar 15, 2026",
-      tags: ["career development", "personal branding", "networking", "+2"],
+      displayDate: "14",
+      displayMonth: "MAR 2026",
+      displayTime: "10:30 PM",
+      topicBadge: "CAREER PATHS",
+      subTopic: "Exploring Career Paths",
+      tags: ["career development", "personal branding", "networking", "internships"],
       image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 2,
       status: "Completed",
-      duration: "1h",
+      duration: "1 hour",
       category: "Career Development",
       title:
         "Digital Baithak: The Future of Career Development with Qasim Hassan",
       speaker: "Qasim Hassan",
       role: "Career Strategist and Coach",
-      date: "Mar 15, 2026",
-      tags: ["career development", "networking", "digital skills", "+2"],
+      date: "Monday, Mar 16, 2026 at 03:30 AM",
+      displayDate: "15",
+      displayMonth: "MAR 2026",
+      displayTime: "10:30 PM",
+      topicBadge: "DATA ENGINEERING",
+      subTopic: "Career Guide & Current Market Worth",
+      tags: ["career development", "networking", "digital tools", "internships", "personal branding"],
       image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
+        "https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 3,
@@ -108,11 +120,16 @@ export default function ResourcesWebiners() {
       category: "Career Development",
       title: "Building a Successful Career in Software Engineering",
       speaker: "Muhammad Abdullah",
-      role: "Senior Software Engineer at Tech Solutions Ltd.",
+      role: "Senior Software Engineer",
       date: "Mar 10, 2026",
-      tags: ["career", "software engineering", "professional growth", "+2"],
+      displayDate: "09",
+      displayMonth: "MAR 2026",
+      displayTime: "10:30 PM",
+      topicBadge: "SOFTWARE ENG.",
+      subTopic: "Building a Successful Career",
+      tags: ["career", "software engineering", "professional growth", "internships"],
       image:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 4,
@@ -123,9 +140,14 @@ export default function ResourcesWebiners() {
       speaker: "Zeeshan Awan",
       role: "Digital Innovation Specialist",
       date: "Feb 28, 2026",
-      tags: ["digital innovation", "innovation", "career growth", "+2"],
+      displayDate: "28",
+      displayMonth: "FEB 2026",
+      displayTime: "08:00 PM",
+      topicBadge: "INNOVATION",
+      subTopic: "Exploring Digital Innovation",
+      tags: ["digital innovation", "innovation", "career growth", "internships"],
       image:
-        "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=400&q=80",
+        "https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       id: 5,
@@ -136,11 +158,20 @@ export default function ResourcesWebiners() {
       speaker: "Nasir Hussain",
       role: "AI Engineer and Mentor",
       date: "Mar 09, 2026",
-      tags: ["career development", "networking", "skill enhancement", "+2"],
+      displayDate: "09",
+      displayMonth: "MAR 2026",
+      displayTime: "04:00 PM",
+      topicBadge: "AI & ML",
+      subTopic: "Navigating Tech Careers",
+      tags: ["career development", "networking", "skill enhancement", "internships"],
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+        "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
+
+  const handleWatchRecording = (webinar) => {
+    navigate("/webinars/digital", { state: { webinar } });
+  };
 
   return (
     <motion.div
@@ -148,10 +179,10 @@ export default function ResourcesWebiners() {
       animate="animate"
       exit="exit"
       variants={pageTransition}
-      className="w-full bg-gray-50/50 min-h-screen font-sans antialiased pb-24 text-left"
+      className="w-full bg-gray-50/50 min-h-screen font-sans antialiased pb-24 text-left overflow-x-hidden"
     >
       <AnimatedSection className="w-full">
-        <div className="w-full bg-[#0a0a0a] text-white px-4 py-12 sm:px-6 md:px-16 md:py-20 relative overflow-hidden">
+        <div className="w-full bg-[#0a0a0a] text-white px-4 py-12 sm:px-6 md:px-12 lg:px-16 md:py-20 relative overflow-hidden">
           <div className="absolute inset-y-0 right-0 w-full sm:w-1/2 opacity-15 pointer-events-none z-0 hidden sm:block">
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-80 grid grid-cols-2 gap-0 mix-blend-overlay">
               <div className="w-40 h-40 bg-white rounded-l-full"></div>
@@ -176,7 +207,7 @@ export default function ResourcesWebiners() {
                 Expert-Led Sessions
               </span>
             </motion.div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight wrap-break-words">
               Webinars &{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#50d523] to-[#50d523]">
                 Masterclasses
@@ -185,13 +216,13 @@ export default function ResourcesWebiners() {
             <p className="text-gray-400 text-xs sm:text-sm lg:text-base max-w-2xl leading-relaxed font-medium">
               Join exclusive online sessions hosted by industry professionals.
               Gain practical insights, learn trending technologies, and
-              accelerate your career growth.
+              accelerating your career growth.
             </p>
           </div>
         </div>
       </AnimatedSection>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-6 md:mt-10 space-y-8 md:space-y-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 md:mt-10 space-y-8 md:space-y-12">
         <AnimatedSection className="flex flex-wrap items-center gap-3 pb-4 overflow-x-auto no-scrollbar">
           {filters.map((filter) => (
             <motion.button
@@ -212,94 +243,133 @@ export default function ResourcesWebiners() {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {webinars.map((item) => (
-            <AnimatedSectionLate key={item.id}>
-              <motion.div
-                whileHover={{ y: -8 }}
-                className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-500/10 hover:border-green-200/50 transition-all duration-500 flex flex-col group cursor-pointer"
-              >
-                <div className="relative aspect-16/10 bg-slate-100 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-3 left-3 flex gap-2">
-                    <span
-                      className={`text-xs uppercase font-bold px-3 py-1.5 rounded-lg tracking-wider text-white ${
-                        item.status === "Live"
-                          ? "bg-red-600"
-                          : "bg-neutral-800/80"
-                      }`}
-                    >
-                      {item.status}
-                    </span>
-                  </div>
-                  <div className="absolute top-3 right-3">
-                    <span className="bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                      <FontAwesomeIcon icon={faClock} className="text-xs" />
-                      {item.duration}
-                    </span>
-                  </div>
-                </div>
+          {webinars
+            .filter((item) => activeFilter === "All" || item.status === activeFilter || (activeFilter === "Webinars" && item.status === "Completed"))
+            .map((item) => (
+              <AnimatedSectionLate key={item.id}>
+                <motion.div
+                  whileHover={{ y: -8 }}
+                  className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-500/10 hover:border-green-200/50 transition-all duration-500 flex flex-col group cursor-pointer"
+                >
+                  {/* Upgrade: Custom Styled Graphic Card Layout like the provided screenshots */}
+                  <div className="relative aspect-16/10 bg-[#121b15] text-white overflow-hidden p-4 sm:p-5 flex justify-between items-center select-none">
+                    
+                    {/* Background Grid Lines Effect */}
+                    <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                    <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#50d523]/10 rounded-full blur-2xl"></div>
 
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-3">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#50d523]">
-                      {item.category}
-                    </span>
-                    <h3 className="text-base lg:text-lg font-bold text-gray-900 tracking-tight line-clamp-2 leading-snug group-hover:text-[#50d523] transition-colors">
-                      {item.title}
-                    </h3>
-
-                    <div className="flex items-center gap-3 pt-1">
-                      <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center font-bold text-sm text-gray-600 border border-gray-200">
-                        {item.speaker.charAt(0)}
-                      </div>
-                      <div>
-                        <p className="text-sm font-bold text-gray-800">
+                    {/* Left Details Panel */}
+                    <div className="z-10 flex flex-col justify-between h-full max-w-[55%] space-y-2">
+                      <div className="space-y-1">
+                        <div className="bg-[#50d523] text-black font-extrabold text-[9px] uppercase px-2 py-0.5 rounded tracking-wider inline-block">
+                          {item.speaker.split(" ")[0]} {item.speaker.split(" ")[1] || ""}
+                        </div>
+                        <h4 className="text-white font-black text-xs sm:text-sm leading-tight uppercase tracking-tight line-clamp-1">
                           {item.speaker}
-                        </p>
-                        <p className="text-xs text-gray-400 font-medium line-clamp-1">
+                        </h4>
+                        <p className="text-[9px] text-gray-400 font-medium line-clamp-1 border-b border-white/10 pb-1">
                           {item.role}
                         </p>
                       </div>
+                      
+                      <div className="pt-1">
+                        <div className="text-[11px] font-black text-[#50d523] tracking-wide leading-none uppercase">
+                          {item.topicBadge}
+                        </div>
+                        <div className="text-[9px] text-gray-300 font-bold leading-tight mt-0.5 line-clamp-2 italic">
+                          {item.subTopic}
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-2 text-gray-400 text-sm font-medium pt-1">
-                      <FontAwesomeIcon
-                        icon={faCalendarDays}
-                        className="text-sm"
+                    {/* Center Right Side: Speaker image with continuous frame border */}
+                    <div className="absolute right-16 bottom-0 w-[100px] h-[88%] z-10 overflow-hidden rounded-t-2xl border-t border-l border-r border-white/20 bg-neutral-900 shadow-inner">
+                      <img 
+                        src={item.image} 
+                        alt={item.speaker} 
+                        className="w-full h-full object-cover object-top filter contrast-105 transition-transform duration-500 group-hover:scale-105"
                       />
-                      <span>{item.date}</span>
+                    </div>
+
+                    {/* Extreme Right Side: Dynamic Calendar Badge */}
+                    <div className="z-20 flex flex-col items-center justify-center bg-white text-black rounded-xl py-2 px-2.5 min-w-[55px] shadow-2xl border border-gray-100 self-center transform scale-95 sm:scale-100">
+                      <span className="text-xl font-black leading-none text-neutral-900 tracking-tighter">
+                        {item.displayDate}
+                      </span>
+                      <span className="text-[8px] font-black uppercase text-[#50d523] tracking-widest mt-0.5">
+                        {item.displayMonth.split(" ")[0]}
+                      </span>
+                      <span className="text-[7px] font-bold text-gray-400 leading-none">
+                        {item.displayMonth.split(" ")[1]}
+                      </span>
+                      <span className="text-[7px] font-extrabold bg-neutral-900 text-white px-1 py-0.5 rounded-sm mt-1.5 whitespace-nowrap tracking-tight">
+                        {item.displayTime}
+                      </span>
+                    </div>
+
+                    {/* Top Status Tags Floating over banner */}
+                    <div className="absolute top-2 left-2 flex gap-1.5 z-30">
+                      <span className={`text-[8px] uppercase font-bold px-2 py-0.5 rounded tracking-wider text-white ${
+                        item.status === "Live" ? "bg-red-600 animate-pulse" : "bg-neutral-900/80 backdrop-blur-xs"
+                      }`}>
+                        {item.status}
+                      </span>
                     </div>
                   </div>
 
-                  <div className="space-y-4 pt-2">
-                    <div className="flex flex-wrap gap-1.5">
-                      {item.tags.map((tag, i) => (
-                        <span
-                          key={i}
-                          className="bg-gray-50 text-gray-500 border border-gray-100 text-xs font-medium px-2.5 py-1 rounded-md whitespace-nowrap"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  {/* Text Details & Buttons below the graphic banner */}
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    <div className="space-y-3">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#50d523]">
+                        {item.category}
+                      </span>
+                      <h3 className="text-base lg:text-lg font-bold text-gray-900 tracking-tight line-clamp-2 leading-snug group-hover:text-[#50d523] transition-colors">
+                        {item.title}
+                      </h3>
+
+                      <div className="flex items-center gap-2 text-gray-400 text-sm font-medium pt-1">
+                        <FontAwesomeIcon
+                          icon={faCalendarDays}
+                          className="text-xs text-gray-300"
+                        />
+                        <span className="text-xs line-clamp-1">{item.date}</span>
+                        <span className="text-gray-300">•</span>
+                        <FontAwesomeIcon icon={faClock} className="text-xs text-gray-300" />
+                        <span className="text-xs">{item.duration}</span>
+                      </div>
                     </div>
 
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-[#0a0a0a] hover:bg-[#50d523] text-white font-bold text-sm py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 group-hover:bg-[#50d523]"
-                    >
-                      <FontAwesomeIcon icon={faPlay} className="text-xs" />
-                      Watch Recording
-                    </motion.button>
+                    <div className="space-y-4 pt-2">
+                      <div className="flex flex-wrap gap-1.5 max-h-8 overflow-hidden">
+                        {item.tags.slice(0, 3).map((tag, i) => (
+                          <span
+                            key={i}
+                            className="bg-gray-50 text-gray-500 border border-gray-100 text-xs font-medium px-2.5 py-1 rounded-md whitespace-nowrap"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                        {item.tags.length > 3 && (
+                          <span className="bg-gray-50 text-gray-500 border border-gray-100 text-xs font-medium px-2.5 py-1 rounded-md whitespace-nowrap">
+                            +{item.tags.length - 3}
+                          </span>
+                        )}
+                      </div>
+
+                      <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => handleWatchRecording(item)}
+                        className="w-full bg-[#0a0a0a] hover:bg-[#50d523] text-white font-bold text-sm py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 group-hover:bg-[#50d523]"
+                      >
+                        <FontAwesomeIcon icon={faPlay} className="text-xs" />
+                        Watch Recording
+                      </motion.button>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            </AnimatedSectionLate>
-          ))}
+                </motion.div>
+              </AnimatedSectionLate>
+            ))}
         </div>
 
         <AnimatedSectionLate className="mt-8">
@@ -326,7 +396,7 @@ export default function ResourcesWebiners() {
                 </span>
               </motion.div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight wrap-break-words">
                 Never Miss a{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-[#50d523] to-[#50d523]">
                   Learning Opportunity
@@ -339,11 +409,9 @@ export default function ResourcesWebiners() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-                <Link to="/internships">
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 cursor-pointer bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-all text-xs sm:text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group w-full sm:w-auto"
+                <button
+                  onClick={() => navigate("/internships")}
+                  className="flex items-center justify-center gap-2 cursor-pointer bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-5 py-3.5 rounded-xl transition-all text-xs sm:text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group w-full sm:w-auto"
                 >
                   <FontAwesomeIcon
                     icon={faMicrophone}
@@ -354,21 +422,17 @@ export default function ResourcesWebiners() {
                     icon={faArrowRight}
                     className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform"
                   />
-                </motion.button>
-                </Link>
-                <Link to="/studentambassadors">
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 cursor-pointer border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-colors text-xs sm:text-sm bg-transparent w-full sm:w-auto"
+                </button>
+                <button
+                  onClick={() => navigate("/studentambassadors")}
+                  className="flex items-center justify-center gap-2 cursor-pointer border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-5 py-3.5 rounded-xl transition-colors text-xs sm:text-sm bg-transparent w-full sm:w-auto"
                 >
                   <FontAwesomeIcon
                     icon={faUsers}
                     className="text-xs sm:text-sm"
                   />
                   <span>Become Ambassador</span>
-                </motion.button>
-                </Link>
+                </button>
               </div>
             </div>
 

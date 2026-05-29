@@ -15,6 +15,8 @@ import GraduateTrackDetail from "./pages/GraduateTrackDetail";
 import Agreement from "./pages/Agreement";
 import Apply from "./pages/Apply";
 import Community from "./pages/Community";
+import Digital from "./pages/Digital";
+import About from "./pages/About";
 import InternshipDetail from "./components/InternshipDetail";
 
 function ScrollToTop() {
@@ -144,6 +146,22 @@ function App() {
                 element={
                   <PageWrapper>
                     <Community />
+                  </PageWrapper>
+                } 
+              />
+              <Route 
+                path="/webinars/digital" 
+                element={
+                  <PageWrapper>
+                    <Digital />
+                  </PageWrapper>
+                } 
+              />
+              <Route 
+                path="/about" 
+                element={
+                  <PageWrapper>
+                    <About />
                   </PageWrapper>
                 } 
               />
