@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -78,7 +78,7 @@ export default function ResourcesBlogDashboard() {
       animate="animate"
       exit="exit"
       variants={pageTransition}
-      className="w-full bg-gray-50/50  min-h-screen font-sans antialiased pb-12 md:pb-24 text-left"
+      className="w-full bg-gray-50/50 min-h-screen font-sans antialiased pb-12 md:pb-24 text-left overflow-x-hidden"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -86,7 +86,7 @@ export default function ResourcesBlogDashboard() {
         transition={{ duration: 0.5 }}
         className="w-full"
       >
-        <div className="w-full bg-[#0a0a0a] text-white px-4 py-12 sm:px-6 md:px-16 md:py-20 relative overflow-hidden">
+        <div className="w-full bg-[#0a0a0a] text-white px-4 py-12 sm:px-6 md:px-12 lg:px-16 md:py-20 relative overflow-hidden">
           <div className="absolute inset-y-0 right-0 w-full sm:w-1/2 opacity-15 pointer-events-none z-0 hidden sm:block">
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-80 h-80 grid grid-cols-2 gap-0 mix-blend-overlay">
               <div className="w-40 h-40 bg-white rounded-l-full"></div>
@@ -111,7 +111,7 @@ export default function ResourcesBlogDashboard() {
                 Our blog
               </span>
             </motion.div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight wrap-break-words">
               Explore the Internee.pk{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-[#50d523] to-[#50d523]">
                 Blog
@@ -125,18 +125,18 @@ export default function ResourcesBlogDashboard() {
         </div>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-6 md:mt-10 space-y-8 md:space-y-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 md:mt-10 space-y-8 md:space-y-14">
         <AnimatedSection className="w-full">
-          <div className="w-full bg-white border border-gray-100 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4 sm:gap-5 shadow-lg hover:shadow-xl transition-shadow">
+          <div className="w-full bg-white border border-gray-100 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-5 shadow-lg hover:shadow-xl transition-shadow">
             <div className="space-y-1.5 w-full md:w-auto">
               <span className="text-[10px] font-bold text-[#50d523] uppercase tracking-wider block">
                 Categories
               </span>
-              <div className="relative inline-block w-full sm:w-52">
+              <div className="relative inline-block w-full md:w-52">
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full bg-white border border-gray-200 text-gray-800 text-sm font-bold rounded-xl px-4 py-2.5 appearance-none cursor-pointer focus:outline-none focus:border-[#50d523] transition-colors"
+                  className="w-full bg-white border border-gray-200 text-gray-800 text-sm font-bold rounded-xl pl-4 pr-10 py-2.5 appearance-none cursor-pointer focus:outline-none focus:border-[#50d523] transition-colors"
                 >
                   <option>All Categories</option>
                   <option>Web Development</option>
@@ -150,7 +150,7 @@ export default function ResourcesBlogDashboard() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 md:self-end w-full md:w-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 w-full md:w-auto md:self-end">
               <span className="text-xs sm:text-sm font-bold text-gray-500">
                 Sort by:
               </span>
@@ -194,7 +194,7 @@ export default function ResourcesBlogDashboard() {
           >
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-green-50 text-[#50d523] border border-green-100 flex items-center justify-center mb-4 sm:mb-5"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-green-50 text-[#50d523] border border-green-100 flex items-center justify-center mb-4 sm:mb-5 shrink-0"
             >
               <FontAwesomeIcon icon={faClock} className="text-lg" />
             </motion.div>
@@ -227,7 +227,7 @@ export default function ResourcesBlogDashboard() {
           >
             <motion.div
               whileHover={{ scale: 1.1 }}
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gray-50 text-gray-400 border border-gray-100 flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-green-50 group-hover:text-[#50d523] group-hover:border-green-100 transition-all"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gray-50 text-gray-400 border border-gray-100 flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-green-50 group-hover:text-[#50d523] group-hover:border-green-100 transition-all shrink-0"
             >
               <FontAwesomeIcon icon={faMagnifyingGlass} className="text-lg" />
             </motion.div>
@@ -247,7 +247,7 @@ export default function ResourcesBlogDashboard() {
             whileTap={{ scale: 0.95 }}
             className="text-gray-400 hover:text-gray-600 cursor-not-allowed opacity-50 transition-colors"
           >
-            ← Previous
+            &larr; Previous
           </motion.button>
           <motion.span
             whileHover={{ scale: 1.1 }}
@@ -260,7 +260,7 @@ export default function ResourcesBlogDashboard() {
             whileTap={{ scale: 0.95 }}
             className="text-gray-400 hover:text-gray-600 cursor-not-allowed opacity-50 transition-colors"
           >
-            Next →
+            Next &rarr;
           </motion.button>
         </AnimatedSectionLate>
 
@@ -288,7 +288,7 @@ export default function ResourcesBlogDashboard() {
                 </span>
               </motion.div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight wrap-break-words">
                 Build Skills With{" "}
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-[#50d523] to-[#50d523]">
                   Practical Insights
@@ -301,32 +301,42 @@ export default function ResourcesBlogDashboard() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-all text-xs sm:text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group w-full sm:w-auto"
+                <Link to="/internships" className="w-full sm:w-auto block">
+                  <motion.button
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center justify-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-5 py-3.5 sm:px-6 rounded-xl cursor-pointer transition-all text-xs sm:text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group w-full"
+                  >
+                    <FontAwesomeIcon
+                      icon={faPenNib}
+                      className="text-xs sm:text-sm"
+                    />
+                    <span className="whitespace-nowrap">
+                      Explore Internships
+                    </span>
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform"
+                    />
+                  </motion.button>
+                </Link>
+
+                <Link
+                  to="/studentambassadors"
+                  className="w-full sm:w-auto block"
                 >
-                  <FontAwesomeIcon
-                    icon={faPenNib}
-                    className="text-xs sm:text-sm"
-                  />
-                  <span>Explore Internships</span>
-                  <FontAwesomeIcon
-                    icon={faArrowRight}
-                    className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform"
-                  />
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-colors text-xs sm:text-sm bg-transparent w-full sm:w-auto"
-                >
-                  <FontAwesomeIcon
-                    icon={faUsers}
-                    className="text-xs sm:text-sm"
-                  />
-                  <span>Become Ambassador</span>
-                </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center justify-center gap-2 border border-gray-700 cursor-pointer hover:border-gray-500 hover:bg-white/5 text-white font-bold px-5 py-3.5 sm:px-6 rounded-xl transition-colors text-xs sm:text-sm bg-transparent w-full"
+                  >
+                    <FontAwesomeIcon
+                      icon={faUsers}
+                      className="text-xs sm:text-sm"
+                    />
+                    <span className="whitespace-nowrap">Become Ambassador</span>
+                  </motion.button>
+                </Link>
               </div>
             </div>
 

@@ -84,7 +84,6 @@ export default function Apply() {
     toast.success("Application Submitted Successfully!");
   };
 
-  // Jab tak Clerk backend se status confirm nahi karta, loading screen dikhao
   if (!isUserLoaded || !isAuthLoaded || !isSignedIn) {
     return (
       <div className="w-full min-h-screen bg-neutral-50/40 flex items-center justify-center">

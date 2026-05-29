@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -17,6 +17,8 @@ import {
   faHeadphones,
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
+
+
 
 export default function FaqsAndCtaBanner() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -245,10 +247,11 @@ export default function FaqsAndCtaBanner() {
           </p>
 
           <div className="flex flex-wrap gap-4 pt-2">
+            <Link to="/studentambassadors/agreement">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-6 py-3.5 rounded-xl transition-all text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group"
+              className="flex items-center gap-2 bg-linear-to-r cursor-pointer from-[#50d523] to-[#50d523] text-white font-bold px-6 py-3.5 rounded-xl transition-all text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group"
             >
               <FontAwesomeIcon icon={faRocket} className="text-sm" />
               <span>Apply Now</span>
@@ -257,14 +260,17 @@ export default function FaqsAndCtaBanner() {
                 className="text-sm group-hover:translate-x-1 transition-transform"
               />
             </motion.button>
+            </Link>
+            <Link to="/studentambassadors/community">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm bg-transparent"
+              className="flex items-center gap-2 cursor-pointer border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-6 py-3.5 rounded-xl transition-colors text-sm bg-transparent"
             >
               <FontAwesomeIcon icon={faUsers} className="text-sm" />
               <span>View Community</span>
             </motion.button>
+            </Link>
           </div>
         </motion.div>
 

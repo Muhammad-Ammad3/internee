@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -339,10 +339,11 @@ export default function ResourcesWebiners() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
+                <Link to="/internships">
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-all text-xs sm:text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group w-full sm:w-auto"
+                  className="flex items-center justify-center gap-2 cursor-pointer bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-all text-xs sm:text-sm shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group w-full sm:w-auto"
                 >
                   <FontAwesomeIcon
                     icon={faMicrophone}
@@ -354,10 +355,12 @@ export default function ResourcesWebiners() {
                     className="text-xs sm:text-sm group-hover:translate-x-1 transition-transform"
                   />
                 </motion.button>
+                </Link>
+                <Link to="/studentambassadors">
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-colors text-xs sm:text-sm bg-transparent w-full sm:w-auto"
+                  className="flex items-center justify-center gap-2 cursor-pointer border border-gray-700 hover:border-gray-500 hover:bg-white/5 text-white font-bold px-5 py-3 sm:px-6 sm:py-3.5 rounded-xl transition-colors text-xs sm:text-sm bg-transparent w-full sm:w-auto"
                 >
                   <FontAwesomeIcon
                     icon={faUsers}
@@ -365,6 +368,7 @@ export default function ResourcesWebiners() {
                   />
                   <span>Become Ambassador</span>
                 </motion.button>
+                </Link>
               </div>
             </div>
 

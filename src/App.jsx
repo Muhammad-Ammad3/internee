@@ -14,6 +14,7 @@ import JobPortal from "./pages/JobPortal";
 import GraduateTrackDetail from "./pages/GraduateTrackDetail";
 import Agreement from "./pages/Agreement";
 import Apply from "./pages/Apply";
+import Community from "./pages/Community";
 import InternshipDetail from "./components/InternshipDetail";
 
 function ScrollToTop() {
@@ -135,6 +136,14 @@ function App() {
                 element={
                   <PageWrapper>
                     <Apply />
+                  </PageWrapper>
+                } 
+              />
+              <Route 
+                path="/studentambassadors/community" 
+                element={
+                  <PageWrapper>
+                    <Community />
                   </PageWrapper>
                 } 
               />

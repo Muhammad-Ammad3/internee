@@ -15,20 +15,32 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-
 export default function StudentAmbassadorsHero() {
+  // 1. Array ke har object me alag alag 'path' define kar diya hai
   const features = [
-    { title: "Get started", desc: "Become a Student Ambassador", icon: faPlay },
-    { title: "Community", desc: "Explore Ambassador profiles", icon: faUsers },
+    { 
+      title: "Get started", 
+      desc: "Become a Student Ambassador", 
+      icon: faPlay, 
+      path: "/studentambassadors/agreement" 
+    },
+    { 
+      title: "Community", 
+      desc: "Explore Ambassador profiles", 
+      icon: faUsers, 
+      path: "/studentambassadors/community" 
+    },
     {
       title: "Startup Competition",
       desc: "Student competition for AI startups",
       icon: faTrophy,
+      path: "https://www.internee.pk/studentambassadors/startup" 
     },
     {
       title: "Founders Hub",
       desc: "A platform for entrepreneurs at any stage",
       icon: faGlobe,
+      path: "https://learn.internee.pk/" 
     },
   ];
 
@@ -113,31 +125,33 @@ export default function StudentAmbassadorsHero() {
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
             <Link to="/studentambassadors/agreement">
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm shadow-md shadow-green-900/10 group whitespace-nowrap"
-            >
-              <FontAwesomeIcon icon={faRocket} className="text-sm text-white" />
-              <span>Get Started</span>
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="text-sm group-hover:translate-x-1 transition-transform"
-              />
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center cursor-pointer gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm shadow-md shadow-green-900/10 group whitespace-nowrap"
+              >
+                <FontAwesomeIcon icon={faRocket} className="text-sm text-white" />
+                <span>Get Started</span>
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="text-sm group-hover:translate-x-1 transition-transform"
+                />
+              </motion.button>
             </Link>
-
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-2 border border-gray-200 hover:border-gray-300 text-gray-700 font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm bg-transparent transition-colors whitespace-nowrap"
-            >
-              <FontAwesomeIcon icon={faUsers} className="text-sm" />
-              <span>View Community</span>
-            </motion.button>
+            <Link to="/studentambassadors/community">
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center justify-center cursor-pointer gap-2 border border-gray-200 hover:border-gray-300 text-gray-700 font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm bg-transparent transition-colors whitespace-nowrap"
+              >
+                <FontAwesomeIcon icon={faUsers} className="text-sm" />
+                <span>View Community</span>
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
 
+        {/* Dashboard Preview Cards */}
         <motion.div
           variants={itemVariants}
           className="space-y-4 sm:space-y-6 lg:pl-6 w-full"
@@ -253,6 +267,7 @@ export default function StudentAmbassadorsHero() {
         </motion.div>
       </motion.div>
 
+      {/* Features Grid Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -266,24 +281,28 @@ export default function StudentAmbassadorsHero() {
               key={index}
               variants={cardVariants}
               whileHover={{ y: -5, scale: 1.01 }}
-              className="bg-white border border-gray-100 p-4 sm:p-5 rounded-2xl flex items-start gap-4 hover:shadow-xl hover:shadow-gray-200/30 hover:border-green-200 transition-all group cursor-pointer text-left"
+              className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl hover:shadow-gray-200/30 hover:border-green-200 transition-all group cursor-pointer"
             >
-              <div className="w-9 h-9 bg-[#E8F5E9] text-[#50d523] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#50d523] group-hover:text-white transition-all">
-                <FontAwesomeIcon icon={feature.icon} className="text-xs" />
-              </div>
-              <div>
-                <h4 className="font-bold text-gray-900 text-md mb-1 group-hover:text-[#50d523] transition-colors">
-                  {feature.title}
-                </h4>
-                <p className="text-gray-400 text-xs font-medium leading-relaxed">
-                  {feature.desc}
-                </p>
-              </div>
+              {/* 2. Link ko card ke bahar rakha hai aur dynamic to={feature.path} inject kar diya hai */}
+              <Link to={feature.path} className="w-full h-full flex items-start gap-4 p-4 sm:p-5 text-left">
+                <div className="w-9 h-9 bg-[#E8F5E9] text-[#50d523] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 group-hover:bg-[#50d523] group-hover:text-white transition-all">
+                  <FontAwesomeIcon icon={feature.icon} className="text-xs" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-md mb-1 group-hover:text-[#50d523] transition-colors">
+                    {feature.title}
+                  </h4>
+                  <p className="text-gray-400 text-xs font-medium leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           );
         })}
       </motion.div>
 
+      {/* Why Join Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"

@@ -11,6 +11,7 @@ import {
   faBuilding,
   faMedal,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function OurJourneySection() {
   const journeyCards = [
@@ -113,28 +114,32 @@ export default function OurJourneySection() {
             variants={itemVariants}
             className="flex flex-wrap gap-4 items-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group"
-            >
-              <FontAwesomeIcon
-                icon={faCompass}
-                className="text-sm group-hover:rotate-12 transition-transform"
-              />
-              <span>Explore Programs</span>
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="text-sm group-hover:translate-x-1 transition-transform"
-              />
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="border border-gray-200 hover:border-gray-300 text-gray-700 font-bold text-sm px-7 py-3.5 rounded-full transition-colors bg-transparent"
-            >
-              Join Community
-            </motion.button>
+            <Link to="/internships">
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all duration-200 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 group cursor-pointer"
+              >
+                <FontAwesomeIcon
+                  icon={faCompass}
+                  className="text-sm group-hover:rotate-12 transition-transform"
+                />
+                <span>Explore Programs</span>
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="text-sm group-hover:translate-x-1 transition-transform"
+                />
+              </motion.button>
+            </Link>
+            <Link to="/studentambassadors">
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="border border-gray-200 hover:border-gray-300 text-gray-700 font-bold text-sm px-7 py-3.5 rounded-full transition-colors cursor-pointer bg-transparent"
+              >
+                Join Community
+              </motion.button>
+            </Link>
           </motion.div>
 
           <motion.div

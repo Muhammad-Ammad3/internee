@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 import {
   faRocket,
@@ -200,29 +201,32 @@ export default function ImpactAndStartJourney() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-2">
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#50d523] hover:bg-[#50d523] text-white font-bold px-6 py-4 rounded-xl text-xs sm:text-sm shadow-lg shadow-green-900/20 group whitespace-nowrap"
-            >
-              <FontAwesomeIcon
-                icon={faRocket}
-                className="text-xs group-hover:animate-bounce"
-              />
-              <span>Explore Internships</span>
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="text-xs transform group-hover:translate-x-1 transition-transform"
-              />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto flex items-center justify-center border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-800/40 text-white font-bold px-6 py-4 rounded-xl transition-all text-xs sm:text-sm bg-transparent whitespace-nowrap"
-            >
-              Become Ambassador
-            </motion.button>
+            <Link to="/internships">
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto flex items-center cursor-pointer justify-center gap-2 bg-[#50d523] hover:bg-[#50d523] text-white font-bold px-6 py-4 rounded-xl text-xs sm:text-sm shadow-lg shadow-green-900/20 group whitespace-nowrap"
+              >
+                <FontAwesomeIcon
+                  icon={faRocket}
+                  className="text-xs group-hover:animate-bounce"
+                />
+                <span>Explore Internships</span>
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="text-xs transform group-hover:translate-x-1 transition-transform"
+                />
+              </motion.button>
+            </Link>
+            <Link to="/studentambassadors">
+              <motion.button
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto flex items-center cursor-pointer justify-center border border-neutral-700 hover:border-neutral-500 hover:bg-neutral-800/40 text-white font-bold px-6 py-4 rounded-xl transition-all text-xs sm:text-sm bg-transparent whitespace-nowrap"
+              >
+                Become Ambassador
+              </motion.button>
+            </Link>
           </div>
         </div>
 
