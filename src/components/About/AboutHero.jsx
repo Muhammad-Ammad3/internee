@@ -146,7 +146,7 @@ export default function AboutHero() {
               <motion.div
                 variants={itemVariants}
                 {...cardHoverEffects}
-                className="relative w-60 h-72 aspect-4/5 bg-slate-200 rounded-4xl overflow-hidden shadow-xl border border-white/60 group"
+                className="relative w-72 h-80 aspect-4/5 bg-slate-200 rounded-4xl overflow-hidden shadow-xl border border-white/60 group"
               >
                 <img
                   src={about}
