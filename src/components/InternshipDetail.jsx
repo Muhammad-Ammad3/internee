@@ -23,7 +23,7 @@ import genrative from "../assets/genrative.png";
 import htmlcssjs from "../assets/htmlcssjs.png";
 import net from "../assets/net.png";
 import nextjs from "../assets/nextjs.png";
-import react from "../assets/react.png";
+import react from "../assets/React.png";
 import angular from "../assets/angular.png";
 import django from "../assets/django.png";
 import wordpress from "../assets/wordpress.png";
