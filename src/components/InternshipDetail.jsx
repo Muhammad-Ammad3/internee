@@ -354,7 +354,7 @@ const InternshipDetail = () => {
       <div className="max-w-6xl mx-auto">
         <motion.div variants={itemVariants}>
           <Link
-            to="/"
+            to="/internships"
             className="text-xs font-bold text-gray-400 hover:text-gray-600 transition-colors inline-flex items-center gap-2 mb-8 group"
           >
             <motion.span
