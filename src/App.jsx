@@ -1,8 +1,13 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"; 
-import { useEffect } from "react"; 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "./components/Navbar";  
-import Footer from "./components/Footer"; 
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Internships from "./pages/Internships";
 import GraduatePrograme from "./pages/GraduatePrograme";
@@ -20,7 +25,6 @@ import About from "./pages/About";
 import InternshipDetail from "./components/InternshipDetail";
 import UserDashboard from "./pages/UserDashboard";
 
-// Page initialization handler scroll system
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -28,58 +32,162 @@ function ScrollToTop() {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant", 
+      behavior: "instant",
     });
   }, [pathname]);
 
-  return null; 
+  return null;
 }
 
-// 1. Sub-Component content context container rules build kiya hai
 function AppContent() {
   const location = useLocation();
-  
-  // Dashboard routing rules setup checks
+
   const isDashboardRoute = location.pathname === "/dashboard";
 
   return (
     <div className="w-full min-h-screen bg-white text-gray-900 antialiased selection:bg-green-100 selection:text-green-700 flex flex-col justify-between">
-      
-      {/* Agar page dashboard na ho to global navbar display karein */}
       {!isDashboardRoute && <Navbar />}
-      
-      {/* Main layout window content track modules routing */}
+
       <main className={`grow ${isDashboardRoute ? "pt-0" : "pt-2"}`}>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
-            <Route path="/dashboard" element={<PageWrapper><UserDashboard /></PageWrapper>} />
-            <Route path="/internships" element={<PageWrapper><Internships /></PageWrapper>} />
-            <Route path="/internships/:trackId" element={<PageWrapper><InternshipDetail /></PageWrapper>} />
-            <Route path="/graduate-program" element={<PageWrapper><GraduatePrograme /></PageWrapper>} />
-            <Route path="/studentambassadors" element={<PageWrapper><StudentAmbassador /></PageWrapper>} />
-            <Route path="/startupjourney" element={<PageWrapper><StartupJourney /></PageWrapper>} />
-            <Route path="/blog" element={<PageWrapper><ResourcesBlogDashboard /></PageWrapper>} />
-            <Route path="/webinars" element={<PageWrapper><ResourcesWebiners /></PageWrapper>} />
-            <Route path="/jobportal" element={<PageWrapper><JobPortal /></PageWrapper>} />
-            <Route path="/programs/:trackSlug" element={<PageWrapper><GraduateTrackDetail /></PageWrapper>} />
-            <Route path="/studentambassadors/agreement" element={<PageWrapper><Agreement /></PageWrapper>} />
-            <Route path="/studentambassadors/apply" element={<PageWrapper><Apply /></PageWrapper>} />
-            <Route path="/studentambassadors/community" element={<PageWrapper><Community /></PageWrapper>} />
-            <Route path="/webinars/digital" element={<PageWrapper><Digital /></PageWrapper>} />
-            <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+            <Route
+              path="/"
+              element={
+                <PageWrapper>
+                  <Home />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <PageWrapper>
+                  <UserDashboard />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/internships"
+              element={
+                <PageWrapper>
+                  <Internships />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/internships/:trackId"
+              element={
+                <PageWrapper>
+                  <InternshipDetail />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/graduate-program"
+              element={
+                <PageWrapper>
+                  <GraduatePrograme />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/studentambassadors"
+              element={
+                <PageWrapper>
+                  <StudentAmbassador />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/startupjourney"
+              element={
+                <PageWrapper>
+                  <StartupJourney />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/blog"
+              element={
+                <PageWrapper>
+                  <ResourcesBlogDashboard />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/webinars"
+              element={
+                <PageWrapper>
+                  <ResourcesWebiners />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/jobportal"
+              element={
+                <PageWrapper>
+                  <JobPortal />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/programs/:trackSlug"
+              element={
+                <PageWrapper>
+                  <GraduateTrackDetail />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/studentambassadors/agreement"
+              element={
+                <PageWrapper>
+                  <Agreement />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/studentambassadors/apply"
+              element={
+                <PageWrapper>
+                  <Apply />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/studentambassadors/community"
+              element={
+                <PageWrapper>
+                  <Community />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/webinars/digital"
+              element={
+                <PageWrapper>
+                  <Digital />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <PageWrapper>
+                  <About />
+                </PageWrapper>
+              }
+            />
           </Routes>
         </AnimatePresence>
       </main>
-      
-      {/* HIDE FOOTER ON DASHBOARD: Agar user route '/dashboard' hai to clean space hide context filter active */}
+
       {!isDashboardRoute && <Footer />}
-      
     </div>
   );
 }
 
-// Global System Root
 export default function App() {
   return (
     <Router>
@@ -89,7 +197,6 @@ export default function App() {
   );
 }
 
-// Layout Transition Framework Animation Deck Wrapper
 function PageWrapper({ children }) {
   return (
     <motion.div

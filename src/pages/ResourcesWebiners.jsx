@@ -74,7 +74,6 @@ export default function ResourcesWebiners() {
 
   const filters = ["All", "Upcoming", "Live", "Completed", "Webinars"];
 
-  // Note: Data mein time aur dates ko handle karne ke liye helper values add ki hain taake flyer bilkul exact match kare
   const webinars = [
     {
       id: 1,
@@ -90,7 +89,12 @@ export default function ResourcesWebiners() {
       displayTime: "10:30 PM",
       topicBadge: "CAREER PATHS",
       subTopic: "Exploring Career Paths",
-      tags: ["career development", "personal branding", "networking", "internships"],
+      tags: [
+        "career development",
+        "personal branding",
+        "networking",
+        "internships",
+      ],
       image:
         "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
@@ -109,7 +113,13 @@ export default function ResourcesWebiners() {
       displayTime: "10:30 PM",
       topicBadge: "DATA ENGINEERING",
       subTopic: "Career Guide & Current Market Worth",
-      tags: ["career development", "networking", "digital tools", "internships", "personal branding"],
+      tags: [
+        "career development",
+        "networking",
+        "digital tools",
+        "internships",
+        "personal branding",
+      ],
       image:
         "https://plus.unsplash.com/premium_photo-1678197937465-bdbc4ed95815?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
@@ -127,7 +137,12 @@ export default function ResourcesWebiners() {
       displayTime: "10:30 PM",
       topicBadge: "SOFTWARE ENG.",
       subTopic: "Building a Successful Career",
-      tags: ["career", "software engineering", "professional growth", "internships"],
+      tags: [
+        "career",
+        "software engineering",
+        "professional growth",
+        "internships",
+      ],
       image:
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
@@ -145,7 +160,12 @@ export default function ResourcesWebiners() {
       displayTime: "08:00 PM",
       topicBadge: "INNOVATION",
       subTopic: "Exploring Digital Innovation",
-      tags: ["digital innovation", "innovation", "career growth", "internships"],
+      tags: [
+        "digital innovation",
+        "innovation",
+        "career growth",
+        "internships",
+      ],
       image:
         "https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
@@ -163,7 +183,12 @@ export default function ResourcesWebiners() {
       displayTime: "04:00 PM",
       topicBadge: "AI & ML",
       subTopic: "Navigating Tech Careers",
-      tags: ["career development", "networking", "skill enhancement", "internships"],
+      tags: [
+        "career development",
+        "networking",
+        "skill enhancement",
+        "internships",
+      ],
       image:
         "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
@@ -244,25 +269,27 @@ export default function ResourcesWebiners() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {webinars
-            .filter((item) => activeFilter === "All" || item.status === activeFilter || (activeFilter === "Webinars" && item.status === "Completed"))
+            .filter(
+              (item) =>
+                activeFilter === "All" ||
+                item.status === activeFilter ||
+                (activeFilter === "Webinars" && item.status === "Completed"),
+            )
             .map((item) => (
               <AnimatedSectionLate key={item.id}>
                 <motion.div
                   whileHover={{ y: -8 }}
                   className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-green-500/10 hover:border-green-200/50 transition-all duration-500 flex flex-col group cursor-pointer"
                 >
-                  {/* Upgrade: Custom Styled Graphic Card Layout like the provided screenshots */}
                   <div className="relative aspect-16/10 bg-[#121b15] text-white overflow-hidden p-4 sm:p-5 flex justify-between items-center select-none">
-                    
-                    {/* Background Grid Lines Effect */}
-                    <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:16px_16px]"></div>
+                    <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-size-[16px_16px]"></div>
                     <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-[#50d523]/10 rounded-full blur-2xl"></div>
 
-                    {/* Left Details Panel */}
                     <div className="z-10 flex flex-col justify-between h-full max-w-[55%] space-y-2">
                       <div className="space-y-1">
                         <div className="bg-[#50d523] text-black font-extrabold text-[9px] uppercase px-2 py-0.5 rounded tracking-wider inline-block">
-                          {item.speaker.split(" ")[0]} {item.speaker.split(" ")[1] || ""}
+                          {item.speaker.split(" ")[0]}{" "}
+                          {item.speaker.split(" ")[1] || ""}
                         </div>
                         <h4 className="text-white font-black text-xs sm:text-sm leading-tight uppercase tracking-tight line-clamp-1">
                           {item.speaker}
@@ -271,7 +298,7 @@ export default function ResourcesWebiners() {
                           {item.role}
                         </p>
                       </div>
-                      
+
                       <div className="pt-1">
                         <div className="text-[11px] font-black text-[#50d523] tracking-wide leading-none uppercase">
                           {item.topicBadge}
@@ -282,17 +309,15 @@ export default function ResourcesWebiners() {
                       </div>
                     </div>
 
-                    {/* Center Right Side: Speaker image with continuous frame border */}
-                    <div className="absolute right-16 bottom-0 w-[100px] h-[88%] z-10 overflow-hidden rounded-t-2xl border-t border-l border-r border-white/20 bg-neutral-900 shadow-inner">
-                      <img 
-                        src={item.image} 
-                        alt={item.speaker} 
+                    <div className="absolute right-16 bottom-0 w-25 h-[88%] z-10 overflow-hidden rounded-t-2xl border-t border-l border-r border-white/20 bg-neutral-900 shadow-inner">
+                      <img
+                        src={item.image}
+                        alt={item.speaker}
                         className="w-full h-full object-cover object-top filter contrast-105 transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
 
-                    {/* Extreme Right Side: Dynamic Calendar Badge */}
-                    <div className="z-20 flex flex-col items-center justify-center bg-white text-black rounded-xl py-2 px-2.5 min-w-[55px] shadow-2xl border border-gray-100 self-center transform scale-95 sm:scale-100">
+                    <div className="z-20 flex flex-col items-center justify-center bg-white text-black rounded-xl py-2 px-2.5 min-w-13.75 shadow-2xl border border-gray-100 self-center transform scale-95 sm:scale-100">
                       <span className="text-xl font-black leading-none text-neutral-900 tracking-tighter">
                         {item.displayDate}
                       </span>
@@ -307,17 +332,19 @@ export default function ResourcesWebiners() {
                       </span>
                     </div>
 
-                    {/* Top Status Tags Floating over banner */}
                     <div className="absolute top-2 left-2 flex gap-1.5 z-30">
-                      <span className={`text-[8px] uppercase font-bold px-2 py-0.5 rounded tracking-wider text-white ${
-                        item.status === "Live" ? "bg-red-600 animate-pulse" : "bg-neutral-900/80 backdrop-blur-xs"
-                      }`}>
+                      <span
+                        className={`text-[8px] uppercase font-bold px-2 py-0.5 rounded tracking-wider text-white ${
+                          item.status === "Live"
+                            ? "bg-red-600 animate-pulse"
+                            : "bg-neutral-900/80 backdrop-blur-xs"
+                        }`}
+                      >
                         {item.status}
                       </span>
                     </div>
                   </div>
 
-                  {/* Text Details & Buttons below the graphic banner */}
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                     <div className="space-y-3">
                       <span className="text-xs font-bold uppercase tracking-wider text-[#50d523]">
@@ -332,9 +359,14 @@ export default function ResourcesWebiners() {
                           icon={faCalendarDays}
                           className="text-xs text-gray-300"
                         />
-                        <span className="text-xs line-clamp-1">{item.date}</span>
+                        <span className="text-xs line-clamp-1">
+                          {item.date}
+                        </span>
                         <span className="text-gray-300">•</span>
-                        <FontAwesomeIcon icon={faClock} className="text-xs text-gray-300" />
+                        <FontAwesomeIcon
+                          icon={faClock}
+                          className="text-xs text-gray-300"
+                        />
                         <span className="text-xs">{item.duration}</span>
                       </div>
                     </div>

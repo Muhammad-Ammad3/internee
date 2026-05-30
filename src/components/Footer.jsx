@@ -106,7 +106,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Interactive Newsletter Form */}
           <form onSubmit={handleSubscribe} className="w-full lg:max-w-md">
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-linear-to-r from-[#43A047] to-[#388E3C] rounded-full opacity-0 group-focus-within:opacity-30 transition-opacity duration-300" />
@@ -187,7 +186,6 @@ const Footer = () => {
               opportunities.
             </p>
 
-            {/* Contact Information */}
             <div className="flex items-center gap-3 text-sm font-medium text-neutral-300">
               <div className="p-2 bg-red-500/10 rounded-lg flex items-center justify-center w-8 h-8">
                 <FontAwesomeIcon icon={faPhone} className="text-red-400" />
@@ -195,7 +193,6 @@ const Footer = () => {
               <span>+92 312 3023645</span>
             </div>
 
-            {/* Social Links */}
             <div className="flex items-center gap-3 pt-1">
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -215,12 +212,10 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Links Grid */}
           <motion.div
             variants={itemVariants}
             className="lg:col-span-7 lg:ml-72 grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-6"
           >
-            {/* Company Links */}
             <div className="space-y-4 lg:space-y-3">
               <h4 className="text-xs font-bold uppercase tracking-widest text-white">
                 Company
@@ -243,7 +238,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Resources Links */}
             <div className="space-y-4 lg:space-y-3">
               <h4 className="text-xs font-bold uppercase tracking-widest text-white">
                 Resources

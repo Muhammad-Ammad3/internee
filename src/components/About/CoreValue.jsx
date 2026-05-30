@@ -9,7 +9,6 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Framer Motion Variants
 const containerVariants = {
   initial: { opacity: 0 },
   animate: {
@@ -76,7 +75,6 @@ export default function CoreValue() {
   return (
     <section className="w-full bg-white font-sans antialiased text-left py-20 overflow-x-hidden selection:bg-[#50d523]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full space-y-24 sm:space-y-32">
-        {/* ================= OUR CORE VALUES GRID ================= */}
         <div className="space-y-12">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
@@ -120,7 +118,6 @@ export default function CoreValue() {
           </motion.div>
         </div>
 
-        {/* ================= PIXEL PERFECT BLACK CTA BANNER ================= */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,9 +125,7 @@ export default function CoreValue() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="w-full bg-[#111111] rounded-4xl p-8 sm:p-12 md:p-14 lg:p-16 text-white relative overflow-hidden shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 border border-neutral-800"
         >
-          {/* Left Text & Controls Layout Shell */}
           <div className="space-y-6 max-w-2xl z-10 relative w-full text-left">
-            {/* Pill Badge Container */}
             <div className="inline-flex items-center gap-2 bg-[#222222] border border-neutral-800 rounded-full py-1 pl-1.5 pr-4">
               <span className="bg-[#50d523] text-white text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full tracking-wider">
                 Trending
@@ -140,20 +135,16 @@ export default function CoreValue() {
               </span>
             </div>
 
-            {/* Main Header Text */}
             <h2 className="text-3xl sm:text-4xl md:text-[2.75rem] font-bold text-white leading-[1.15] tracking-tight">
               Unlock New Opportunities <br />
               With Top-tier Internships.
             </h2>
 
-            {/* Secondary Paragraph Description */}
             <p className="text-neutral-400 text-xs sm:text-sm font-medium tracking-wide">
               Take the first step toward a successful career with Internee.pk.
             </p>
 
-            {/* Action Interaction Controls */}
             <div className="flex flex-wrap gap-3.5 pt-2">
-              {/* Primary Active Button */}
               <button
                 onClick={() => navigate("/graduate-program")}
                 className="cursor-pointer bg-[#50d523] hover:bg-[#41b71d] text-white font-bold px-6 py-3 rounded-full transition-colors duration-200 text-xs sm:text-sm shadow-md"
@@ -161,7 +152,6 @@ export default function CoreValue() {
                 Get Started Now
               </button>
 
-              {/* Secondary Ghost Button */}
               <button
                 onClick={() => navigate("/internships")}
                 className="flex items-center gap-2 cursor-pointer border border-[#50d523]/40 hover:border-[#50d523] bg-[#111111] text-white font-bold px-6 py-3 rounded-full transition-colors duration-200 text-xs sm:text-sm"
@@ -175,7 +165,6 @@ export default function CoreValue() {
             </div>
           </div>
 
-          {/* Right Column Dark Geometric Vector Art Overlay (Exact Image Match) */}
           <div className="hidden lg:block absolute right-0 top-0 h-full w-1/2 opacity-40 pointer-events-none z-0 select-none">
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-95 h-95 grid grid-cols-2 gap-0 mix-blend-luminosity">
               <div className="w-47.5 h-47.5 bg-[#222222] rounded-l-full" />

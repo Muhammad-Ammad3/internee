@@ -84,7 +84,7 @@ const GraduateFeatures = () => {
       label: "Student",
       subtext: "Satisfaction",
       icon: faCertificate,
-    }, // BadgeCheck replacement
+    },
   ];
 
   const containerVariants = {

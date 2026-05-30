@@ -74,8 +74,7 @@ const InstructorPortal = () => {
   return (
     <section className="w-full bg-white py-20 lg:py-28 px-6 lg:px-12 font-sans">
       <div className="max-w-7xl mx-auto space-y-20">
-        {/*  TOP GRID SPLIT BLOCK  */}
-        <motion.div
+=        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

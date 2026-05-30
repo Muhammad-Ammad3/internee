@@ -10,12 +10,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function GraduateTracks() {
-  // 1. Tracks Array ko complete dynamic details ke sath update kiya hai taake click hone par accurate data forward ho
   const tracks = [
     {
       id: 1,
       category: "Health Care",
-      slug: "health-care", // Routing endpoint identifier
+      slug: "health-care",
       desc: "Step into the world where every second counts and lives are changed. Whether it's assisting in patient care, supporting medical research, or exploring health tech innovation our internships put you at the heart of the action.",
       icon: faStethoscope,
       linear: "from-slate-300 to-slate-400",
@@ -59,7 +58,6 @@ export default function GraduateTracks() {
   return (
     <section className="w-full bg-white py-20 lg:py-28 px-6 lg:px-12 font-sans antialiased max-w-7xl mx-auto">
       <div className="space-y-16">
-        {/* Top Section Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -81,7 +79,8 @@ export default function GraduateTracks() {
               variants={itemVariants}
               className="text-gray-500 text-xs sm:text-sm font-medium"
             >
-              Choose from diverse program tracks tailored to your interests and career goals
+              Choose from diverse program tracks tailored to your interests and
+              career goals
             </motion.p>
           </div>
 
@@ -99,7 +98,6 @@ export default function GraduateTracks() {
           </motion.div>
         </motion.div>
 
-        {/* Dynamic Cards Grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -115,7 +113,6 @@ export default function GraduateTracks() {
                 whileHover={{ y: -6, scale: 1.01 }}
                 className="bg-white border rounded-3xl overflow-hidden flex flex-col h-full group transition-all duration-300 border-[#50d523] shadow-[0_15px_40px_rgba(67,160,71,0.08)]"
               >
-                {/* Visual Header Block */}
                 <div className="h-48 lg:h-52 w-full relative bg-gray-50 overflow-hidden shrink-0 select-none">
                   {track.isDigitalBg ? (
                     <div className="w-full h-full bg-[#1A1A1A] flex items-center justify-center relative">
@@ -146,14 +143,11 @@ export default function GraduateTracks() {
                     </span>
                   </div>
 
-                  <div
-                    className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center shadow-md bg-[#50d523] text-white"
-                  >
+                  <div className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center shadow-md bg-[#50d523] text-white">
                     <FontAwesomeIcon icon={track.icon} className="text-base" />
                   </div>
                 </div>
 
-                {/* Content Details Block */}
                 <div className="p-6 md:p-7 flex flex-col flex-1 justify-between gap-6 text-left">
                   <div className="space-y-3">
                     <h3 className="text-lg font-black tracking-tight text-[#50d523]">
@@ -164,7 +158,6 @@ export default function GraduateTracks() {
                     </p>
                   </div>
 
-                  {/* 2. Link Parameter Configured Properly for Dynamic Route Handling */}
                   <div className="pt-2 border-t border-gray-50 flex items-center transition-transform group-hover:translate-x-1 duration-200">
                     <Link
                       to={`/programs/${track.slug}`}

@@ -104,12 +104,10 @@ const Navbar = () => {
   return (
     <nav className="w-full h-20 bg-white backdrop-blur-xl border-b border-gray-100/50 sticky top-0 z-50 font-sans select-none">
       <div className="max-w-7xl mx-auto px-6 lg:px-2 h-full flex items-center justify-between">
-        {/* Left Side: Logo */}
         <div className="shrink-0">
           <Logo />
         </div>
 
-        {/* Center: Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
@@ -153,10 +151,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Right Side: Action Buttons */}
         <div className="flex items-center gap-3">
           
-          {/* --- DESKTOP DASHBOARD BUTTON (ONLY WHEN SIGNED IN) --- */}
           <SignedIn>
             <Link to="/dashboard" className="hidden sm:inline-block">
               <motion.button
@@ -197,7 +193,6 @@ const Navbar = () => {
             </div>
           </SignedIn>
 
-          {/* Mobile Menu Toggle */}
           <motion.button
             whileTap={{ scale: 0.9 }}
             className="lg:hidden w-10 h-10 flex items-center justify-center text-gray-600 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
@@ -212,7 +207,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -274,7 +268,6 @@ const Navbar = () => {
 
               <hr className="my-2 border-gray-100" />
 
-              {/* --- MOBILE DASHBOARD BUTTON (ONLY WHEN SIGNED IN) --- */}
               <SignedIn>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}

@@ -9,7 +9,6 @@ import {
 import about from "../../assets/about.png";
 import { useNavigate } from "react-router-dom";
 
-// Animations Configuration
 const containerVariants = {
   initial: { opacity: 0 },
   animate: {
@@ -34,9 +33,9 @@ const cardHoverEffects = {
 export default function AboutHero() {
   const navigate = useNavigate();
 
-  const handleJoinPlatform = () => {
-    // Add navigation action or modal open trigger here
-  };
+  // const handleJoinPlatform = () => {
+  // Add navigation action or modal open trigger here
+  // };
 
   return (
     <section className="w-full min-h-screen bg-gray-50/30 font-sans antialiased flex items-center py-16 overflow-x-hidden selection:bg-[#50d523]/30">
@@ -47,7 +46,6 @@ export default function AboutHero() {
           animate="animate"
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
         >
-          {/* Left Text Block (6 Columns) */}
           <div className="lg:col-span-6 space-y-6 md:space-y-8 text-left">
             <motion.div
               variants={itemVariants}
@@ -81,7 +79,6 @@ export default function AboutHero() {
               nationwide.
             </motion.p>
 
-            {/* Feature Mini Cards Group */}
             <motion.div
               variants={itemVariants}
               className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl"
@@ -115,7 +112,6 @@ export default function AboutHero() {
               </div>
             </motion.div>
 
-            {/* Call to Action Button */}
             <motion.div variants={itemVariants} className="pt-2">
               <motion.button
                 whileHover={{
@@ -135,14 +131,10 @@ export default function AboutHero() {
             </motion.div>
           </div>
 
-          {/* Right Layout Visual Complex Grid (6 Columns) */}
           <div className="lg:col-span-6 grid grid-cols-12 gap-4 sm:gap-6 relative items-center mt-6 lg:mt-0 select-none">
-            {/* Background Accent Decorative Blurs */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-[#50d523]/5 rounded-full blur-[80px] pointer-events-none z-0" />
 
-            {/* Left Column Inside Right Grid (Vertical Stacking) */}
             <div className="col-span-7 space-y-4 sm:space-y-6 z-10">
-              {/* Main Student Story Centerpiece Card */}
               <motion.div
                 variants={itemVariants}
                 {...cardHoverEffects}
@@ -164,7 +156,6 @@ export default function AboutHero() {
                 </div>
               </motion.div>
 
-              {/* 50K+ Active Metrics Status Card */}
               <motion.div
                 variants={itemVariants}
                 {...cardHoverEffects}
@@ -179,9 +170,7 @@ export default function AboutHero() {
               </motion.div>
             </div>
 
-            {/* Right Column Inside Right Grid (Vertical Stacking) */}
             <div className="col-span-5 space-y-4 sm:space-y-6 z-10 self-center lg:pt-8">
-              {/* Verified Badge Profile Check Card */}
               <motion.div
                 variants={itemVariants}
                 {...cardHoverEffects}
@@ -198,7 +187,6 @@ export default function AboutHero() {
                 </p>
               </motion.div>
 
-              {/* #1 Platform Green Accent Highlight Card */}
               <motion.div
                 variants={itemVariants}
                 {...cardHoverEffects}

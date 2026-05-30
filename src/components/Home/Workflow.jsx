@@ -111,15 +111,16 @@ const Workflow = () => {
             whileTap={{ scale: 0.98 }}
             className="mt-10"
           >
-            
-              <button onClick={() => navigate("/internships")} className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 group cursor-pointer">
-                <span>Get Started Now</span>
-                <FontAwesomeIcon
-                  icon={faArrowRight}
-                  className="text-sm group-hover:translate-x-1 transition-transform"
-                />
-              </button>
-           
+            <button
+              onClick={() => navigate("/internships")}
+              className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all duration-300 group cursor-pointer"
+            >
+              <span>Get Started Now</span>
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className="text-sm group-hover:translate-x-1 transition-transform"
+              />
+            </button>
           </motion.div>
         </motion.div>
 

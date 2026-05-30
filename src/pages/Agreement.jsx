@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-// --- ANIMATION VARIANTS ---
-
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -22,11 +20,9 @@ const itemVariants = {
 };
 
 const Agreement = () => {
-  // State to manage the checkbox agreement
   const [isAgreed, setIsAgreed] = useState(false);
   const navigate = useNavigate();
 
-  // Automatically scroll to top on page mount
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
@@ -45,69 +41,78 @@ const Agreement = () => {
       className="w-full min-h-screen bg-neutral-50/40 font-sans px-4 sm:px-8 lg:px-24 pt-12 pb-20 text-left selection:bg-green-100 selection:text-green-800"
     >
       <div className="max-w-4xl mx-auto">
-        
-        {/* Top Mini Badge Tag */}
         <motion.div variants={itemVariants} className="mb-3">
           <span className="bg-neutral-100 text-gray-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-neutral-200/50">
             Student Ambassador
           </span>
         </motion.div>
 
-        {/* Header Heading & Description */}
         <motion.div variants={itemVariants} className="space-y-2 mb-8">
           <h1 className="text-4xl font-bold text-neutral-800 tracking-tight">
             Registration Agreement
           </h1>
           <p className="text-gray-600 text-sm font-medium leading-relaxed">
-            Please review the requirements and confirm your eligibility to continue the application.
+            Please review the requirements and confirm your eligibility to
+            continue the application.
           </p>
         </motion.div>
 
-        {/* Main Card Container */}
         <motion.div
           variants={itemVariants}
           className="w-full bg-white border border-neutral-100 rounded-3xl p-6 sm:p-10 shadow-xl shadow-neutral-100/70 relative"
         >
-          {/* Top Right Close Dismiss Button (X Mark) */}
           <button className="absolute top-6 right-6 text-neutral-400 hover:text-neutral-600 transition-colors cursor-pointer text-lg p-1">
             &times;
           </button>
 
-          {/* Agreement Meta Body */}
           <div className="space-y-6">
             <h2 className="text-2xl font-medium text-neutral-900 tracking-tight">
               Internee.pk Student Ambassador Registration
             </h2>
-            
+
             <p className="text-gray-600 text-md leading-relaxed font-medium">
-              Thank you for your interest in the Internee.pk Student Ambassadors program. If you would like to become a Student Ambassador, please fill out this registration with valid information. Please note, students must meet activity requirements to be invited. If you have any questions, contact Internee.pk Global Support.
+              Thank you for your interest in the Internee.pk Student Ambassadors
+              program. If you would like to become a Student Ambassador, please
+              fill out this registration with valid information. Please note,
+              students must meet activity requirements to be invited. If you
+              have any questions, contact Internee.pk Global Support.
             </p>
 
-            {/* Gray Nested Info Box Container */}
             <div className="w-full bg-neutral-50/80 border border-neutral-100 rounded-2xl p-5 sm:p-6 space-y-5">
               <h3 className="text-md font-medium text-neutral-800 tracking-tight">
                 All registering students must:
               </h3>
-              
-              {/* Requirements List */}
+
               <ul className="space-y-3 pl-4 list-disc text-gray-600 text-xs sm:text-sm font-medium">
-                <li className="marker:text-gray-500">Be at least 16 years old.</li>
-                <li className="marker:text-gray-500">Be enrolled full-time in an accredited institution.</li>
-                <li className="marker:text-gray-500">Not be an Internee.pk employee or current contractor.</li>
+                <li className="marker:text-gray-500">
+                  Be at least 16 years old.
+                </li>
+                <li className="marker:text-gray-500">
+                  Be enrolled full-time in an accredited institution.
+                </li>
+                <li className="marker:text-gray-500">
+                  Not be an Internee.pk employee or current contractor.
+                </li>
               </ul>
 
-              {/* Disclaimer and Privacy Subtexts */}
               <div className="space-y-3 pt-2 border-t border-neutral-200/50 text-xs sm:text-[13px] text-gray-500 font-medium leading-relaxed">
                 <p>
-                  Your information is subject to the Internee.pk Privacy Statement. If your registration is not completed, your data will be removed within twelve months. For removal requests, contact <span className="text-neutral-500 underline cursor-pointer hover:text-neutral-700">support@internee.pk</span>.
+                  Your information is subject to the Internee.pk Privacy
+                  Statement. If your registration is not completed, your data
+                  will be removed within twelve months. For removal requests,
+                  contact{" "}
+                  <span className="text-neutral-500 underline cursor-pointer hover:text-neutral-700">
+                    support@internee.pk
+                  </span>
+                  .
                 </p>
                 <p>
-                  By completing this registration, you agree to the Internee.pk Privacy Statement and confirm your eligibility.
+                  By completing this registration, you agree to the Internee.pk
+                  Privacy Statement and confirm your eligibility.
                 </p>
               </div>
             </div>
 
-            {/* Interactive Checkbox Control Block */}
             <div className="flex items-center gap-3 pt-4 select-none">
               <label className="relative flex items-center cursor-pointer">
                 <input
@@ -116,7 +121,6 @@ const Agreement = () => {
                   onChange={(e) => setIsAgreed(e.target.checked)}
                   className="sr-only peer"
                 />
-                {/* Custom Checkbox Design matching Internee design structure */}
                 <div className="w-5 h-5 bg-white border-2 border-neutral-300 rounded-md peer-checked:bg-[#3ca81a] peer-checked:border-[#3ca81a] transition-all flex items-center justify-center">
                   <svg
                     className={`w-3 h-3 text-white transition-transform ${isAgreed ? "scale-100" : "scale-0"}`}
@@ -125,16 +129,19 @@ const Agreement = () => {
                     viewBox="0 0 24 24"
                     strokeWidth="3"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
-              <span className="text-gray-500 pl-2 text-xs sm:text-sm font-semibold tracking-wide">
-                I agree to the terms and conditions
-              </span>
+                <span className="text-gray-500 pl-2 text-xs sm:text-sm font-semibold tracking-wide">
+                  I agree to the terms and conditions
+                </span>
               </label>
             </div>
 
-            {/* Right Aligned Submit CTA Button */}
             <div className="flex justify-end pt-4">
               <button
                 disabled={!isAgreed}
@@ -148,10 +155,8 @@ const Agreement = () => {
                 Agree and Continue
               </button>
             </div>
-
           </div>
         </motion.div>
-
       </div>
     </motion.div>
   );

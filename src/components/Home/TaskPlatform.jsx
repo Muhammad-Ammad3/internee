@@ -44,7 +44,6 @@ const TaskPlatform = () => {
       <div className="absolute left-0 bottom-10 w-72 h-72 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
-        {/*  HEADER SECTION  */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -65,7 +64,6 @@ const TaskPlatform = () => {
             </span>
           </motion.div>
 
-          {/* Main Typography */}
           <motion.h2
             variants={itemVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight"
@@ -87,7 +85,6 @@ const TaskPlatform = () => {
           </motion.p>
         </motion.div>
 
-        {/*  CARDS CONTAINER (GRID)  */}
         <motion.div
           initial="hidden"
           whileInView="visible"

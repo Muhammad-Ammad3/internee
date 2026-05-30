@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarDays,

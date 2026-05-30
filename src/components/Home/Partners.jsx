@@ -36,7 +36,7 @@ const Partners = () => {
   return (
     <section className="w-full bg-white py-12 lg:py-16 border-b border-gray-100 font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-        {/* SECTION HEADING */}
+        ={" "}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -53,8 +53,7 @@ const Partners = () => {
             </p>
           </motion.div>
         </motion.div>
-
-        {/*  LOGOS INTERACTIVE GRID  */}
+        ={" "}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -67,7 +66,7 @@ const Partners = () => {
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -2 }}
-              className="flex flex-col items-center justify-center p-2 w-full max-w-[160px] cursor-pointer group"
+              className="flex flex-col items-center justify-center p-2 w-full max-w-40 cursor-pointer group"
             >
               <div className="relative w-full h-16 flex items-center justify-center overflow-hidden">
                 <img

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-// FontAwesome Icons Import
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
@@ -12,7 +11,6 @@ import {
   faBriefcase,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Assets Imports
 import photoshop from "../assets/photoshop.png";
 import ai from "../assets/ai.png";
 import maya from "../assets/maya.png";
@@ -289,7 +287,6 @@ const trackData = {
   },
 };
 
-// --- FRAMER MOTION ANIMATION VARIANTS ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -355,7 +352,6 @@ const InternshipDetail = () => {
       className="w-full min-h-screen bg-white font-sans px-6 lg:px-24 pt-6 pb-10 selection:bg-green-100"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Back Link Wrapper */}
         <motion.div variants={itemVariants}>
           <Link
             to="/"
@@ -373,7 +369,6 @@ const InternshipDetail = () => {
           </Link>
         </motion.div>
 
-        {/* Hero Section */}
         <motion.div
           variants={itemVariants}
           className="space-y-4 mb-16 text-left"
@@ -394,7 +389,6 @@ const InternshipDetail = () => {
           </p>
         </motion.div>
 
-        {/* Sub-heading section */}
         <motion.div
           variants={itemVariants}
           className="text-center space-y-2 mb-12"
@@ -466,7 +460,6 @@ const InternshipDetail = () => {
                 </div>
               </div>
 
-              {/* Action Button */}
               <motion.button
                 variants={{
                   hover: { scale: 1.02, backgroundColor: "#49ba23" },

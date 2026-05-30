@@ -16,7 +16,6 @@ import {
 import { Link } from "react-router-dom";
 
 export default function StudentAmbassadorsHero() {
-  // 1. Array ke har object me alag alag 'path' define kar diya hai
   const features = [
     { 
       title: "Get started", 
@@ -151,7 +150,6 @@ export default function StudentAmbassadorsHero() {
           </div>
         </motion.div>
 
-        {/* Dashboard Preview Cards */}
         <motion.div
           variants={itemVariants}
           className="space-y-4 sm:space-y-6 lg:pl-6 w-full"
@@ -267,7 +265,6 @@ export default function StudentAmbassadorsHero() {
         </motion.div>
       </motion.div>
 
-      {/* Features Grid Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -302,7 +299,6 @@ export default function StudentAmbassadorsHero() {
         })}
       </motion.div>
 
-      {/* Why Join Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"

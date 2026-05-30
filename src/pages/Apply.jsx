@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom"; 
 import { useUser, useAuth } from "@clerk/clerk-react"; // Clerk Hooks Import Kiye
@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-// --- ANIMATION VARIANTS ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -28,11 +27,9 @@ const itemVariants = {
 export default function Apply() {
   const navigate = useNavigate();
   
-  // Clerk se user aur loading state nikaali
   const { isSignedIn, isLoaded: isUserLoaded } = useUser(); 
   const { isLoaded: isAuthLoaded } = useAuth();
 
-  // Form State Configuration
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -49,17 +46,13 @@ export default function Apply() {
     techOfInterest: "",
   });
 
-  // Automatically scroll to top on page mount
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
-  // Clerk ki authentication state check karne ke liye useEffect
   useEffect(() => {
-    // Jab tak Clerk poori tarah load na ho jaye, tab tak rukna hai
     if (isUserLoaded && isAuthLoaded) {
       if (!isSignedIn) {
-        // Agar user login NAHI hai, toh toast dikhao aur redirect karo
         toast.error("Please login first to access the application form!", {
           position: "top-center",
           autoClose: 3000,
@@ -67,7 +60,7 @@ export default function Apply() {
         });
 
         setTimeout(() => {
-          navigate("/"); // Aapka home ya login page
+          navigate("/"); 
         }, 2500);
       }
     }
@@ -105,7 +98,6 @@ export default function Apply() {
       <ToastContainer />
 
       <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-8">
-        {/* Top Header Section */}
         <motion.div variants={itemVariants} className="space-y-2">
           <div className="mb-3">
             <span className="bg-neutral-100 text-gray-600 text-sm font-semibold px-4 py-1.5 rounded-full border border-neutral-200/50">
@@ -120,7 +112,6 @@ export default function Apply() {
           </p>
         </motion.div>
 
-        {/* SECTION 1: Personal Information */}
         <motion.div
           variants={itemVariants}
           className="w-full bg-white border border-gray-300 rounded-3xl p-6 sm:p-8 shadow-xl shadow-neutral-100/40 space-y-6"
@@ -204,7 +195,6 @@ export default function Apply() {
           </div>
         </motion.div>
 
-        {/* SECTION 2: Educational Information */}
         <motion.div
           variants={itemVariants}
           className="w-full bg-white border border-gray-300 rounded-3xl p-6 sm:p-8 shadow-xl shadow-neutral-100/40 space-y-6"
@@ -311,7 +301,6 @@ export default function Apply() {
           </div>
         </motion.div>
 
-        {/* SECTION 3: Additional Information */}
         <motion.div
           variants={itemVariants}
           className="w-full bg-white border border-gray-300 rounded-3xl p-6 sm:p-8 shadow-xl shadow-neutral-100/40 space-y-6"
@@ -353,7 +342,6 @@ export default function Apply() {
           </div>
         </motion.div>
 
-        {/* Submit Actions Block */}
         <motion.div variants={itemVariants} className="flex justify-end pt-2">
           <button
             type="submit"

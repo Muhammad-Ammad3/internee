@@ -18,7 +18,6 @@ import {
 import { faBookmark as faBookmarkRegular } from "@fortawesome/free-regular-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
-// --- DUMMY DATA FOR JOB LISTINGS (Matching the Image) ---
 const INITIAL_JOBS = [
   {
     id: 1,
@@ -94,7 +93,6 @@ const INITIAL_JOBS = [
   },
 ];
 
-// --- FRAMER MOTION VARIANTS ---
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
@@ -114,7 +112,6 @@ const cardHoverVariants = {
 };
 
 const JobPortal = () => {
-  // States for Search, Filtering & Bookmarks
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("All Locations");
   const [sortOrder, setSortOrder] = useState("Latest First");
@@ -125,7 +122,6 @@ const JobPortal = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
-  // Toggle Bookmark Handler
   const toggleBookmark = (id) => {
     if (bookmarkedJobs.includes(id)) {
       setBookmarkedJobs(bookmarkedJobs.filter((item) => item !== id));
@@ -134,7 +130,6 @@ const JobPortal = () => {
     }
   };
 
-  // Filter & Search Logic
   const filteredJobs = jobs
     .filter((job) => {
       const matchesSearch =
@@ -149,14 +144,12 @@ const JobPortal = () => {
       return matchesSearch && matchesLocation;
     })
     .sort((a, b) => {
-      // Simplistic date ordering simulation for custom string values
       if (sortOrder === "Latest First") {
         return b.id - a.id;
       }
       return a.id - b.id;
     });
 
-  // Portal Top Stats Data
   const stats = [
     {
       id: 1,
@@ -192,7 +185,6 @@ const JobPortal = () => {
       className="w-full min-h-screen bg-neutral-50/60 font-sans px-4 sm:px-8 lg:px-24 pt-6 pb-20 selection:bg-green-100 selection:text-green-700"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Breadcrumb Navigation */}
         <motion.div
           variants={itemVariants}
           className="flex items-center gap-2 text-xs font-semibold text-gray-400 mb-6"
@@ -204,7 +196,6 @@ const JobPortal = () => {
           <span className="text-gray-800">Latest Job Updates</span>
         </motion.div>
 
-        {/* Opportunity Portal Header */}
         <motion.div
           variants={itemVariants}
           className="space-y-1 mb-8 text-left"
@@ -222,7 +213,6 @@ const JobPortal = () => {
           </p>
         </motion.div>
 
-        {/* Green Hero Banner Box */}
         <motion.div
           variants={itemVariants}
           className="w-full bg-linear-to-r from-[#50d523] via-[#43be1d] to-[#3faa1c] rounded-3xl p-8 sm:p-12 text-white shadow-xl shadow-green-600/10 relative overflow-hidden mb-10 text-left"
@@ -256,7 +246,6 @@ const JobPortal = () => {
           </div>
         </motion.div>
 
-        {/* Top Mini Stats Section */}
         <motion.div
           variants={containerVariants}
           className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12"
@@ -286,12 +275,10 @@ const JobPortal = () => {
 
         <hr className="border-neutral-200/60 mb-10" />
 
-        {/* 🔍 SEARCH AND FILTER BAR (Matching Image 4) */}
         <motion.div
           variants={itemVariants}
           className="w-full bg-white border border-neutral-100 rounded-2xl p-3 shadow-md shadow-neutral-100/80 flex flex-col md:flex-row gap-3 items-center mb-8"
         >
-          {/* Main Search Input */}
           <div className="w-full md:flex-1 flex items-center gap-2.5 px-3 py-2 bg-neutral-50 rounded-xl border border-neutral-100 focus-within:border-green-400 transition-colors">
             <FontAwesomeIcon
               icon={faSearch}
@@ -306,7 +293,6 @@ const JobPortal = () => {
             />
           </div>
 
-          {/* Location Selector */}
           <div className="w-full md:w-48 flex items-center gap-2 px-3 py-2 bg-neutral-50 rounded-xl border border-neutral-100">
             <FontAwesomeIcon
               icon={faMapMarkerAlt}
@@ -324,7 +310,6 @@ const JobPortal = () => {
             </select>
           </div>
 
-          {/* Sort By Filter */}
           <div className="w-full md:w-44 flex items-center gap-2 px-3 py-2 bg-neutral-50 rounded-xl border border-neutral-100">
             <select
               value={sortOrder}
@@ -336,13 +321,11 @@ const JobPortal = () => {
             </select>
           </div>
 
-          {/* Search Action Button */}
           <button className="w-full md:w-auto bg-[#3ca81a] hover:bg-[#328f15] text-white text-sm font-bold px-7 py-3 rounded-xl transition-colors cursor-pointer shadow-xs">
             Search
           </button>
         </motion.div>
 
-        {/* 🗂 JOB CARDS GRID (Dynamic Rendering with Image 4 Layout) */}
         <motion.div
           layout
           variants={containerVariants}
@@ -361,7 +344,6 @@ const JobPortal = () => {
                   className="bg-white border border-neutral-100/80 rounded-2xl p-5 flex flex-col justify-between shadow-xs relative group transition-all duration-300 hover:border-transparent"
                 >
                   <div>
-                    {/* Header: Title and Bookmark Button */}
                     <div className="flex justify-between items-start gap-3 mb-3">
                       <h4 className="text-base font-extrabold text-green-700 tracking-tight leading-snug group-hover:text-green-600 transition-colors">
                         {job.title}
@@ -379,7 +361,6 @@ const JobPortal = () => {
                       </button>
                     </div>
 
-                    {/* Metadata Tags */}
                     <div className="flex flex-wrap items-center gap-1.5 text-[10px] font-bold mb-3">
                       <span className="bg-green-50 text-green-700 px-2 py-1 rounded-md uppercase tracking-wider">
                         {job.company}
@@ -393,7 +374,6 @@ const JobPortal = () => {
                       </span>
                     </div>
 
-                    {/* Secondary Date Tag */}
                     <div className="flex items-center gap-1 text-[10px] text-gray-400 font-bold mb-4">
                       <FontAwesomeIcon
                         icon={faCalendarAlt}
@@ -402,7 +382,6 @@ const JobPortal = () => {
                       <span>{job.date}</span>
                     </div>
 
-                    {/* Highlight Pill Badges */}
                     <div className="flex flex-wrap gap-1.5 mb-4 text-[10px] font-extrabold">
                       <span className="bg-blue-50 text-blue-600 px-2.5 py-1 rounded-full">
                         {job.type}
@@ -419,13 +398,11 @@ const JobPortal = () => {
                       )}
                     </div>
 
-                    {/* Job Snippet Description */}
                     <p className="text-gray-500 text-xs font-medium leading-relaxed mb-6 line-clamp-3">
                       {job.description}
                     </p>
                   </div>
 
-                  {/* Footer Action Buttons */}
                   <div className="grid grid-cols-2 gap-3 pt-2 border-t border-neutral-50">
                     <button className="w-full bg-neutral-50 hover:bg-neutral-100 text-gray-700 text-xs font-bold py-2.5 px-3 rounded-xl transition-colors cursor-pointer border border-neutral-100 text-center">
                       View Details
@@ -444,7 +421,6 @@ const JobPortal = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Empty Search Result Fallback */}
         {filteredJobs.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}

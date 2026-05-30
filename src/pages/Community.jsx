@@ -85,7 +85,6 @@ export default function Community() {
     ambassador.degree.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Framer Motion Variants for Grid Items
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -104,7 +103,6 @@ export default function Community() {
   return (
     <div className="min-h-screen bg-white font-sans antialiased text-[#1A1A1A] p-6 md:p-12 max-w-7xl mx-auto">
       
-      {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-start justify-between gap-8 mb-16 mt-4">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
@@ -123,7 +121,6 @@ export default function Community() {
           </p>
         </motion.div>
         
-        {/* Hero Image Right Side */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -138,14 +135,12 @@ export default function Community() {
         </motion.div>
       </section>
 
-      {/* Grid Header & Search Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 pt-4">
         <div>
           <h2 className="text-2xl font-bold text-black mb-1">Student Ambassadors</h2>
           <p className="text-[#666666] text-sm">Meet verified ambassadors from different programs and regions.</p>
         </div>
         
-        {/* FontAwesome Search Input */}
         <div className="relative w-full sm:w-80">
           <input
             type="text"
@@ -160,7 +155,6 @@ export default function Community() {
         </div>
       </div>
 
-      {/* Animated Ambassador Cards Grid */}
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -174,7 +168,6 @@ export default function Community() {
             whileHover={{ y: -4, boxShadow: "0 10px 20px rgba(0,0,0,0.04)" }}
             className="bg-white border border-[#EAEEF3] rounded-2xl p-6 flex items-start gap-4 transition-shadow duration-200 min-h-40"
           >
-            {/* Dynamic Avatar UI Layer using FontAwesome Fallbacks */}
             <div className="shrink-0">
               {ambassador.isInitial ? (
                 <div className={`w-18 h-18 rounded-full ${ambassador.bgColor} flex items-center justify-center text-white text-2xl font-semibold`}>
@@ -200,7 +193,6 @@ export default function Community() {
               )}
             </div>
 
-            {/* Profile Content metadata */}
             <div className="flex-1 min-w-0">
               <span className="block text-[10px] font-bold tracking-wider text-[#7A828A] uppercase mb-1">
                 {ambassador.role}
@@ -225,7 +217,6 @@ export default function Community() {
         ))}
       </motion.div>
 
-      {/* Empty State */}
       {filteredAmbassadors.length === 0 && (
         <motion.div 
           initial={{ opacity: 0 }}

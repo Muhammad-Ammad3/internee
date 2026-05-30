@@ -126,7 +126,6 @@ export default function OurAchievements() {
 
       <div className="space-y-16 md:space-y-24">
         {achievements.map((item, index) => {
-          // Check if index is odd to flip image side on desktop viewports
           const isImageRight = index % 2 === 1;
 
           return (

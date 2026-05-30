@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-// Clerk Components Import Kiye
 import { SignedIn, SignedOut, SignInButton } from "@clerk/clerk-react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +10,7 @@ import {
   faUserCheck,
   faArrowRight,
   faCircleCheck,
-  faGaugeHigh, // Dashboard ke liye ek naya icon add kiya
+  faGaugeHigh,
 } from "@fortawesome/free-solid-svg-icons";
 import girlImage from "../../assets/girlImage.png";
 
@@ -87,6 +86,7 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2"
           >
+            <Link to="/jobportal">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
@@ -99,9 +99,8 @@ const Hero = () => {
                 className="text-xs group-hover:translate-x-1 transition-transform"
               />
             </motion.button>
+            </Link>
 
-            {/* --- HERO AUTH BUTTONS LOGIC START --- */}
-            {/* Jab user log out ho toh Sign In dikhao */}
             <SignedOut>
               <SignInButton mode="modal">
                 <motion.button
@@ -115,7 +114,6 @@ const Hero = () => {
               </SignInButton>
             </SignedOut>
 
-            {/* Jab user successfully login ho jaye toh Dashboard dikhao */}
             <SignedIn>
               <Link to="/dashboard" className="w-full sm:w-auto">
                 <motion.button
@@ -128,7 +126,6 @@ const Hero = () => {
                 </motion.button>
               </Link>
             </SignedIn>
-            {/* --- HERO AUTH BUTTONS LOGIC END --- */}
 
           </motion.div>
 
