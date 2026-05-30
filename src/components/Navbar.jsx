@@ -26,7 +26,6 @@ const Logo = () => (
       <div className="w-16 h-16 bg-linear-to-br rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
         <img src={logo} alt="" className="w-48 h-16" />
       </div>
-      <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full shadow-sm" />
     </div>
     <div className="flex flex-col">
       <div className="flex items-baseline gap-0.5">
