@@ -281,7 +281,7 @@ const LaunchCareer = () => {
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-6 py-3.5 rounded-xl text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all"
+                  className="flex items-center cursor-pointer gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-6 py-3.5 rounded-xl text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all"
                 >
                   <span>Get Started Now</span>
                   <FontAwesomeIcon icon={faHandSparkles} className="text-xs" />
@@ -291,7 +291,7 @@ const LaunchCareer = () => {
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2 bg-transparent text-white border border-gray-700 px-5 py-3.5 rounded-xl text-sm font-bold hover:bg-white/5 hover:border-gray-600 transition-all"
+                  className="flex items-center cursor-pointer gap-2 bg-transparent text-white border border-gray-700 px-5 py-3.5 rounded-xl text-sm font-bold hover:bg-white/5 hover:border-gray-600 transition-all"
                 >
                   <FontAwesomeIcon
                     icon={faMagnifyingGlass}

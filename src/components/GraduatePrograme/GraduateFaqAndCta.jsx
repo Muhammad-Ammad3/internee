@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   MessageCircle,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function GraduateFaqAndCta() {
   const [expandedIndex, setExpandedIndex] = useState(0);
@@ -218,23 +219,26 @@ export default function GraduateFaqAndCta() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0 lg:self-center">
-              <motion.button
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#50d523] hover:bg-[#388E3C] text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-green-900/20 transition-all whitespace-nowrap cursor-pointer"
-              >
-                <span>Enroll Now</span>
-                <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white stroke-none" />
-              </motion.button>
-
-              <motion.button
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent hover:bg-neutral-800/40 text-white border border-neutral-700 hover:border-neutral-500 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer"
-              >
-                <span>Explore Programs</span>
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              </motion.button>
+              <Link to="/">
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#50d523] hover:bg-[#388E3C] text-white px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold shadow-lg shadow-green-900/20 transition-all whitespace-nowrap cursor-pointer"
+                >
+                  <span>Enroll Now</span>
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white stroke-none" />
+                </motion.button>
+              </Link>
+              <Link to="/internships">
+                <motion.button
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 bg-transparent hover:bg-neutral-800/40 text-white border border-neutral-700 hover:border-neutral-500 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer"
+                >
+                  <span>Explore Programs</span>
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                </motion.button>
+              </Link>
             </div>
           </div>
         </motion.div>

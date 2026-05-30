@@ -36,7 +36,7 @@ const Partners = () => {
   return (
     <section className="w-full bg-white py-12 lg:py-16 border-b border-gray-100 font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-        ={" "}
+        {" "}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -53,7 +53,7 @@ const Partners = () => {
             </p>
           </motion.div>
         </motion.div>
-        ={" "}
+        {" "}
         <motion.div
           initial="hidden"
           whileInView="visible"

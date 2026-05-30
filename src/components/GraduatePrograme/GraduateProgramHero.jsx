@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import {Link} from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
@@ -94,10 +94,11 @@ const GraduateProgramHero = () => {
             variants={itemVariants}
             className="flex flex-wrap items-center gap-4 pt-2"
           >
+            <Link to="/internships">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group"
+              className="flex items-center cursor-pointer gap-2 bg-linear-to-r from-[#50d523] to-[#50d523] text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg shadow-green-500/25 hover:shadow-green-500/40 transition-all group"
             >
               <span>Browse Programs</span>
               <FontAwesomeIcon
@@ -105,10 +106,11 @@ const GraduateProgramHero = () => {
                 className="w-4 h-4 group-hover:rotate-12 transition-transform"
               />
             </motion.button>
+            </Link>
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-3.5 rounded-full text-sm font-bold hover:border-gray-300 hover:shadow-lg transition-all"
+              className="flex items-center cursor-pointer gap-2 bg-white text-gray-700 border border-gray-200 px-7 py-3.5 rounded-full text-sm font-bold hover:border-gray-300 hover:shadow-lg transition-all"
             >
               <span>Get Started</span>
               <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
