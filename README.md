@@ -1,16 +1,42 @@
-# React + Vite
+# 🚀 Internee.pk Clone – Advanced Student Dashboard & Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-fidelity, modern full-stack web application clone of the **Internee.pk** platform. This project focuses on a highly interactive, component-driven student learning dashboard and job/internship discovery experience with an optimized, premium user interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Key Features
 
-## React Compiler
+*   **Premium Component-Driven UI:** Fully modularized architecture featuring smooth transitions, a responsive responsive mobile overlay navigation, and custom UI design components.
+*   **Modern Custom Scrollbars:** Ditched the boring default browser scrollbars for a sleek, dark-themed, and branded neon-green scrollbar tailored to match the application's premium aesthetic.
+*   **Intuitive Student Analytics:** Visual track progress monitors, dynamic weekly milestone trackers, global ranking systems, and automated task prioritization views.
+*   **Dynamic View Routing:** Flawless client-side view switching (`Overview`, `My Internships`, and `Webinars & Events`) powered by optimized React state management and Framer Motion.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack & Architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project is built using modern full-stack web technologies ensuring scalability, performance, and clean code optimization:
+
+*   **Frontend Library:** React 19 (App Router Architecture)
+*   **Styling & Layout:** Tailwind CSS
+*   **Animations:** Framer Motion
+*   **Icons:** FontAwesome Icons
+*   **Authentication & User Management:** Clerk
+
+---
+
+## 📦 Getting Started
+
+Follow these simple steps to set up the project locally on your machine:
+
+### 1. Clone the repository
+```bash
+git clone [https://github.com/Muhammad-Ammad3/internee](https://github.com/Muhammad-Ammad3/internee)
+cd internee
+
+npm install
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_key
+CLERK_SECRET_KEY=your_clerk_secret
+
+npm run dev
