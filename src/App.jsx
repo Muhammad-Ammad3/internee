@@ -21,7 +21,7 @@ import Agreement from "./pages/Agreement";
 import Apply from "./pages/Apply";
 import Community from "./pages/Community";
 import Digital from "./pages/Digital";
-import About from "./pages/About";
+import About from "./pages/about";
 import InternshipDetail from "./components/InternshipDetail";
 import UserDashboard from "./pages/UserDashboard";
 
