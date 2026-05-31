@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; 
 import footerLogo from "../assets/footerLogo.png";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -55,7 +56,7 @@ const Footer = () => {
     { label: "Blog", href: "/blog" },
     { label: "Student Ambassador", href: "/studentambassadors" },
     { label: "Interns Profiles", href: "/interns" },
-    { label: "About Us", href: "/about" },
+    { label: "About Us", href: "/about" }, // <-- /about link active here
   ];
 
   const resourceLinks = [
@@ -108,7 +109,7 @@ const Footer = () => {
 
           <form onSubmit={handleSubscribe} className="w-full lg:max-w-md">
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-linear-to-r from-[#43A047] to-[#388E3C] rounded-full opacity-0 group-focus-within:opacity-30 transition-opacity duration-300" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#43A047] to-[#388E3C] rounded-full opacity-0 group-focus-within:opacity-30 transition-opacity duration-300" />
               <div className="relative bg-white backdrop-blur-sm border border-neutral-800 p-1.5 rounded-full flex items-center">
                 <div className="flex items-center gap-2.5 pl-4 text-neutral-500 w-full">
                   <FontAwesomeIcon
@@ -132,7 +133,7 @@ const Footer = () => {
                   className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
                     isSubscribed
                       ? "bg-green-500 text-white"
-                      : "bg-linear-to-r from-[#50d523] to-[#50d523] text-white shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
+                      : "bg-gradient-to-r from-[#50d523] to-[#50d523] text-white shadow-lg shadow-green-500/25 hover:shadow-green-500/40"
                   }`}
                 >
                   {isSubscribed ? (
@@ -165,7 +166,7 @@ const Footer = () => {
           >
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-12 h-12 bg-linear-to-br rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br rounded-xl flex items-center justify-center">
                   <img src={footerLogo} alt="" />
                 </div>
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full shadow-sm" />
@@ -198,6 +199,8 @@ const Footer = () => {
                 <motion.a
                   key={index}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-10 h-10 rounded-full bg-[#50d523] border border-neutral-800 flex items-center justify-center hover:bg-[#50d523] hover:border-[#50d523] group transition-all duration-200"
@@ -207,7 +210,7 @@ const Footer = () => {
                     icon={social.icon}
                     className="text-white group-hover:text-white transition-colors text-sm"
                   />
-                </motion.a>
+                </motion.a> 
               ))}
             </div>
           </motion.div>
@@ -223,8 +226,8 @@ const Footer = () => {
               <ul className="space-y-2.5 text-sm font-medium text-neutral-500">
                 {companyLinks.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="group flex items-center gap-2 hover:text-white transition-colors"
                     >
                       <span>{link.label}</span>
@@ -232,7 +235,7 @@ const Footer = () => {
                         icon={faArrowRight}
                         className="text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
                       />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -245,8 +248,8 @@ const Footer = () => {
               <ul className="space-y-2.5 text-sm font-medium text-neutral-500">
                 {resourceLinks.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       className="group flex items-center gap-2 hover:text-white transition-colors"
                     >
                       <span>{link.label}</span>
@@ -254,7 +257,7 @@ const Footer = () => {
                         icon={faArrowRight}
                         className="text-[10px] opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
                       />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -268,24 +271,24 @@ const Footer = () => {
         >
           <p>© 2026 internee.pk — All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <a
-              href="#terms"
+            <Link
+              to="#terms"
               className="hover:text-neutral-400 transition-colors"
             >
               Terms of Use
-            </a>
-            <a
-              href="#privacy"
+            </Link>
+            <Link
+              to="#privacy"
               className="hover:text-neutral-400 transition-colors"
             >
               Privacy Policy
-            </a>
-            <a
-              href="#cookies"
+            </Link>
+            <Link
+              to="#cookies"
               className="hover:text-neutral-400 transition-colors"
             >
               Cookie Policy
-            </a>
+            </Link>
           </div>
         </motion.div>
       </motion.div>
