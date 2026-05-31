@@ -156,7 +156,7 @@ const InternshipOpportunities = () => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-linear-to-r from-[#50d523] to-[#50d523] text-white py-3 sm:py-3.5 px-4 rounded-xl text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-200 group"
+                  className="w-full bg-linear-to-r cursor-pointer from-[#50d523] to-[#50d523] text-white py-3 sm:py-3.5 px-4 rounded-xl text-xs sm:text-sm font-bold tracking-wide flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-green-500/30 transition-all duration-200 group"
                 >
                   <span>Apply Now</span>
                   <FontAwesomeIcon
