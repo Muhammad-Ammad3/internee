@@ -60,7 +60,7 @@ export default function Apply() {
         });
 
         setTimeout(() => {
-          navigate("/"); 
+          navigate("/studentambassadors"); 
         }, 2500);
       }
     }
